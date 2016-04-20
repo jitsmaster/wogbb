@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WorldViewSettings>
+  <!-- 
+	The essential workflow states needed for WorldView app.
+	Initially all IDs are empty. It is up to the Worldview's very first visit to add all the states to 
+	WorkflowDef.xml, then set the ID for each one.
+	
+	WorldView needs the ID of each workstate to determine if a page is ready to perform certain action or not
+	-->
+  <WorkflowStates>
+    <State Name="Ready for Translation" ID="" Index="0" />
+    <State Name="Translating" ID="" Index="1" />
+    <State Name="Translation Complete" ID="" Index="2" />
+    <State Name="Proofreading" ID="" Index="3" />
+    <State Name="Implementing Proofreading Feedback" ID="" Index="4" />
+    <State Name="Reviewing" ID="" Index="5" />
+    <State Name="Implementing Review Feedback" ID="" Index="6" />
+    <State Name="Translation Project Complete" ID="" Index="7" />
+  </WorkflowStates>
+  <!--
+	The essential workflow definitions needed for WorldView app.
+	This list is for both setup the workflow initially, and to look up the workflow
+	-->
+  <WorkflowDefinitions>
+    <Definition Name="Master Page Workflow for Translation" ID="" Index="0" />
+    <Definition Name="Clone Page Workflow for Translation" ID="" Index="1" />
+  </WorkflowDefinitions>
+</WorldViewSettings>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PublishingTargets NextID="2">
+	<PublishingTarget ID="1" Name="Production" PublishFolder="Production" RootPageID="x2" Transform="false" UserAgentSearchString="" SiteSearchString="" UseStructuredURL="true" UseExternalPreviewURL="true" LastPublishDate="20140907T03:22:41" HomePageID="x6" NotFoundID="" URLExtension="" URLSeparator="-" ForceLowerCaseURL="true" AutoRedirectCanonicalURL="true" IncludeFoldersInURL="false" NormalizeURLSeparators="true" BaseURL="" DynamicPublishing="true" ExternalPreviewURL="/wogbb-dt/DssPreview/IGXDynamicPreview" ICEFieldMarkupUpdateURL="/wogbb-dt/DssPreview/IGXDTICEUpdate" GlobalContentRoot="">
+		<Replication DoReplication="false" SimultaneousReplication="false"/><Page ID="x2" Version="0"/>
+		<BlockedAccess/>
+		<Page ID="x5" Version="0"/>
+		<Page ID="x6" Version="0"/>
+		<Page ID="x7" Version="0"/>
+		<Page ID="x3" Version="0"/>
+		<Page ID="x14" Version="0"/><Page ID="x19" Version="0"/><Page ID="x18" Version="0"/><Page ID="x16" Version="0"/><Page ID="x17" Version="0"/><Page ID="x8" Version="0"/><Page ID="x13" Version="0"/><Page ID="x12" Version="0"/><Page ID="x20" Version="0"/><Page ID="x23" Version="0"/><Page ID="x21" Version="0"/><Page ID="x26" Version="0"/><Page ID="x37" Version="0"/><Page ID="x36" Version="0"/><Page ID="x39" Version="0"/><Page ID="x40" Version="0"/></PublishingTarget>
+</PublishingTargets>

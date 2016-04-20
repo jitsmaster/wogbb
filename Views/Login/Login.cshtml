@@ -1,0 +1,45 @@
+﻿@model Ingeniux.Runtime.ICMSPage
+@{
+	ViewBag.Title = "Login";
+
+	Ingeniux.Runtime.Models.LoginModel model = Model.Tag as Ingeniux.Runtime.Models.LoginModel;
+
+	string userName = model.UserName ?? string.Empty;
+	string errorMsg = model.Error ?? string.Empty;
+	string redir = model.RedirectUrl ?? string.Empty;
+}
+
+<div class="row">
+	<div class="span2"></div>
+	<div class="span8">
+		<h1>Login as a WOGBB member:</h1>
+		<form action="@Url.Action("Login")" method="post">
+			<input type="hidden" name="redir" value="@redir" />
+		<div class="row">
+			<div class="span4">User Name:</div>
+			<div class="span8">
+				<input type="text" name="user" value="@userName" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="span4">Password:</div>
+			<div class="span8">
+				<input type="password" name="pass"/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span4"></div>
+			<div class="span8" style="color:red;">
+				@errorMsg
+			</div>
+		</div>
+		<div class="row">
+			<div class="span4"></div>
+			<div class="span8">
+				<input type="submit" value="Login" />
+			</div>
+		</div>
+		</form>
+	</div>
+	<div class="span2"></div>
+</div>

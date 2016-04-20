@@ -1,0 +1,5 @@
+<Site>
+<!-- sample 
+  <redirect id="0" from="sourcepath/" to="targetpath/" />
+-->
+</Site>

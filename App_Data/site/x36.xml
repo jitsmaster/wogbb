@@ -1,0 +1,3 @@
+<?xml version="1.0"?>
+<!--*** Ingeniux CMS 8.0.150 - http://www.ingeniux.com ***-->
+<FeatureItem ID="x36" Name="Next Meeting" IsComponent="true"><Image type="imagefile" label="Image" readonly="false" hidden="false" required="false" Expanded="true" Width="323" Height="244" Border="" HSpace="" VSpace="" Alignment="left" AlternateText="">Features/IMG_1781.JPG</Image><Title type="string" label="Title" readonly="false" hidden="false" required="false">Next Meeting</Title><Description type="string" label="Description" readonly="false" hidden="false" required="false">September 21, 2014 -- Time: TBA -- UW Burke Museum Bird Specimen &amp; Ornithology Collection Visit with John Klicka -- For Monthly Meeting Details Visit: FACEBOOK.COM/WOGBB</Description></FeatureItem>

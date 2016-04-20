@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TaxonomyAssociations LastUpdateUser="ingeniux\awang" LastUpdatedUser="wogbb\ker" LastUpdated="20140906T19:25:05">
+  <Definitions>
+    <Definition Description="The Association between category and page" FullName="Association" TagName="A" />
+    <Definition Description="The category id" FullName="CategoryID" TagName="C" />
+    <Definition Description="The page XID associated with certain category" FullName="Page XID" TagName="P" />
+    <Definition Description="Last Updated Date" FullName="LastUpdatedDate" TagName="LUD" />
+    <Definition Description="Last Update User" FullName="LastUpdateUser" TagName="LUU" />
+  </Definitions>
+  <Associations>
+  </Associations>
+</TaxonomyAssociations>

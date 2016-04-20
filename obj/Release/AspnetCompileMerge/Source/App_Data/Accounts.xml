@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Accounts>
+	<a name="arnoldw" fname="Arnold Wang" password="letmein" />
+	<a name="beckys" fname="Becky Sundstrom" password="letmein" />
+</Accounts>

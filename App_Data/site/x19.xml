@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Details ID="x19" Name="Membership" IsComponent="false" ViewName="Details"><Title type="string" label="Title" readonly="false" hidden="false" required="true">Membership</Title><FeaturesImage type="imagefile" label="Featured Image" readonly="false" hidden="false" required="false" Expanded="true" Width="" Height="" Border="" HSpace="" VSpace="" Alignment=""/><BodyCopy type="dhtml" label="Body Copy" readonly="false" hidden="false" required="false" Height=""><![CDATA[<p><strong>OUR MISSION AND GOALS<img height="174" hspace="1" src="Images/LadyAmherst.jpg" style="margin: 1px; float: right;" vspace="1" width="318" /></strong><br /><br />1. To promote the welfare and encourage the breeding of pheasants, waterfowl, and other species of fowl, quail, partridge, and related birds to the generally accepted representative standards and pure of the wild species.<br />2. To share breeding and propagation methods.<br />3. To introduce new species of birds into private and public aviaries; to improve present captive breeding stock and to catalog present captive bird species and aviculture in the Pacific Northwest.<br />4. To interest more individuals and groups in aviculture.<br />5. To promote programs and other goals as may be deemed to be in the best interest of Pacific Northwest aviculture.<br /><br /><strong>Membership</strong>&nbsp;<br />Washington Ornamental and Game Bird Breeders was established to encourage everyone interested in any type of ornamental or game bird to expand their knowledge and exchange their ideas with other bird breeders. Membership dues are $25.00 per calendar year (US Funds) for both single and family membership and are not prorated. Dues are paid in January. New memberships accepted after October 1st will be for the remainder of the current and the following calendar year. For Renewals: Please use the Membership Application below also. <br /><br /><strong><a href="http://www.scribd.com/doc/202061682/Application-Front-Back-1">Download Membership Application Here (Updated 2/19/14)</a></strong><br />Send application to:&nbsp;<br />Steve Dazey, Treasurer&nbsp;<br />P.O. Box 576&nbsp;<br />Monroe, Wa 98272&nbsp;<br /><br /><strong>Membership Benefits:</strong>&nbsp;</p>
+<ul>
+<li>Monthly Meetings on Third Sunday of the Month</li>
+<li>Monthly Newsletter: The Pheasant Pen</li>
+<li>Guest Speakers</li>
+<li>Behind-the-Scenes Visits to Local Aviaries and Zoos</li>
+<li>Opportunities to Volunteer and Display your Birds at Events, including the Washington State Fair in Puyallup&nbsp;</li>
+<li>Knowledge Exchange and Mentorship</li>
+<li>Group Trips to National and Regional Conferences</li>
+<li>Wildlife Viewing of Washington State Bird Species</li>
+<li>Bulk Pricing on Black Vinyl-Coated Aviary Fencing for Members</li>
+<li>Annual Club Auction</li>
+</ul>
+<p><strong>Access to Members-Only Website Includes:</strong>&nbsp;</p>
+<ul>
+<li>Current Membership List</li>
+<li>Member Birds List -- Find Species Locally</li>
+<li>Monthly Newsletters with Meeting Minutes</li>
+<li>Swap and Sell: Member Bird and Equipment Exchange</li>
+<li>Member Egg Exchange for Hatching and Collectors</li>
+<li>Mentorship: Q &amp; A Web Forum</li>
+<li>Breed-Specific Bird Breeding and Care</li>
+<li>Breed Standards</li>
+<li>Pen Building</li>
+</ul>
+<p><strong>Become a Washington Ornamental and Game Bird Breeder Member!</strong><strong><br /></strong>If you are as fascinated with breeding ornamental game birds as we are, we'd love to have you has a member. Some of the membership benefits are the following:</p>
+<ul>
+<li>Gain helpful information about breeding ornamental birds.</li>
+<li>Learn about public policy relating to wild birds and animals.</li>
+<li>Come to our great monthly meetings that move around from member to member location.</li>
+<li>Participant in our social events and have a great time with great people. Potlucks too!</li>
+</ul>
+<p><strong>BIRDS OUR MEMBERS RAISE:</strong> <br /><strong></strong></p>
+<ul>
+<li><strong>Pheasants: 30 types</strong></li>
+<li><strong>Peacocks: 3 types</strong></li>
+<li><strong>Ducks: 24 types</strong></li>
+<li><strong>Partridge: 5 types</strong></li>
+<li><strong>Quail: 10 types</strong></li>
+<li><strong>Geese: 5 types</strong></li>
+<li><strong>Pigeons</strong></li>
+<li><strong>Doves: 3 types</strong></li>
+<li><strong>Emu</strong></li>
+<li><strong>Guinea Fowl</strong></li>
+<li><strong>Turkeys</strong></li>
+<li><strong>East African Cranes</strong></li>
+<li><strong>Swans</strong></li>
+<li><strong>Red Jungle Fowl</strong></li>
+<li><strong>Heirloom Chickens</strong></li>
+</ul>
+<p></p>
+<p></p>
+<p></p>]]></BodyCopy><xPower Type="Navigation" Name="AncestorNavigation" label="Ancestor Navigation" readonly="false" hidden="false" required="false" Expanded="false" Navigation="Ancestors" GenerationOrder="down" StartPage="" MaxNodes="" MaxDepth="" Query=""/><xPower Type="Component" Name="SiteControl" label="Site Control" readonly="false" hidden="false" required="false" Component="x5" CompTypes="SiteControl" Expanded="false"/></Details>

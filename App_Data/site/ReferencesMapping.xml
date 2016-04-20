@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ReferencesMapping LastUpdatedUser="ingeniux\awang" LastUpdated="20140906T19:25:05" LastUpdateUser="wogbb\ker">
+  <Definitions>
+    <Definition Description="The Reference" FullName="Reference" TagName="R" />
+    <Definition Description="The source page XID" FullName="SourcePage" TagName="S" />
+    <Definition Description="The target page XID" FullName="TargetPage" TagName="T" />
+    <Definition Description="Last Updated Date" FullName="LastUpdatedDate" TagName="LUD" />
+    <Definition Description="Last Update User" FullName="LastUpdateUser" TagName="LUU" />
+  </Definitions>
+  <References>
+  </References>
+</ReferencesMapping>

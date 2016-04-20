@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Taxonomy NextID="126" LastUpdated="20071020T03:21:23" LastUpdateUser="ingeniux\taxonomyCreator">
+  <Definitions>
+    <Definition Description="The CategoryNode element tag" FullName="Category" TagName="C" />
+    <Definition Description="The internal ID of the Category" FullName="ID" TagName="ID" />
+    <Definition Description="The ID for the category that is imported form another source (Optional)" FullName="External ID" TagName="EID" />
+    <Definition Description="The name of the Category" FullName="Name" TagName="N" />
+    <Definition Description="The description of the category" FullName="Description" TagName="D" />
+    <Definition Description="The name of classification type for this level of category node (Optional)" FullName="Classification Type" TagName="T" />
+    <Definition Description="Last updated date" FullName="LastUpdatedDate" TagName="LUD" />
+    <Definition Description="Last update user" FullName="LastUpdateUser" TagName="LUU" />
+    <Definition Description="Language Translation" FullName="Translation" TagName="TR" />
+  </Definitions>
+  <Enums>
+    <Permissions>
+      <Permission Name="View" Value="0" />
+      <Permission Name="Manage" Value="1" />
+    </Permissions>
+  </Enums>
+  <Tree>
+    <C D="Classification of Life Forms" locale="en-us" EID="" ID="1" N="Life Forms" LUU="ingeniux\taxonomyCreator" LUD="20071015T15:00:01">
+      <C D="Animals" EID="" ID="2" N="Animalia" T="KingDom" LUU="ingeniux\taxonomyCreator" LUD="20071015T15:00:01">
+        <C D="Animal with backbone" EID="" ID="6" N="Chordata" T="Phylum" LUU="ingeniux\taxonomyCreator" LUD="20071203T14:15:19">
+          <C D="Mammals" EID="" ID="8" N="Mammalia" T="Class" LUU="ingeniux\taxonomyCreator" LUD="20071015T15:00:01">
+          </C>
+          <C D="Birds" EID="" ID="11" N="Aves" T="Class" LUU="ingeniux\taxonomyCreator" LUD="20071015T15:00:01" />
+        </C>
+        <C D="Insects, spiders, crustoceans" EID="" ID="7" N="Arthropoda " T="Phylum" LUU="ingeniux\taxonomyCreator" LUD="20071015T15:00:01" />
+      </C>
+      <C D="Plants" EID="" ID="3" N="Plantae" T="KingDom" LUU="ingeniux\taxonomyCreator" LUD="20071015T15:00:01">
+      </C>
+      <C D="Mushrooms, molds, yeast, lichen etc." EID="" ID="4" N="Fungi" T="KingDom" LUU="ingeniux\taxonomyCreator" LUD="20071015T15:00:01" />
+      <C D="Single cell life forms" EID="" ID="5" N="Protista" T="KingDom" LUU="ingeniux\taxonomyCreator" LUD="20071015T15:00:01" />
+      <C D="Bacterias" EID="" ID="63" N="Monera" T="KingDom" LUU="ingeniux\taxonomyCreator" LUD="20071015T15:00:01" />
+    </C>
+  </Tree>
+  <L10N>
+    <C ID="2">
+      <TR locale="zh-cn" N="生命形态" D="生命形态分类" LUU="ingeniux\taxonomyLocalizer" LUD="20071015T15:00:01" />
+      <TR locale="es-mx" N="Formas de vida" D="Clasificación de las formas de vida" LUU="ingeniux\taxonomyLocalizer" LUD="20071015T15:00:01" />
+      <TR locale="fr-ca" N="Formes de vie" D="Classification des formes de vie" LUU="ingeniux\taxonomyLocalizer" LUD="20071015T15:00:01" />
+    </C>
+  </L10N>
+  <Security>
+    <A CID="2" LUU="ingeniux\taxonomyLocalizer" LUD="20071015T15:00:01">
+      <G GID="2" PMS="1" />
+    </A>
+  </Security>
+</Taxonomy>

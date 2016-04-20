@@ -1,0 +1,3 @@
+<?xml version="1.0"?>
+<!--*** Ingeniux CMS 8.0.150 - http://www.ingeniux.com ***-->
+<FeatureItem ID="x13" Name="Egg Collection" IsComponent="true"><Image type="imagefile" label="Image" readonly="false" hidden="false" required="false" Expanded="true" Width="321" Height="238" Border="" HSpace="" VSpace="" Alignment="" AlternateText="">Features/TinamouNest.jpg</Image><Title type="string" label="Title" readonly="false" hidden="false" required="false">Egg Collection Opportunity</Title><Description type="string" label="Description" readonly="false" hidden="false" required="false">All of us get eggs from our birds. Collectors make egg displays, use them for arts &amp; crafts projects, or Easter ornaments.</Description></FeatureItem>

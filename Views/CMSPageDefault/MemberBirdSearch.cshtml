@@ -1,0 +1,141 @@
+﻿@model Ingeniux.Runtime.ICMSPage
+@using Ingeniux.Runtime
+@using Ingeniux.Runtime.Models
+
+@{
+    //create birds listing
+    var birds = Model.GetNavigationItems("Birds", NavigationElementType.Navigation,
+        true, true);
+
+    Dictionary<string, string> birdsListing = birds
+        .Where(
+            b => b.GetAttributeValue("Schema") != "Folder")
+        .Select(
+            b =>
+            {
+                var bName = b.Name;
+                //get ancestor
+                var ancestors = b.Ancestors("Page")
+                    .Reverse()
+                    .Select(
+                        a => a.GetAttributeValue("Name"))
+                    .ToArray();
+
+                string fullName = string.Join(", ", ancestors) + ", " + bName;
+                return new KeyValuePair<string, string>(b.TargetID, fullName);
+            })
+        .ToDictionary(
+            p => p.Key, p => p.Value);
+
+    string url = Model.GetNavigationItems("AncestorNavigation", NavigationElementType.Navigation,
+            true, true)
+        .LastOrDefault().URL;
+
+    string orderBy = Model.QueryString["o"] ?? "";
+    
+    //get all account
+    AuthenticationLib auth = new AuthenticationLib();
+    var users = auth.Users();
+}
+
+<ul class="nav nav-tabs">
+    @{
+        string omActiveClass = orderBy != "b" ? "active" : "";
+        string obActiveClass = orderBy == "b" ? "active" : "";
+    }
+    <li class="@omActiveClass"><a href="@(url)?o=m">By Member</a></li>
+    <li class="@obActiveClass"><a href="@(url)?o=b">By Bird</a></li>
+</ul>
+
+<div class="row">
+    <div class="span12" style="color:#666">
+        @if (orderBy != "b")
+        {
+            //get all account
+            var birdsByMember = users
+                .OrderBy(
+                    u => u.Name.ToLowerInvariant())
+                .Select(
+                    u => {
+                       string name = u.Name;
+                       var bs = u.Birds
+                           .Select(
+                                b =>
+                                {
+                                    string birdId = b.XID;
+                                    string birdName = birdsListing.ContainsKey(birdId) ?
+                                        birdsListing[birdId] : "";
+
+                                    return birdName;
+                                })
+                          .Where(
+                                b => b != "")
+                          .OrderBy(b => b.ToLowerInvariant())
+                          .ToArray();
+                        
+                        var birdsStr = string.Join("<br/>", bs);
+                        if (!string.IsNullOrWhiteSpace(u.OtherBirds))
+                            birdsStr += "<br/>" + u.OtherBirds;
+
+                        return new KeyValuePair<string, string>(name, birdsStr);
+                    });
+            
+            <table width="100%" cellpadding="6" cellspacing="0" border="1" style="border-color:#ddd;">
+                <thead>
+                    <tr style="font-weight: bold; font-size: 16px; background: #5D7C3F; color: white;">
+                        <th width="50%" align="left" style="border-color:#ddd;">Member</th>
+                        <th width="50%" align="left" style="border-color:#ddd;">Birds</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var p in birdsByMember)
+                    {
+                        <tr>
+                            <td style="border-color:#ddd;">@p.Key</td>
+                            <td style="border-color:#ddd;">@Html.Raw(p.Value)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            //members by birds
+            var memberByBirds = birdsListing
+                .Where(
+                    b => b.Key != "x249")
+                .Select(
+                    p =>
+                    {
+                        string birdName = p.Value;
+                        string[] members = users
+                            .Where(
+                                u => u.Birds
+                                    .Any(
+                                        b => b.XID == p.Key))
+                            .Select(
+                                u => u.Name)
+                            .ToArray();
+
+                        return new KeyValuePair<string, string>(birdName, string.Join("<br/>", members));
+                    });
+            <table width="100%" cellpadding="6" cellspacing="0" border="1" style="border-color:#ddd;">
+                <thead>
+                    <tr style="font-weight: bold; font-size: 16px; background: #5D7C3F; color: white; ">
+                        <th width="50%" align="left" style="border-color:#ddd;">Bird</th>
+                        <th width="50%" align="left" style="border-color:#ddd;">Members</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var p in memberByBirds)
+                    {
+                        <tr>
+                            <td style="border-color:#ddd;">@p.Key</td>
+                            <td style="border-color:#ddd;">@Html.Raw(p.Value)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>

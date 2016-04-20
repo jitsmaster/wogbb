@@ -1,0 +1,35 @@
+﻿@using Ingeniux.Runtime
+@using System.Web.Mvc;
+
+@helper RenderLink(string url, string linkText, string target = "", string cssClasses = "", string cssStyles = "")
+{
+	string targetStr = !string.IsNullOrEmpty(target) ?
+		string.Format("target=\"{0}\"", target) : "";
+
+	string classStr = !string.IsNullOrEmpty(cssClasses) ?
+		string.Format("class=\"{0}\"", cssClasses) : "";
+
+	string stylesStr = !string.IsNullOrEmpty(cssStyles) ?
+		string.Format("style=\"{0}\"", cssStyles) : "";
+	
+	<a href="@url" @MvcHtmlString.Create(targetStr) @MvcHtmlString.Create(classStr) @MvcHtmlString.Create(stylesStr)>@linkText</a>
+}
+
+@helper RenderICEAttribute(ICMSElement ele, bool isComponent = false)
+{
+	if (ele.EditMode)
+	{
+		string fieldName = ele.Content.Name.LocalName;
+		if ((fieldName == "Page" || isComponent) && ele.Attribute("Name") != null) {
+			fieldName = ele.Content.GetAttributeValue("Name", "");
+		}
+
+		__razor_helper_writer.Write("EditFieldName=\"" + fieldName + "\" ");
+
+		//append EditFieldMode attribute if provided. The provider can be either the calling template, or passed in via ICE update request
+		if (!string.IsNullOrEmpty(ele.ViewMode)) 
+		{
+			__razor_helper_writer.Write("EditFieldTemplateMode=\"" + ele.ViewMode + "\" ");
+		}
+	}
+}

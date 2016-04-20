@@ -1,0 +1,16 @@
+D:\dev\CMS\xpas_win_8_0\.NETRuntime\Dynamic_Site_Server\bin\Dynamic_Site_Server.dll
+D:\dev\CMS\xpas_win_8_0\.NETRuntime\Dynamic_Site_Server\bin\Dynamic_Site_Server.pdb
+D:\dev\CMS\xpas_win_8_0\.NETRuntime\Dynamic_Site_Server\bin\AuthenticatorPlugin.dll
+D:\dev\CMS\xpas_win_8_0\.NETRuntime\Dynamic_Site_Server\bin\crypto.dll
+D:\dev\CMS\xpas_win_8_0\.NETRuntime\Dynamic_Site_Server\bin\FiftyOne.Foundation.dll
+D:\dev\CMS\xpas_win_8_0\.NETRuntime\Dynamic_Site_Server\bin\IGXRuntimeAPI80.dll
+D:\dev\CMS\xpas_win_8_0\.NETRuntime\Dynamic_Site_Server\bin\NLog.dll
+D:\dev\CMS\xpas_win_8_0\.NETRuntime\Dynamic_Site_Server\bin\DynamicExecuteHelper.dll
+D:\dev\CMS\xpas_win_8_0\.NETRuntime\Dynamic_Site_Server\bin\ShoQuan.dll
+D:\dev\CMS\xpas_win_8_0\.NETRuntime\Dynamic_Site_Server\obj\x86\Release\ResolveAssemblyReference.cache
+D:\dev\CMS\xpas_win_8_0\.NETRuntime\Dynamic_Site_Server\obj\x86\Release\Ingeniux.Runtime.Properties.Resources.resources
+D:\dev\CMS\xpas_win_8_0\.NETRuntime\Dynamic_Site_Server\obj\x86\Release\GenerateResource.read.1.tlog
+D:\dev\CMS\xpas_win_8_0\.NETRuntime\Dynamic_Site_Server\obj\x86\Release\GenerateResource.write.1.tlog
+D:\dev\CMS\xpas_win_8_0\.NETRuntime\Dynamic_Site_Server\obj\x86\Release\Dynamic_Site_Server.dll
+D:\dev\CMS\xpas_win_8_0\.NETRuntime\Dynamic_Site_Server\obj\x86\Release\Dynamic_Site_Server.pdb
+D:\dev\CMS\xpas_win_8_0\.NETRuntime\Dynamic_Site_Server\bin\System.IO.Abstractions.dll

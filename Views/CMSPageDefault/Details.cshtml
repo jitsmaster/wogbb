@@ -1,0 +1,19 @@
+﻿@model Ingeniux.Runtime.ICMSPage
+
+<div class="row">
+	<div class="span12">
+		<h1>@Model.GetElementValue("Title")</h1>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span12">
+		@Html.Raw(Model.GetElementValue("BodyCopy"))
+	</div>
+</div>
+
+<div class="row">
+	<div class="span12">
+		<div class="fb-comments" data-href="@Request.Url.AbsoluteUri" data-numposts="5" data-colorscheme="light"></div>
+	</div>
+</div>

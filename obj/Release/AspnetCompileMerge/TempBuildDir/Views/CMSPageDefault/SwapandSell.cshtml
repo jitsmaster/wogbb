@@ -1,0 +1,181 @@
+﻿@model Ingeniux.Runtime.CMSPageRequest
+@using Ingeniux.Runtime;
+@using Ingeniux.Runtime.Models
+@using System.IO;
+
+
+<style type="text/css">
+#filedrag
+{
+	display: none;
+	font-weight: bold;
+	text-align: center;
+	padding: 1em 0;
+	margin: 1em 0;
+	color: #555;
+	border: 2px dashed #555;
+	border-radius: 7px;
+	cursor: default;
+}
+
+#filedrag.hover
+{
+	color: #f00;
+	border-color: #f00;
+	border-style: solid;
+	box-shadow: inset 0 3px 4px #888;
+}
+</style>
+
+<div class="row">
+	<div class="span12">
+		<h1>@Model.GetElementValue("Title")</h1>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span12">
+		@Html.Raw(Model.GetElementValue("BodyCopy"))
+	</div>
+</div>
+
+@{
+	bool requireAuth = Model.GetNavigationItems("Ancestors", NavigationElementType.Navigation, false, false)
+		.Any(
+			navEntry => navEntry.TargetID == "x20");
+
+	bool authenticated = Session["user"] != null;
+
+	if (!Model.IsPreview && requireAuth && !authenticated)
+	{
+		//rendering login link
+	<div class="row">
+		<div class="span12">
+			<a href="@Url.Action("Login", "Login")?redir=@HttpUtility.UrlEncode(Url.RequestContext.HttpContext.Request.Url.AbsoluteUri)" style="font-size: 18px">Login to WOGBB to see member only area.</a>
+		</div>
+	</div>		
+	}
+	else
+	{
+		//if not a post, draw form
+		if (Model.Form["swappername"] == null)
+		{
+	<form method="post" enctype="multipart/form-data" action="@Request.Url.AbsoluteUri">
+		<div class="row">
+			<div class="span2">
+				Type:
+			</div>
+			<div class="span10">
+                <label><input type="radio" name="swaporsale" value="sale" />&nbsp;For Sale</label>
+                <br/>
+				<label><input type="radio" name="swaporsale" value="swap" />&nbsp;Wanted</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span2">
+				Name:
+			</div>
+			<div class="span10">
+				<input style="width: 100%" type="text" name="swappername" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="span2">
+				Phone (optional):
+			</div>
+			<div class="span10">
+				<input style="width: 100%" type="tel" name="phone" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="span2">
+				Email:
+			</div>
+			<div class="span10">
+				<input style="width: 100%" type="email" name="email" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="span2">
+				Title:
+			</div>
+			<div class="span10">
+				<input style="width: 100%" type="text" name="title" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="span2">
+				Location:
+			</div>
+			<div class="span10">
+				<input style="width: 100%" type="text" name="location" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="span2">
+				Description:
+			</div>
+			<div class="span10">
+				<textarea style="width:100%" name="description" rows="5"></textarea>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span2">
+				Picture:
+			</div>
+			<div class="span10">
+				<input type="file" name="picture" style="width:100%" />
+@*				<div id="filedrag" >Drag and Drop a picture file here</div>*@
+			</div>
+		</div>
+		<div class="row">            
+			<div class="span10 offset2">
+				<input type="submit" value="Post" />
+			</div>
+		</div>
+	</form>
+		}else {
+			//process the form post, add it to xml file
+			string type = Model.Form["swaporsale"];
+			string name = Model.Form["swappername"];
+			string phone = Model.Form["phone"];
+			string email = Model.Form["email"];
+			string title = Model.Form["title"];
+            string location = Model.Form["location"];
+            string desc = Model.Form["description"];
+			string imgPath = "";
+			
+			//todo, upload the image
+            var file = Request.Files["picture"];
+            if (file != null)
+            {
+                imgPath = "swapandsellimgs/" + Guid.NewGuid().ToString() + "." + file.FileName.SubstringAfter(".", true, false);
+                string filePath = Path.Combine(Server.MapPath("~/App_Data"), imgPath);
+                file.SaveAs(filePath);
+            }			
+			
+			//add to swap and sale xml
+			SwapandSaleLib sos = new SwapandSaleLib();
+			sos.Add(type, name, title, desc, email, phone, location, imgPath);
+			
+			//post on facebook using facebook api
+			string postmessage = Model.GetElementValue("FacebookPostCopy");
+
+			sos.PostFacebook(postmessage);
+			
+			//redirect to parent page
+			<div class="row">
+				<div class="span12">
+					Swap and Sell request posted.
+				</div>
+			</div>
+	
+			var parentUrl = Model.GetNavigationItems("AncestorNavigation")
+				.Reverse()
+				.Skip(1)
+				.FirstOrDefault();
+
+			Response.Redirect("~/" + parentUrl.URL);
+		}
+	}
+}

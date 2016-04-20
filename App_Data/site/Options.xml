@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<Options>
+	<Query Name="Pages assigned to me" Value="//siteSchema:Page[@AssignedUser='%me%']"/>
+	<Query Name="Pages changed today" Value="//siteSchema:Page[ms:string-compare(@Changed, '%today%') = 1]"/>
+	<Query Name="Pages changed since yesterday" Value="//siteSchema:Page[ms:string-compare(@Changed, '%today-1%') = 1]"/>
+	<Query Name="Pages changed in last 30 days" Value="//siteSchema:Page[ms:string-compare(@Changed, '%today-30%') = 1]"/>
+	<Query Name="Pages changed in last 24 hours" Value="//siteSchema:Page[ms:string-compare(@Changed, '%today-24:00%') = 1]"/>
+	<Query Name="Pages changed in last 30 minutes" Value="//siteSchema:Page[ms:string-compare(@Changed, '%now-0:30%') = 1]"/>
+	<Query Name="Pages created in last 30 minutes" Value="//siteSchema:Page[ms:string-compare(@Created, '%now-0:30%') = 1]"/>
+	<Query Name="Pages created today" Value="//siteSchema:Page[ms:string-compare(@Created, '%today%') = 1]"/>
+	<Query Name="Pages checked out" Value="//siteSchema:Page[@CheckedOut='true']"/>
+	<Query Name="Pages marked for publish" Value="//siteSchema:Page[@MarkedForPublish='true']"/>
+</Options>

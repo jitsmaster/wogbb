@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SwapandSell ID="x21" Name="Post a Swap or Sell" IsComponent="false" ViewName=""><Title type="string" label="Title" readonly="false" hidden="false" required="false">Post to Swap or Sell</Title><BodyCopy type="dhtml" label="Body Copy" readonly="false" hidden="false" required="false" Height=""><![CDATA[<p>WOGBB members can easily buy, sell or trade birds, equipment, books, etc. Simple fill out your advertisement below and click "Post". A message will automatically post to WOGBB's Swap and Sell page. Postings expire after 6 months.</p>
+<p>Rules:</p>
+<ol>
+<li>It is not OK to contact members about other unsolicited services, products or commercial interests.</li>
+<li>WOGBB reserves the right to remove any posts deamed inappropriate.</li>
+<li>WOGBB membership and secure member login required to view this page.</li>
+</ol>]]></BodyCopy><FacebookPostCopy type="dhtml" label="Facebook Post Copy" readonly="false" hidden="false" required="false" Height=""><![CDATA[<p>A member has posted a Swap and Sell request on <a href="http://www.wogbb.com/swap_and_sell">WOGBB.com</a></p>]]></FacebookPostCopy><xPower Type="Navigation" Name="AncestorNavigation" label="Ancestor Navigation" readonly="false" hidden="false" required="false" Expanded="false" Navigation="Ancestors" GenerationOrder="down" StartPage="" MaxNodes="" MaxDepth="" Query=""/><xPower Type="Component" Name="SiteControl" label="Site Control" readonly="false" hidden="false" required="false" Component="x5" CompTypes="SiteControl" Expanded="false"/></SwapandSell>

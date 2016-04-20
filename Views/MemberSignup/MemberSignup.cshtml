@@ -1,0 +1,251 @@
+﻿@model Ingeniux.Runtime.ICMSPage
+@using Ingeniux.Runtime
+
+@{
+
+    bool isPost = (Model.Tag != null);
+}
+
+@if (!isPost)
+{
+
+    var existingMember = Session["user"] as Ingeniux.Runtime.Models.UserInfo;
+    string uid = existingMember
+        .ToNullHelper()
+        .Propagate(
+            m => m.UserId)
+        .Return("");
+    string name = existingMember
+        .ToNullHelper()
+        .Propagate(
+            m => m.Name)
+        .Return("");
+    string coMembers = existingMember
+        .ToNullHelper()
+        .Propagate(
+            m => m.CoMembers)
+        .Return("");
+    string address = existingMember
+        .ToNullHelper()
+        .Propagate(
+            m => m.Address)
+        .Return("");
+    string city = existingMember
+        .ToNullHelper()
+        .Propagate(
+            m => m.City)
+        .Return("");
+    string state = existingMember
+        .ToNullHelper()
+        .Propagate(
+            m => m.State)
+        .Return("");
+    string zip = existingMember
+        .ToNullHelper()
+        .Propagate(
+            m => m.Zip)
+        .Return("");
+    string phone = existingMember
+        .ToNullHelper()
+        .Propagate(
+            m => m.Phone)
+        .Return("");
+    string email = existingMember
+        .ToNullHelper()
+        .Propagate(
+            m => m.Email)
+        .Return("");
+    string occupation = existingMember
+        .ToNullHelper()
+        .Propagate(
+            m => m.Occupation)
+        .Return("");
+
+
+    <style type="text/css">
+        select, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+            height: 15px;
+            width: 300px;
+        }
+
+        #signupForm textarea {
+            width: 300px;
+        }
+
+        #signupForm label {
+            display: inline-block;
+            width: 150px;
+        }
+    </style>
+
+    <div class="row">
+        <div class="span12">
+            <h1>@Model.GetElementValue("Title")</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span12">
+            @Html.Raw(Model.GetElementValue("BodyCopy"))
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span12">
+            <form class="signupForm" id="signupForm" method="post" action="">
+                <input type="hidden" name="IsNewUser" value="@(existingMember == null ? "true" : "false")" />
+                <input type="hidden" name="signupPost" value="1" />
+                <fieldset>
+
+                    @if (existingMember == null)
+                    {
+                        <p>
+                            <label for="UserId">New User ID *</label>
+                            <input id="UserId" name="UserId" minlength="2" type="text" required value="@uid">
+                        </p>
+                        <p>
+                            <label for="Password">Password *</label>
+                            <input id="Password" name="Password" minlength="2" type="password" required>
+                        </p>
+                        <p>
+                            <label for="PasswordC">Confirm Password *</label>
+                            <input id="PasswordC" name="PasswordC" minlength="2" type="password" required>
+                        </p>
+                    }
+                    <p>
+                        <hr />
+                    </p>
+                    <p>
+                        <label for="name">Name *</label>
+                        <input id="name" name="Name" minlength="2" type="text" required value="@name">
+                    </p>
+                    <p>
+                        <label for="comembers">Co-Members </label>
+                        <input id="comembers" name="CoMembers" type="text" value="@coMembers">
+                    </p>
+                    <p>
+                        <label for="address">Address *</label>
+                        <input id="address" name="Address" type="text" value="@address" required>
+                    </p>
+                    <p>
+                        <label for="city">City *</label>
+                        <input id="city" name="City" type="text" value="@city" required style="width:100px;">
+                    </p>
+                    <p>
+                        <label for="state">State *</label>
+                        <input id="state" name="State" style="width:50px;" type="text" value="@state" required>
+
+                        <label for="zip" style="width:50px">&nbsp;&nbsp;&nbsp;Zip *</label>
+                        <input id="zip" name="Zip" style="width:50px;" type="text" value="@zip" required>
+                    </p>
+                    <p>
+                        <label for="phones">Phone *</label>
+                        <input id="phones" type="tel" name="Phone" required>
+                    </p>
+                    <p>
+                        <label for="email">E-Mail *</label>
+                        <input id="email" type="email" name="Email" required>
+                    </p>
+                    <p>
+                        <label for="job">Occupation</label>
+                        <input id="job" type="text" name="Occupation">
+                    </p>
+                    <p>
+                        <label for="PaymentOption">Payment</label>
+                        <input name="PaymentOption" type="hidden" value="PayWithPayPal">
+                        <span style="font-size:15px;">&nbsp;&nbsp;One Year Membership Fee $25.00</span>
+                        <br />
+                        <label>&nbsp;</label>
+                        <img src="@Url.Asset("images/paypal-logo.png", Model)">
+                    </p>
+                    <p>&nbsp;</p>
+                    <p>
+                        <label></label>
+                        <label>* Required</label>
+                    </p>
+                    <p>
+                        <label> </label>
+                        <input class="submit" type="submit" value="@(existingMember != null ? "Update" : "Submit")">
+                    </p>
+
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $().ready(function () {
+            // validate the comment form when it is submitted
+            $("#signupForm").validate({
+                rules: {
+                    Password: {
+                        required: true
+                    },
+                    PasswordC: {
+                        required: true,
+                        equalTo: "#Password"
+                    }
+                },
+                messages: {
+                    pswd: "Please enter password",
+                    confirmpassword: "Confirmation password doesn't match password"
+                }
+            });
+        });
+    </script>
+}
+else
+{
+    if (Model.Tag is string)
+    {
+        if ((Model.Tag as string).Contains("Signup Error:"))
+        {
+            <p style="color:red">@Model.Tag</p>
+        }
+        else
+        {
+            <p>
+                Account for "@Model.Tag" already exists. Please first <a href="@Url.Action("Login", "Login")">Login</a> before trying to update your user information or pay your dues.
+            </p>
+        }
+    }
+    else
+    {
+        string paymentValue = Request.Form["PaymentOption"];
+
+        <p style="font-size:18px;">Redirecting to payment site. Please wait...</p>
+
+        //render paypal form hidden and auto post to paypal
+        <div style="display:none">
+            @*<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="paypalForm">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="hosted_button_id" value="BK5WMSGXMDAM4">
+                    <table>
+                        <tr><td><input type="hidden" name="on0" value="$25 Membership Dues + PayPal Fee:">$25 Membership Dues + PayPal Fee:</td></tr>
+                        <tr>
+                            <td>
+                                <input type="hidden" name="os0" value="@paymentValue" />
+                                <select name="os0">
+                                        <option value="U.S. Residents">U.S. Residents $26.03 USD</option>
+                                        <option value="Canada Residents">Canada Residents $26.28 USD</option>
+                                    </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                </form>*@
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="paypalForm">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="BK5WMSGXMDAM4">
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+            </form>
+
+            <script type="text/javascript">
+                $("#paypalForm").submit();
+            </script>
+        </div>
+
+    }
+}

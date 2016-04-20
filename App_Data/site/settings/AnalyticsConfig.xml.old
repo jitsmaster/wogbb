@@ -1,0 +1,32 @@
+<Analytics>
+	<DefaultControls>
+		<SiteView>
+			<ControlGroup title="${analytics_siteSummary}" layout="linear" class="" headerimage="default/analytic24.png">
+				<add type="Ingeniux.Analytics.Google.SiteOverview, Ingeniux.Analytics"/>
+				<add type="Ingeniux.Analytics.Google.ViewsAndVisits, Ingeniux.Analytics"/>
+			</ControlGroup>
+			<ControlGroup title="${analytics_siteReports}" layout="tabbed" headerimage="default/analytic24.png">
+				<add type="Ingeniux.Analytics.Google.PageViews, Ingeniux.Analytics"/>
+				<add type="Ingeniux.Analytics.Google.OrganicSearch, Ingeniux.Analytics"/>
+				<add type="Ingeniux.Analytics.Google.ExternalSources, Ingeniux.Analytics"/>
+				<add type="Ingeniux.Analytics.Google.EntrancePages, Ingeniux.Analytics"/>
+				<add type="Ingeniux.Analytics.Google.ExitPages, Ingeniux.Analytics"/>
+			</ControlGroup>
+		</SiteView>
+		<PageView>
+			<ControlGroup title="${analytics_pageSummary}" layout="linear" headerimage="default/analytic24.png">
+				<add type="Ingeniux.Analytics.Google.PageOverview, Ingeniux.Analytics"/>
+				<add type="Ingeniux.Analytics.Google.ViewsAndVisits, Ingeniux.Analytics"/>
+			</ControlGroup>
+			<ControlGroup title="${analytics_pageReports}" layout="tabbed" headerimage="default/analytic24.png">
+				<add type="Ingeniux.Analytics.Google.ExternalSources, Ingeniux.Analytics"/>
+				<add type="Ingeniux.Analytics.Google.InternalSources, Ingeniux.Analytics"/>
+			</ControlGroup>
+			<ControlGroup title="${analytics_contentAnalysis}" layout="tabbed" headerimage="default/analytic24.png">
+				<add type="Ingeniux.Analytics.Google.PageComposition, Ingeniux.Analytics"/>
+				<add type="Ingeniux.Analytics.Google.Dynamic1, Ingeniux.Analytics" title="By Title"/>
+				<add type="Ingeniux.Analytics.Google.Dynamic2, Ingeniux.Analytics" title="By Params"/>
+			</ControlGroup>
+		</PageView>
+	</DefaultControls>
+	<Site provider="Ingeniux.Analytics.Google.AnalyticsDataProvider, Ingeniux.Analytics" pubtargetID="1" disabled="true"/></Analytics>

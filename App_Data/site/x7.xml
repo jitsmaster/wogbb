@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Details ID="x7" Name="About Us" IsComponent="false" ViewName="Details"><Title type="string" label="Title" readonly="false" hidden="false" required="true">About Us</Title><FeaturesImage type="imagefile" label="Featured Image" readonly="false" hidden="false" required="false" Expanded="true" Width="378" Height="398" Border="" HSpace="2" VSpace="2" Alignment="left" AlternateText="">wogbblogo.jpg</FeaturesImage><BodyCopy type="dhtml" label="Body Copy" readonly="false" hidden="false" required="false" Height=""><![CDATA[<h3 align="left">Our Mailing Address: <br /> Washington Ornamental and Game Bird Breeders</h3>
+<div align="left">c/o Larry Clark</div>
+<div align="left">15016 269th SE</div>
+<div align="left">Issaquah, WA 98077</div>
+<div align="left">Email: <a href="mailto:manchodofarms@live.com">manchodofarms@live.com</a></div>
+<div align="left"><br /> Here is a list of our officers and committee diveodivle:</div>
+<ul>
+<li>Larry Clark - President - 425-392-2425</li>
+<li>Craig Holmes - Vice President - 253-631-8357</li>
+<li>Bruce Morgan - Secretary - &nbsp;</li>
+<li>Steve Dazey - Treasurer - &nbsp;</li>
+<li>Diana Clark - Membership Chair - 425-392-2425</li>
+<li>Becky Sundstrom - Webmaster &amp; Facebook -&nbsp; besun72@hotmail.com</li>
+</ul>
+<h3 align="left"><strong>Honorary Members</strong><br /><br /></h3>
+<table border="1" cellspacing="0">
+<tbody>
+<tr>
+<td>
+<ul>
+<li>Jim Abernathy</li>
+<li>Westley Batterson</li>
+<li>JoAnne Elbert</li>
+<li>Jim Harvey</li>
+<li>Joe &amp; Marge Longo</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>George Allen Jr.</li>
+<li>Edna Goldstone</li>
+<li>Phil and Bobby Krueger</li>
+<li>Bruce Morgan</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<p>HISTORY OF WOGBB</p>
+<p>The Washington Pheasant Breeders Club was established November 19, 1965. A group of pheasant breeders had gotten together to promote the growing interest in raising ornamental pheasants privately. It also was designed to bring the breeders together to share breeding techniques for different species, and to assist one another in raising of these birds.&nbsp;The first meeting was at Cliff and Jo Anne Elberts home in Kent, Wa. Attending were the Williams' from Sumner, Ted Baginski of Puyallup, the Wengers from Federal Way, Bruce Morgan of Maple Valley, Bob Cramer of Lake Youngs Pheasant Farm, the Walkhoffs of Wishbone Bird Farm, Mrs. Ward Whitney of Auburn, and Joe &amp; Marge Longo of Renton.</p>
+<p><br />The next club meeting held December 12, 1965 Mr. Tooze and Mr. Shaw of the Oregon Pheasant Growers were invited to attend and provide helpful hints on organizing such a club. It was moved, seconded, and approved at this early meeting that our club should become a member of the American Game Bird Breeders Cooperative Federation. At this second meeting the club's name was modified to "Washington Ornamental and Game Bird Breeders" to accommodate breeders of waterfowl and other types of game birds.</p>
+<p><img height="300" src="Images/Features/BrownBirdsCU-Optimized.png" style="margin: 10px; clear: none; float: left;" width="400" /></p>
+<p>At the second meeting of the club in February of 1966, the new club by-laws were published in the newsletter, "The Pheasant Pen". During that first year membership grew to 49 members from four different states. By 1968 our membership had grown to 72 members. Throughout the years meetings were held at members homes, annual shows were scheduled, and awards banquets were hosted at various locations around the state.<br /><br />1982 was the year we hosted an international joint conference of the APWS (American Pheasant and Wildfowl Society) and IWWA (International Wild Waterfowl Association) in Seattle. At this meeting we honored the many breeding accomplishments of our own member Chuck Pilling. Attendees from Europe and across North America enjoyed tours of our local aviary collections, and field trips to the Olympic Peninsula and Skagit Delta to view wintering waterfowl.</p>
+<p>In the past when the need arose to defend or represent our interests in any capacity we took the lead in our state as an advocate group. Today we still are active in representing our interests but we are more of an education and social group with similar interests.</p>]]></BodyCopy><xPower Type="Navigation" Name="AncestorNavigation" label="Ancestor Navigation" readonly="false" hidden="false" required="false" Expanded="false" Navigation="Ancestors" GenerationOrder="down" StartPage="" MaxNodes="" MaxDepth="" Query=""/><xPower Type="Component" Name="SiteControl" label="Site Control" readonly="false" hidden="false" required="false" Component="x5" CompTypes="SiteControl" Expanded="false"/></Details>

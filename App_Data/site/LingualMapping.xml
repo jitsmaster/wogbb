@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LingualMapping LastUpdatedUser="wogbb\ker" LastUpdated="20140906T23:53:02">
+  <Definitions>
+    <Definition Description="The Pages Map" FullName="Map" TagName="MP" />
+    <Definition Description="The Page Versions Map" FullName="VersionMap" TagName="VMP" />
+    <Definition Description="The master page XID or version ID" FullName="MasterPage" TagName="M" />
+    <Definition Description="The master page language at the time of initiation" FullName="MasterPageLanguage" TagName="ML" />
+    <Definition Description="The clone page language at the time of initiation" FullName="ClonePageLanguage" TagName="CL" />
+    <Definition Description="The clone page XID or version ID" FullName="ClonePage" TagName="C" />
+    <Definition Description="Date when mapping is initiated" FullName="MapInitiationDate" TagName="MID" />
+    <Definition Description="User that initiated mapping" FullName="MapInitiationUser" TagName="MIU" />
+    <Definition Description="Date when mapping is finalized" FullName="MapFinalizeDate" TagName="MFD" />
+    <Definition Description="User that finalized mapping" FullName="MapFinalizeUser" TagName="MFU" />
+  </Definitions>
+  <Maps NextID="1"></Maps>
+</LingualMapping>

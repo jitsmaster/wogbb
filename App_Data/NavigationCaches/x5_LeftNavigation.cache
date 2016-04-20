@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Navigation Type="Children">
+  <Page ID="x19" URL="membership" Schema="Details" Locale="" Changed="20160419T22:17:08" CategoryIds="" Name="Membership">
+    <Page ID="x399" URL="x399.xml" Schema="Folder" Locale="" Changed="20141109T03:16:08" CategoryIds="" Name="Sign up" />
+  </Page>
+  <Page ID="x18" URL="calendar" Schema="Details" Locale="" Changed="20160419T22:36:40" CategoryIds="" Name="Calendar" />
+  <Page ID="x7" URL="about-us" Schema="Details" Locale="" Changed="20150102T08:02:32" CategoryIds="" Name="About Us" />
+  <Page ID="x16" URL="photo-gallery" Schema="PhotoGallery" Locale="" Changed="20140907T03:22:35" CategoryIds="" Name="Photo Gallery" />
+  <Page ID="x406" URL="videos" Schema="Details" Locale="" Changed="20150125T06:05:16" CategoryIds="" Name="Videos" />
+  <Page ID="x405" URL="pen-building" Schema="Details" Locale="" Changed="20141211T07:41:49" CategoryIds="" Name="Pen Building" />
+  <Page ID="x26" URL="avian-vets" Schema="Details" Locale="" Changed="20160131T23:24:38" CategoryIds="" Name="Avian Vets" />
+  <Page ID="x20" URL="x20.xml" Schema="Folder" Locale="" Changed="20140907T03:22:35" CategoryIds="" Name="Members-Only">
+    <Page ID="x14" URL="newsletters" Schema="Newsletters" Locale="" Changed="20140907T03:22:35" CategoryIds="" Name="Newsletters" />
+    <Page ID="x24" URL="membership-list" Schema="Details" Locale="" Changed="20150102T07:56:58" CategoryIds="" Name="Membership List" />
+    <Page ID="x404" URL="x404.xml" Schema="Alias" Locale="" Changed="20141202T04:36:20" CategoryIds="" TargetPage="Membership/Member-Bird-Survey" Name="Member Bird Survey" />
+    <Page ID="x401" URL="member-bird-list" Schema="MemberBirdSearch" Locale="" Changed="20141109T23:09:55" CategoryIds="" Name="Member Bird List" />
+    <Page ID="x23" URL="swap-and-sell" Schema="SwapandSellListing" Locale="" Changed="20141110T02:45:21" CategoryIds="" Name="Swap and Sell" />
+  </Page>
+</Navigation>

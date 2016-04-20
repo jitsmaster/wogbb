@@ -1,0 +1,57 @@
+﻿@model Ingeniux.Runtime.ICMSPage
+@using Ingeniux.Runtime
+@{
+	ViewBag.Title = "Home";
+}
+
+
+<!--Start Carousel-->
+<div id="myCarousel" class="carousel slide">
+	<div class="carousel-inner">
+	@{
+	  string activeClass = "active";
+		foreach (var frame in Model.Elements("Frame"))
+		{
+			string at = frame.GetAttributeValue("AlternateText");
+		<div class="item @activeClass">
+			<img src="@Url.Asset("images/" + frame.Value, Model)" alt="@at">
+			<div class="carousel-caption">
+				<h4>@at</h4>
+			</div>
+		</div>	
+			activeClass = string.Empty;  
+		}	
+	}
+	</div>
+	<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+		<img src="@Url.Asset("prebuilt/img/arrow.png", Model)" alt="Arrow"></a>
+	<a class="right carousel-control" href="#myCarousel" data-slide="next">
+		<img src="@Url.Asset("prebuilt/img/arrow2.png", Model)" alt="Arrow"></a>
+</div>
+<!--End Carousel-->
+
+<!--Start second row of columns-->
+
+
+@{
+	
+	var featureItems = Model.Elements("FeatureItem").ToArray();
+
+	int l = (int) Math.Floor((double)featureItems.Length / 2);
+	
+	for (int i=0; i<l; i++) 
+	{
+		var leftItem = featureItems[i*2];
+		var rightItem = featureItems[i*2 + 1];
+		<div class="row">
+		@Html.Partial("FeatureItem", leftItem)
+		@Html.Partial("FeatureItem", rightItem)
+		</div>
+	}
+}
+
+<div class="row">
+	<div class="span12">
+	@Html.Raw(Model.GetElementValue("BodyCopy"))
+	</div>
+</div>

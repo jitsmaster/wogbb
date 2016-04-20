@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Site UseStructuredURL="True" URLExtension="" EnabledExtensions="xml;htm;html" AutoRedirectCanonicalURL="True" ForceLowerCaseURL="True">
+  <Page ID="x6" Schema="Home" Path="/" />
+  <Page ID="x7" Schema="Details" Path="/about-us" />
+<Page ID="x14" Schema="Newsletters" Path="/newsletters" /><Page ID="x19" Schema="Details" Path="/membership" /><Page ID="x18" Schema="Details" Path="/calendar" /><Page ID="x16" Schema="PhotoGallery" Path="/photo-gallery" /><Page ID="x23" Schema="SwapandSellListing" Path="/swap-and-sell"><Renamed Path="/swaps-and-sells" /></Page><Page ID="x21" Schema="SwapandSell" Path="/swap-and-sell/post-a-swap-or-sell"><Moved Path="/swaps-and-sells/post-a-swap-or-sell" /></Page><Page ID="x26" Schema="Details" Path="/avian-vets" /></Site>

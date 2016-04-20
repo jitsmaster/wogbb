@@ -1,0 +1,81 @@
+﻿@model Ingeniux.Runtime.ICMSPage
+@using Ingeniux.Runtime;
+@using System.IO;
+@{
+	ViewBag.Title = "Details";
+}
+
+<div class="row">
+	<div class="span12">
+		<h1>@Model.GetElementValue("Title")</h1>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span12">
+		@Html.Raw(Model.GetElementValue("BodyCopy"))
+	</div>
+</div>
+
+@{
+	bool requireAuth = Model.GetNavigationItems("Ancestors", NavigationElementType.Navigation, false, false)
+		.Any(
+			navEntry => navEntry.TargetID == "x20");	
+
+	bool authenticated = Session["user"] != null;
+
+	if (!Model.IsPreview && requireAuth && !authenticated)
+	{
+		//rendering login link
+	<div class="row">
+		<div class="span12">
+			<a href="@Url.Action("Login", "Login")?redir=@HttpUtility.UrlEncode(Url.RequestContext.HttpContext.Request.Url.AbsoluteUri)" style="font-size: 18px">Login to WOGBB to see member only area.</a>
+		</div>
+	</div>		
+	}
+	else
+	{
+	<div class="row">
+		<div class="span12">
+			@{
+		//dig into the documents/newsletters folder and sub folders
+
+		string sitePath = System.Configuration.ConfigurationManager.AppSettings["PageFilesLocation"];
+        if (sitePath == null)
+        {
+            sitePath = Server.MapPath("~/App_Data/site");
+        }
+		string newslettersPath = Path.Combine(sitePath, "documents/newsletters");
+
+		DirectoryInfo nlRoot = new DirectoryInfo(newslettersPath);
+		var yearDirs = nlRoot.GetDirectories()
+			.OrderBy(
+				d => d.Name.ToLowerInvariant());
+
+		foreach (var yearDir in yearDirs)
+		{
+				<div style="font-weight: bold">
+					@yearDir.Name
+				</div>
+				<div>
+					@{
+			var files = yearDir.GetFiles()
+				.OrderBy(
+					f => f.LastWriteTime)
+				.Take(50);
+				
+			foreach (var f in files)
+			{
+				var filePath = Url.Content("~/documents/newsletters/" + yearDir.Name + "/" + f.Name);
+						<a href="@filePath">@f.Name</a><br />
+			}
+					}
+				</div>
+		}
+			}
+		</div>
+	</div>	
+	}
+}
+
+

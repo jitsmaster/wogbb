@@ -1,0 +1,25 @@
+﻿@model Ingeniux.Runtime.ICMSPage
+@using Ingeniux.Runtime
+<div class="row">
+    <div class="span12">
+        <h1>@Model.GetElementValue("Title")</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="span12">
+        @{
+            string imgSrc = Model.GetElementValue("Image");
+            if (!string.IsNullOrWhiteSpace(imgSrc)) { 
+                <img src="@Url.Asset("images/" + imgSrc, Model)" vspace="0" hspace="1" />
+            }
+        }
+        @Html.Raw(Model.GetElementValue("Description"))
+    </div>
+</div>
+
+<div class="row">
+    <div class="span12">
+        <div class="fb-comments" data-href="@Request.Url.AbsoluteUri" data-numposts="5" data-colorscheme="light"></div>
+    </div>
+</div>

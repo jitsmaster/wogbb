@@ -1,0 +1,112 @@
+﻿@model Ingeniux.Runtime.ICMSPage
+@using Ingeniux.Runtime
+
+@{
+    Ingeniux.Runtime.Controllers.BirdsModel userBirds = Model.Tag as Ingeniux.Runtime.Controllers.BirdsModel;    
+}
+@if (Request.Form["posting"] != "true" || !userBirds.IsTempUser)
+{
+    int columns = 4;
+    var navEntries = Model.Elements("Navigation")
+           .Where(
+                ele => ele.GetAttributeValue("Name") == "BirdNav")
+           .SelectMany(
+                nav => nav.Descendants())
+           .ToArray();
+
+    double count = (double)navEntries.Length;
+    int colCount = (int)Math.Ceiling(count / columns);
+
+    int colWidth = (int)Math.Round((double)12 / (double)columns);
+
+    <div class="row">
+        <div class="span12">
+            <h1>@Model.GetElementValue("Title")</h1>
+            @if (Request.Form["posting"] == "true")
+            {
+            <h2 style="color:#5d7c3f;">Your bird list has been updated.</h2>
+            }
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span12">
+            @Html.Raw(Model.GetElementValue("BodyCopy"))
+        </div>
+    </div>
+
+    <form action="" method="post">
+        <div class="row">
+            <input type="hidden" name="posting" value="true" />
+            @for (int i = 0; i < columns; i++)
+            {
+                int colPos = i * colCount;
+                string colClassName = "span" + colWidth;
+                <div class="@colClassName">
+                    @{
+                for (int j = 0; j < colCount; j++)
+                {
+                    int pos = colPos + j;
+                    if (pos < count)
+                    {
+                        var item = navEntries[pos];
+
+                        string schema = item.GetAttributeValue("Schema");
+                        string name = item.GetAttributeValue("Name");
+
+                        var xid = item.GetAttributeValue("ID");
+
+                        if (schema == "Folder")
+                        {
+                            <h3 style="font-weight:bold; border-bottom:1px solid gray;margin-bottom:3px;">@name</h3>
+                        }
+                        else
+                        {
+                            bool hasBird = userBirds
+                                .ToNullHelper()
+                                .Propagate(
+                                    bs => bs.Birds.Contains(xid))
+                                .Return(false);
+                            
+                            string isChecked = hasBird ? "checked" : "";
+
+                            <div>
+                                <label style="font-size:13px">
+                                    <input type="checkbox" name="bird" value="@xid" @isChecked />&nbsp;
+                                    @name
+                                </label>
+                            </div>
+                        }
+
+                        if (pos == count - 1)
+                        {
+                            string otherBirds = userBirds
+                                .ToNullHelper()
+                                .Propagate(
+                                    ub => ub.OtherBirds)
+                                .Return("");
+                            <div>
+                                <textarea name="otherBirds">@otherBirds</textarea>
+                            </div>
+                        }
+                    }
+                }
+                    }
+                </div>
+            }
+        </div>
+        <hr />
+        <br />
+        <input type="submit" value="Submit Bird List" />
+    </form>
+    
+
+}
+else
+{
+    string homePageUrl = Url.Content("~/");
+    <p style="font-size:18px;">Thank you for signing up. You will be contacted shortly by WOGBB for your site login and password.</p>
+    <p style="font-size:18px;">
+        <a href="@homePageUrl">Back to home page</a>
+    </p>
+}

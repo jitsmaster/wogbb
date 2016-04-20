@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<xPressStyleSheetMap Version="1.0">
+	<UserAgents>
+		<UserAgent SearchString="MSIE" Name="msie" ContentType="text/html"/>
+		<UserAgent SearchString="Firefox" Name="firefox" ContentType="text/html"/>
+		<UserAgent SearchString="Chrome" Name="chrome" ContentType="text/html"/>
+		<UserAgent SearchString="iPhone" Name="iphone" ContentType="text/html"/>
+		<UserAgent SearchString="Safari" Name="safari" ContentType="text/html"/>		
+		<UserAgent SearchString="Android" Name="android" ContentType="text/html"/>
+		<UserAgent SearchString="BlackBerry" Name="blackberry" ContentType="text/html"/>
+	</UserAgents>
+	<Sites>
+		<Site SearchString="YourSite.com" Name="YourSite" SiteGroup="aSiteGroupName"/>
+	</Sites>
+</xPressStyleSheetMap>

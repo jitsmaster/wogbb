@@ -1,0 +1,12 @@
+﻿@model Ingeniux.Runtime.ICMSElement
+@using Ingeniux.Runtime
+
+@{
+	string assetUrl = Url.Asset("images/" + Model.GetElementValue("Image"), Model);	
+
+}
+<div class="span6 thumb-list">
+    <img src="@assetUrl" alt="Thumbnail" width="250px;">
+	<h3 style="color: #5D7C3F;">@Model.GetElementValue("Title")</h3>
+	<p>@Model.GetElementValue("Description")</p>
+</div>

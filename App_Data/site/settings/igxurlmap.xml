@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Site>
+  <Page ID="x6" Path="" />
+  <Page ID="x7" Path="about-us" />
+  <Page ID="x14" Path="newsletters" />
+  <Page ID="x19" Path="membership" />
+  <Page ID="x18" Path="calendar" />
+  <Page ID="x16" Path="photo-gallery" />
+  <Page ID="x23" Path="swap-and-sell" />
+  <Page ID="x21" Path="swap-and-sell/post-a-swap-or-sell" />
+  <Page ID="x26" Path="avian-vets" />
+</Site>

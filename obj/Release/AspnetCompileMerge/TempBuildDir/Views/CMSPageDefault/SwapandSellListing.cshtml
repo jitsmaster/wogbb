@@ -1,0 +1,50 @@
+﻿@model Ingeniux.Runtime.CMSPageRequest
+@using Ingeniux.Runtime;
+@using Ingeniux.Runtime.Models
+
+<div class="row">
+	<div class="span12">
+		<h1>@Model.GetElementValue("Title")</h1>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span12">
+		@Html.Raw(Model.GetElementValue("BodyCopy"))
+	</div>
+</div>
+
+@{
+	SwapandSaleLib sos = new SwapandSaleLib();
+	foreach (var entry in sos.Entries.Reverse())
+	{
+	<div class="row">
+		<div class="span11 offset1">
+			<b>@Enum.Format(typeof(EnumSwapSale), entry.SwapOrSale, "G") from @entry.Name</b>
+			<br />
+			Phone: @entry.Phone
+			&nbsp;&nbsp;
+			Email: <a href="mailto:@entry.Email">@entry.Email</a>
+            <br/>
+            Location: @entry.Location
+		</div>
+	</div>
+	<div class="row">
+		<div class="span11 offset1">
+			<h4>@entry.Title</h4>
+			<p>@entry.Description</p>
+			@if (!string.IsNullOrWhiteSpace(entry.FlickrImage))
+   {
+	   <img src="@entry.FlickrImage" height="200px"/>
+   }
+		</div>
+	</div>
+    <hr/>
+	}
+}
+
+<div class="row">
+	<div class="span12">
+		<a style="font-size:18px;" href="@Url.Content("~/swaps-and-sells/post-a-swap-or-sell")">Post to Swap or Sell</a>
+	</div>
+</div>

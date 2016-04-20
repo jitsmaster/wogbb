@@ -1,0 +1,58 @@
+﻿@model Ingeniux.Runtime.CMSPageRequest
+@using Ingeniux.Runtime;
+@using Ingeniux.Runtime.Models
+
+<div class="row">
+	<div class="span12">
+		<h1>@Model.GetElementValue("Title")</h1>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span12">
+		@Html.Raw(Model.GetElementValue("BodyCopy"))
+	</div>
+</div>
+
+<div class="row">
+    <div class="span12" style="font-weight:bold;">
+        <a style="font-size:18px;" href="@Url.Content("~/swaps-and-sells/post-a-swap-or-sell")">Post to Swap or Sell -- Click Here</a>
+    </div>
+</div>
+
+@{
+	SwapandSaleLib sos = new SwapandSaleLib();
+	foreach (var entry in sos.Entries.Reverse())
+	{
+        string typeStr = entry.SwapOrSale == EnumSwapSale.Sale ? "For Sale" : "Wanted";
+	<div class="row">
+		<div class="span11 offset1">
+			<b>@typeStr from @entry.Name</b>
+            <br/>
+            @if (entry.Date != null) {  
+    <span>Post Date: </span>@entry.Date.Value.ToLongDateString()
+			<br />}
+			Phone: @entry.Phone
+			&nbsp;&nbsp;
+			Email: <a href="mailto:@entry.Email">@entry.Email</a>
+            @if (!string.IsNullOrWhiteSpace(entry.Location)) { 
+            <br/>
+    <span>Location: </span>@entry.Location
+            }
+		</div>
+	</div>
+	<div class="row">
+		<div class="span11 offset1">
+			<h4>@entry.Title</h4>
+			<p>@entry.Description</p>
+			@if (!string.IsNullOrWhiteSpace(entry.FlickrImage) && !string.IsNullOrWhiteSpace( Path.GetExtension(entry.FlickrImage)))
+   {
+	   <img src="@entry.FlickrImage" height="200px"/>
+   }
+		</div>
+	</div>
+    <hr/>
+	}
+}
+
+

@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<Settings>
+	<Archive>
+		<DSN></DSN>
+	</Archive>
+	<Logging>
+		<!-- DesignTimeLogFile - STRING: Design Time (CSAPI) Log. Specifies the full path including logfile name, if not specified the file will be located at the root of the site folder for this site  
+			Example:
+			 	d:\\sites\\mysite\\mysitedt.log
+		-->
+		<DesignTimeLogFile>g:\igx_sites\cms\80\wogbb\xml\..\igxcsapi.log</DesignTimeLogFile>
+		<!-- RunTimeLogFile - STRING: Run Time (XMLSVR) Log. Specifies the full path including logfile name, if not specified the file will be located at the root of the site folder for this site  
+			Example:
+			 	d:\\sites\\mysite\\mysitert.log
+		-->
+		<RunTimeLogFile>g:\igx_sites\cms\80\wogbb\xml\\igxxmlsrv.log</RunTimeLogFile>
+		<!-- 
+			LogLevel - INTEGER: The amount of information to be output durring logging. The choices are:
+
+				Errors 	    = 0
+				Warnings    = 1
+				Info        = 2
+				Debug       = 3
+
+			Higher numbers means more information. The default is 2.
+		-->
+		<DesignTimeLogLevel>2</DesignTimeLogLevel>
+		<RunTimeLogLevel>2</RunTimeLogLevel>
+		<!-- 
+			MaxFileSizeKB - INTEGER: The rollover size for the log file, if not specified default is 10Mb (10240) 
+		-->
+		<MaxFileSizeKB>10240</MaxFileSizeKB>
+	</Logging>
+	<SiteProperties>
+		<!-- Set this to true if your site uses the ContainerURL attribute on navigations. By doing this you will slow down processing of pages -->
+		<UsesContainerModel>FALSE</UsesContainerModel>
+		<!-- Set this to FALSE to turn off dependency checking. This will also disable Incremental Publish -->
+		<UseDependencyGraph>TRUE</UseDependencyGraph>
+	</SiteProperties>
+	<InContextEditing>
+		<Enabled>true</Enabled>
+		<FieldMarkerColor>#3064b7</FieldMarkerColor>
+		<InvokedFieldMarkerColor>#ff8000</InvokedFieldMarkerColor>
+	</InContextEditing>
+	<SMTP>
+		<!-- The name of the smtp server to use for sending mail (or directory for local delivery).  -->
+		<Server>mail.ingeniux.com</Server>
+		<!-- delivery option, 1 = local, 2 = remote; default is 2 -->
+		<Delivery>2</Delivery>
+		<!-- SMTP authentication: 0 = anonymous, 1 = Basic, 2 = NTLM; default is 0 -->
+		<Authentication>1</Authentication>
+		<!-- SMTP server port (normally 25) -->
+		<Port>25</Port>
+		<!-- for Basic authentication, username and password -->
+		<Username></Username>
+		<Password></Password>
+		<!-- Whether to use SSL when communicating with SMTP server (default false) -->
+		<UseSSL>false</UseSSL>
+		<!-- The default email address to send out password reset information-->
+		<UserManagerAddress>User Manager&lt;user_manager@ingeniux.com&gt;</UserManagerAddress>
+	</SMTP>
+	<RuntimeCache>
+		<UseRuntimeCache>false</UseRuntimeCache>
+		<!--  REQUIRED The file to watch when publishes occur. If this file has changed the entire cache is emptied.
+			This is always relative to the published xml files. Example: \\publishdone.txt -->
+		<TriggerFile>publishdone.txt</TriggerFile>
+		<!--  REQUIRED the size in bytes for a given page. This is usually the aveage size of a processed HTML page in your site. -->
+		<CachePageSize>10240</CachePageSize>
+		<!--  REQUIRED the number of pages to cache, multipy this times the size of a cached page to see how much memory will be used. -->
+		<CachePageCount>30</CachePageCount>
+		<!--  OPTIONAL How long (in seconds) to keep pages in the cache before requiring a reload,  0 means never expire -->
+		<ExpireTime>0</ExpireTime>
+	</RuntimeCache>
+	<SmartPaste>
+		<!-- Behavior for Pasting into the HTML Editor window (Default is "Prompt")  -->
+		<PasteOption>Prompt</PasteOption>
+	</SmartPaste>
+	<FileLocations>
+		<DocumentLocation></DocumentLocation>
+		<ExternalDocumentURLPrefix></ExternalDocumentURLPrefix>
+		<MediaLocation></MediaLocation>
+		<ExternalMediaURLPrefix></ExternalMediaURLPrefix>
+	</FileLocations>
+	<RuntimeAdditionalInformation>
+		<!-- Standard HTTP Server Variables can be added to a page's IGX_Info block. -->
+		<!-- no spaces or special reserved characters (\ / & etc..) allowed-->
+		<!-- The list of variables should be delimited by semi-colons ";" e.g. "HTTP_REFERER;HTTPS;REMOTE_HOST" -->
+		<ServerVariables></ServerVariables>
+		<AllowTransformOverride>true</AllowTransformOverride>
+	</RuntimeAdditionalInformation>
+	<TaxonomySystem>
+		<!-- Toggle if outputing page categorization information during publish/preview, default is false -->
+		<IncludePageCategorizationOnPublish>false</IncludePageCategorizationOnPublish>
+		<!-- Toggle if copying the categorization information upon page copy, default is true -->
+		<CopyCategorizationOnPageCopy>true</CopyCategorizationOnPageCopy>
+	</TaxonomySystem>
+	<VersionControl>
+		<!-- Toggle switch for using the CMS Versioning feature. (true|false) (Default is true)  -->
+		<VersioningOn>true</VersioningOn>
+		<!-- Toggle switch for limiting the number of past versions that are saved for each page. (true|false) (Default is true)  -->
+		<VersionLimitOn>true</VersionLimitOn>
+		<!-- The number of past versions that should be saved for each page. (Default is 7)  -->
+		<VersionLimit>7</VersionLimit>
+	</VersionControl>
+	<ReverseProxySupport>
+		<!-- OPTIONAL: the *full* external URL for this site when running behind a reverse proxy -->
+		<!-- example: http://skipper.ingeniux.com/basic-trunk-test-site/ -->
+		<ServerURL></ServerURL>
+	</ReverseProxySupport>
+	<TaskQueue>
+		<!-- Toggle switch for using the CMS Task Queue Serialization feature. (true|false) (Default is false)  -->
+		<UseSerialization>false</UseSerialization>
+		<!-- Optional: publish externally synchronized (e.g. with PeerSync) -->
+		<UseExternalSynchronization>false</UseExternalSynchronization>
+	</TaskQueue>
+	<PermissionedWorkflow>
+		<!-- Required: Set to True to restrict workflow advancement to users with full node access to page -->
+		<UsePermissionedWorkflow>false</UsePermissionedWorkflow>
+	</PermissionedWorkflow>
+	<WorldView>
+		<EnableWorldView>false</EnableWorldView>
+		<EnableUILanguageSelect>true</EnableUILanguageSelect>
+		<ContentLocaleChoices>en-us</ContentLocaleChoices>
+	</WorldView>
+	<TimeZones>
+		<AvailableTimeZonesForTimeField></AvailableTimeZonesForTimeField>
+	</TimeZones>
+	<ApacheFOP>
+		<ConfigFile>c:\test</ConfigFile>
+		<DebugMode>True</DebugMode>
+		<FOPPort>25</FOPPort>
+		<FOPServer>localhost</FOPServer>
+		<NoCopy>True</NoCopy>
+		<NoEdit>True</NoEdit>
+		<NoPrint>True</NoPrint>
+		<NoAnnot>False</NoAnnot><QuietMode>True</QuietMode>
+	</ApacheFOP>
+	<Resources>
+		<applicationName>Ingeniux CMS</applicationName>
+		<autoSave>true</autoSave>
+		<maxChildPages>50</maxChildPages>
+	</Resources>
+	<TrafficLog>
+		<DateFormat>%Y/%m/%d</DateFormat>
+		<Enable>False</Enable>
+		<File>%IGXHOME%\traffic.%TrafficLogStyle%</File>
+		<Rollover>Monthly</Rollover>
+		<Style>XML</Style>
+		<TimeFormat>XML</TimeFormat>
+		<Tokens></Tokens>
+	</TrafficLog>
+	<Errors>
+		<IgnoreEmptyComponents>False</IgnoreEmptyComponents>
+		<VerboseError>False</VerboseError>
+	</Errors>
+	<Publish>
+		<PublishDependencyQueryDepth>3</PublishDependencyQueryDepth>
+		<MediaServerDirectories></MediaServerDirectories>
+		<UrlmapVersionLimit>50</UrlmapVersionLimit>
+		<AutoPublishComponents>false</AutoPublishComponents>
+	</Publish>
+</Settings>

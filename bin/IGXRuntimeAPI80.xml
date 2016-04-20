@@ -1,0 +1,3063 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IGXRuntimeAPI80</name>
+    </assembly>
+    <members>
+        <member name="T:Ingeniux.Runtime.XHRResponseType">
+            <summary>
+            Type of XHR Response
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.XHRResponseType.SUCCESS">
+            <summary>
+            Successful response
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.XHRResponseType.SESSION_EXPIRED">
+            <summary>
+            Session expiration response. Please note that this session refers to a session on the CMS.
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.XHRResponseType.PROCESSING_ERROR">
+            <summary>
+            Error occurred when generating request.
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.XHRResponseType.CANCELLED">
+            <summary>
+            Canceled by user
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.XHRResponse">
+            <summary>
+            The Response object for JSON serialization. This is the format to communicate with the CMS.
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.XHRResponse.code">
+            <summary>
+            Response type code.
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.XHRResponse.message">
+            <summary>
+            The response message in the form of a dictionary
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.XHRResponse.error">
+            <summary>
+            Error message
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.XHRResponse.#ctor(System.String,Ingeniux.Runtime.XHRResponseType)">
+            <summary>
+            Error contructor
+            </summary>
+            <param name="errorMessage">Error message</param>
+            <param name="errorCode">Error code</param>
+        </member>
+        <member name="M:Ingeniux.Runtime.XHRResponse.#ctor(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Success constructor
+            </summary>
+            <param name="successMessage">Response content</param>
+        </member>
+        <member name="T:Ingeniux.Runtime.Reference.IReferenceEntry">
+            <summary>
+            References a page node in reference file. It is readonly
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Reference.IReferenceEntry.ID">
+            <summary>
+            Gets the page id
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Reference.IReferenceEntry.Name">
+            <summary>
+            Gets the page name
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Reference.IReferenceEntry.Locale">
+            <summary>
+            Gets the page locale
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Reference.IReferenceEntry.LastChanged">
+            <summary>
+            Gets the page last changed time
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Reference.IReferenceEntry.IsComponent">
+            <summary>
+            Check if the page is component
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Reference.IReferenceEntry.PageFilePath">
+            <summary>
+            Gets the page file path
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Reference.IReferenceEntry.StartDate">
+            <summary>
+            Gets the start date
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Reference.IReferenceEntry.EndDate">
+            <summary>
+            Gets the end date
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Reference.IReferenceEntry.NoNavigationBuilding">
+            <summary>
+            Gets if this page should not create cached navigation entry in DSS
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.Reference.IReference">
+            <summary>
+            Represents the reference file structure. Provides functionalities to fast 
+            query pages in various ways
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.Reference.IReference.GetPageFilePath(System.String,Ingeniux.Runtime.DesignTime.IPublishingTarget,System.Boolean,System.Boolean,System.Web.HttpRequestBase)">
+            <summary>
+            Gets the page file path. For design-time, changes based on 
+            if page is checked out, who it is assigned to, which version is marked
+            for current publishing target
+            </summary>
+            <param name="pageId">id of page</param>
+            <returns>Physiial location of page file, or null if page 
+            doesn't exist</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.Reference.IReference.GetItem(System.String)">
+            <summary>
+            Get a page entry by page id
+            </summary>
+            <param name="pageId">id of page to retrieive</param>
+            <returns>Null if page doesn't exist</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.Reference.IReference.GetAncestors(System.String,System.String,System.Boolean)">
+            <summary>
+            Get ancestors of give page
+            </summary>
+            <param name="pageId">id of page</param>
+            <param name="stopAncestorPageId">Which ancestor page to stop at</param>
+            <returns>Collection of ancestor page entries, starting from the page 
+            itself and goes up the ancestors chain; Empty colleciton of parent 
+            doesn't exist</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.Reference.IReference.GetChildren(System.String,System.Boolean)">
+            <summary>
+            Get child nodes of given page
+            </summary>
+            <param name="pageId">id of page</param>
+            <returns>Collection of child page entries; Empty collection if parent 
+            doesn't exist</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.Reference.IReference.GetSubtree(System.String,System.Int32,System.Boolean)">
+            <summary>
+            Get the subtree of reference node in its original XElement format, which confined depth and maxNodes
+            </summary>
+            <param name="pageId">Root page id</param>
+            <param name="depth">Depth of subtree, default 0 to get the entire tree</param>
+            <returns>Root Node Clone</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.Reference.IReference.GetSiblings(System.String,System.Int32@,System.Boolean)">
+            <summary>
+            The siblings of given page
+            </summary>
+            <param name="pageId">id of page</param>
+            <param name="currentItemIndex">Output the position of given page among its siblings</param>
+            <returns>Collection of sibling page entries; Empty collection of page doesn't exist</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.Reference.IReference.FilterPages(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Filter page ids by schemas and ancestors
+            </summary>
+            <param name="pageIds">List of page ids to be filtered</param>
+            <param name="filterSchemas">Page must use given schemas 
+            to be selected</param>
+            <param name="filterRootIds">Page must be under given 
+            ancestors to be selected</param>
+            <returns>Filtered collection of page ids</returns>
+        </member>
+        <member name="P:Ingeniux.Runtime.Reference.IReference.SiteBaseUrl">
+            <summary>
+            Only apply in runtime. Design-time will need to get from selected publishing target
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Reference.IReference.SitePath">
+            <summary>
+            Physical location of the site xml content directory
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Reference.IReference.PublishingTargets">
+            <summary>
+            Publishing targets, only available when site location is 
+            design-time xml folder
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Reference.IReference.Pages">
+            <summary>
+            Get all pages on the site
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Reference.IReference.Components">
+            <summary>
+            Get all components on the site
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.NavigationBuilder.ICMSPageEntryExportDefinitionsFactory">
+            <summary>
+            The wrapper for options.xml, parse and hold global export definitions, 
+            and provide means to parse local export definitions
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.NavigationBuilder.ICMSPageEntryExportDefinitionsFactory.GlobalExports">
+            <summary>
+            Gets the global export definitions
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.NavigationElementType">
+            <summary>
+            An enumeration for navigation element types in the CMS.
+            Please note that the Child Navigation and Ancestor Navigation types are not listed because they are part of the Navigation type.
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.NavigationElementType.AllTypes">
+            <summary>
+            All navigation types
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.NavigationElementType.Navigation">
+            <summary>
+            Standard navigation
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.NavigationElementType.TaxonomyNavigation">
+            <summary>
+            Taxonomy navigation
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.NavigationElementType.References">
+            <summary>
+            References
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.NavigationElementType.LinkSet">
+            <summary>
+            LinkSet
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSPageFactory.GetIceFieldMarkupUpdater(System.Web.HttpRequestBase)">
+            <summary>
+            Used to handle In-Context Editing field markup updates
+            </summary>
+            <param name="request">The HttpRequest</param>
+            <returns>Returns the Field Markup Update request for In-Context Editing in preview</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSPageFactory.GetPage(System.Web.HttpRequestBase,System.Boolean)">
+            <summary>
+            Gets the page by request.
+            </summary>
+            <param name="request">The HttpRequest</param>
+            <param name="pageTypeOnly">If you only need to retrieve the preview page summary, pass in true. The default is false.</param>
+            <returns>The routing request contains the CMS request and the remaining path information.</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSPageFactory.GetPage(System.Web.HttpRequestBase,System.String)">
+            <summary>
+            Gets the page by xID.
+            </summary>
+            <param name="request">The HttpRequest</param>
+            <param name="pageId">Page's xID</param>
+            <returns>Always returns a CMSPageRequest. The object itself will indicate if the page exists.</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSPageFactory.GetPageByPath(System.Web.HttpRequestBase,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Gets the page by relative URL path.
+            </summary>
+            <param name="request">The HttpRequest</param>
+            <param name="path">The relative path of the request</param>
+            <param name="pageTypeOnly">If you only need to retrieve the preview page summary, pass in true. The default value is false.</param>
+            <returns>Either a redirect request if the URL is not canonical, or an actual CMS page object</returns>		
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSPageFactory.GetPreviewPage(System.Web.HttpRequestBase,System.Boolean)">
+            <summary>
+            Gets a preview page request. Please note that the preview request will post in the expanded page content.
+            </summary>
+            <param name="request">The HttpRequest</param>
+            <param name="pageTypeOnly">If you only need to retrieve the preview page summary, pass in true. The default value is false.</param>
+            <returns>Returns the preview request</returns>		
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSPageFactory.GetDynamicPreviewPage(System.Web.HttpRequestBase,System.Boolean,System.Boolean)">
+            <summary>
+            Gets the preview page request via dynamic preview.
+            Request must include pubTarget and pageId as querystrings, and pageId value cannot be empty
+            </summary>
+            <param name="request">The HttpRequest</param>
+            <param name="pageTypeOnly">If you only need to retrieve the preview page summary, pass in true. The default value is false.</param>
+            <returns>Returns the dynamic preview request</returns>	
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSPageFactory.LocalExportsIncludeLinks">
+            <summary>
+            Gets/sets whether or not to expand links when getting local exports.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSPageFactory.CacheSiteControls">
+            <summary>
+            Gets/sets whether or not to cache Site Control file content.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSPageFactory.RedirectsionMap">
+            <summary>
+            Gets the redirections map.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSPageFactory.SiteControlSchemas">
+            <summary>
+            Gets/sets the schema types (root element names) of Site/Section Controls to be cached (only effective if the "CacheSiteControls" property is on).
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSPageFactory.UrlMap">
+            <summary>
+            Gets the Structured URL Map.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSPageFactory.AuthenticationManager">
+            <summary>
+            Gets the authentication manager
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSPageFactory.GlobalExportsDefinitions">
+            <summary>
+            Gets the global exports definitons
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSPageFactory.UseDynamicExecuteEngine">
+            <summary>
+            Gets/sets the switch to use DynamicExecute engine instead of
+            original ComExecute to expand ComExecute components.
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.ICMSEnvironment">
+            <summary>
+            The ICMSEnvironment interface captures the HTTP and CMS variables to be carried by a DSS request.
+            The interface allows for overriding of the HTTP variable, which is particularly useful in preview mode, where all HTTP variables are simulated.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSEnvironment.Factory">
+            <summary>
+            Gets the page factory used to retrieve pages
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSEnvironment.Cookies">
+            <summary>
+            Gets the Cookies collection.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSEnvironment.Form">
+            <summary>
+            Gets Form posts.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSEnvironment.QueryString">
+            <summary>
+            Gets QueryStrings.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSEnvironment.ServerVariables">
+            <summary>
+            Gets the server variables specified by the CMS settings.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSEnvironment.RequestPath">
+            <summary>
+            Relative path of the request
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSEnvironment.URL">
+            <summary>
+            Absolute URL of the request
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSEnvironment.Site">
+            <summary>
+            Site variable of the request, compatible with the DSS.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSEnvironment.UserAgent">
+            <summary>
+            User agent of the request, compatible with the DSS.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSEnvironment.EditMode">
+            <summary>
+            Only applies for a preview request if the request is in In-Context Editing mode.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSEnvironment.IsPreview">
+            <summary>
+            Checks if the request is from preview or not.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSEnvironment.IncludeAllPages">
+            <summary>
+            Gets if all pages are included page content building. Only apply to design-time. Default false
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSEnvironment.TransformOption">
+            <summary>
+            Gets the transform option of request
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSEnvironment.CurrentPublishingTargetID">
+            <summary>
+            Gets the current pub target id, Design-time only
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSEnvironment.ViewMode">
+            <summary>
+            The view mode, an additional paramater, will be coded on mark up.
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.ICMSObject`1">
+            <summary>
+            Defines the model to be passed in to all view templates and the base of Element and Attribute containers.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSObject`1.Content">
+            <summary>
+            Gets Content for XElement/XAttribute.
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.ICMSAttribute">
+            <summary>
+            Represents the XAttribute with full environment variables.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSAttribute.Page">
+            <summary>
+            Gets the CMS page to which this attribute belongs.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSAttribute.NextAttribute">
+            <summary>
+            Gets the next sibling attribute.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSAttribute.PreviousAttribute">
+            <summary>
+            Gets the previous sibling attribute.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSAttribute.Value">
+            <summary>
+            Gets the attribute value.
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.ICMSRequest">
+            <summary>
+            Represents a CMS Request.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSRequest.Exists">
+            <summary>
+            Returns true if the request is for an existing page or route.
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.ICMSPageTypeRequest">
+            <summary>
+            Represents a CMS request with only a schema name.
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.ICMSRoutingRequest">
+            <summary>
+            A wrapper for a request. The interface includes a CMS request if its path starts with a valid path for a CMS page or redirect. It also includes the leftover path after a valid CMS path.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSRoutingRequest.CMSRequest">
+            <summary>
+            Contains CMSRequest in the path.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSRoutingRequest.RemaingPath">
+            <summary>
+            Gets the remaining path after the valid CMSRequest path.
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.ICMSComponentRequest">
+            <summary>
+            Represents the content expansion system; processes expansion for both pages and components.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSComponentRequest.ID">
+            <summary>
+            Gets the page/component ID.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSComponentRequest.ContentDocument">
+            <summary>
+            Gets the content of an XDocument.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSComponentRequest.RootElementName">
+            <summary>
+            Gets the Root element name of the document.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSComponentRequest.IsComponent">
+            <summary>
+            Checks if the content is a component or a page. Returns a value of true if it's a component.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSComponentRequest.Categories">
+            <summary>
+            Gets the categories associated with the component/page
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.ICMSCategoryInformation">
+            <summary>
+            Represents common localizable information for a category.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSCategoryInformation.Name">
+            <summary>
+            Gets the Name of the category.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSCategoryInformation.Description">
+            <summary>
+            Gets the Description of the category.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSCategoryInformation.TypeName">
+            <summary>
+            Gets the TypeName of the category.
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.ICMSCategorySynonym">
+            <summary>
+            Represents a synonym entry for the category.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSCategorySynonym.Locale">
+            <summary>
+            Gets the locale of the synonym.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSCategorySynonym.Name">
+            <summary>
+            Gets the synonym value.
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.ICMSCategoryLocalization">
+            <summary>
+            Represents a localization entry for the category; contains localized information for the category, based on a specific locale.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSCategoryLocalization.Locale">
+            <summary>
+            Gets the locale of localization for the category.
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.ICMSCategory">
+            <summary>
+            Represents a Category Element in runtime-expanded XML; provides convenient strong-typed access to the element.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSCategory.ID">
+            <summary>
+            Gets the category ID.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSCategory.ExternalID">
+            <summary>
+            Gets the category's external ID (declarative).
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSCategory.Path">
+            <summary>
+            Gets the taxonomy path of the category.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSCategory.CreationLocale">
+            <summary>
+            Gets the locale in which the category was created.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSCategory.Localizations">
+            <summary>
+            Gets localizations for the category.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSCategory.Synonyms">
+            <summary>
+            Gets synonyms for the category.
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.ICMSNavigatingCategory">
+            <summary>
+            Represents a Category Element in expanded Taxonomy Navigation; contains page information.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSNavigatingCategory.Page">
+            <summary>
+            Gets the page to which this category element belongs.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSNavigatingCategory.Children">
+            <summary>
+            Gets child categories of this category.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSNavigatingCategory.PagesCount">
+            <summary>
+            Gets a count of pages associated with the category.
+            Sometimes pages are not provided, but a page count always will be.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSNavigatingCategory.Pages">
+            <summary>
+            Gets the pages under the category.
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.ICMSPage">
+            <summary>
+            Represents an actual request to a CMS page. The interface contains request information and is traversible.
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSPage.Attribute(System.Xml.Linq.XName)">
+            <summary>
+            Gets an attribute by name.
+            </summary>
+            <param name="name">Can pass in a string name directly, if no namespace is involved.</param>
+            <returns>An attribute with the given name, or null if the attribute doesn't exist.</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSPage.GetElementValue(System.Xml.Linq.XName,System.String)">
+            <summary>
+            Gets the value of the first element matching the given name.		/// 
+            </summary>
+            <param name="name">Can pass in a string name directly, if no namespace is involved.</param>
+            <returns>An element value, or an empty string if there is no value</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSPage.GetAttributeValue(System.Xml.Linq.XName)">
+            <summary>
+            Gets the value of an attribute.
+            </summary>
+            <param name="name">Can pass in the string name directly, if no namespace is involved.</param>
+            <returns>An attribute value, or an empty string if there is no value.</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSPage.Attributes">
+            <summary>
+            Gets all attributes of the element.
+            </summary>
+            <returns>An enumerable collection of attributes</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSPage.Descendants">
+            <summary>
+            Gets the descendant elements of this element.
+            </summary>
+            <returns>An enumerable collection of elements</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSPage.Descendants(System.Xml.Linq.XName,System.String)">
+            <summary>
+            Gets the descendant elements of this element by specific element name.
+            </summary>
+            <param name="name">Name of the element to get. Can pass in a string name directly, if no namespace is involved.</param>
+            <returns>An enumerable collection of elements</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSPage.DescendantsAndSelf">
+            <summary>
+            Gets the descendant elements of this element, including the element itself.
+            </summary>
+            <returns>An enumerable collection of elements</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSPage.DescendantsAndSelf(System.Xml.Linq.XName)">
+            <summary>
+            Gets the descendant elements of this element by element name; includes the element itself, if its name matches the given name.
+            </summary>
+            <param name="name">Name of the element to get. Can pass in a string name directly, if no namespace is involved.</param>
+            <returns>An enumerable collection of elements</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSPage.Elements">
+            <summary>
+            Gets the direct descendant elements of this element.
+            </summary>
+            <returns>An enumerable collection of elements</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSPage.Elements(System.Xml.Linq.XName,System.String)">
+            <summary>
+            Gets the direct descendant elements of this element by given name.
+            </summary>
+            <param name="name">Name of the element to get; can pass in a string name directly, if no namespace is involved.</param>
+            <param name="nameAttributeValue">Value of the name attribute. The default is an empty string. To find the element, add an additional query.</param>
+            <returns>An enumerable collection of elements</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSPage.Element(System.Xml.Linq.XName,System.String)">
+            <summary>
+            Gets the first direct descendant element with the given name.
+            </summary>
+            <param name="name">Name of the element to get. Can pass in a string name directly, if no namespace is involved.</param>
+            <returns>Returns null if no child element has the given name.</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSPage.XPathSelectElement(System.String)">
+            <summary>
+            Uses an XPath query to select a simple element.
+            </summary>
+            <param name="xpath">XPath query expression</param>
+            <returns>Returns null if no element is found.</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSPage.XPathSelectElements(System.String)">
+            <summary>
+            Uses an XPath query to select a list of elements. Please note that an XPath query is not as fast as LINQ-based methods.
+            </summary>
+            <param name="xpath">XPath query expression</param>
+            <returns>An enumerable collection of elements</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSPage.GetNavigation(System.String,Ingeniux.Runtime.NavigationElementType,System.Boolean)">
+            <summary>
+            Gets a navigation element.
+            </summary>
+            <param name="navName">Name of the navigation</param>
+            <param name="navType">Type of navigation element, which is the element tag name. By default, the interface searches for the "Navigation" type.</param>
+            <param name="recursiveSearch">Recursive search or not. The default is false.</param>
+            <returns>If the navigation doesn't exist, the returned value is null.</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSPage.GetTaxonomyNavigation(System.String,System.Boolean)">
+            <summary>
+            Gets a taxonomy navigation element.
+            </summary>
+            <param name="navName">Name of the taxonomy navigation</param>
+            <param name="recursiveSearch">Recursive search or not. The default is false.</param>
+            <returns>If the navigation doesn't exist, the returned value is null.</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSPage.GetNavigationItems(System.String,Ingeniux.Runtime.NavigationElementType,System.Boolean,System.Boolean)">
+            <summary>
+            Gets items from a navigation element.
+            </summary>
+            <param name="navName">Name attribute value of the navigation element</param>
+            <param name="navType">Type of navigation element, which is the element tag name. By default the interface searches for the "Navigation" type.</param>
+            <param name="recursive">Recursive search or not. The default is false.</param>
+            <returns>An enumerable collection of link elements</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSPage.GetLinkItems(System.String,System.Boolean)">
+            <summary>
+            Gets link items with the given name.
+            </summary>
+            <param name="linkName">Name attribute value of the "Page" element</param>
+            <param name="recursive">Recursive search or not. The default value is false.</param>
+            <returns>An enumerable collection of link elements</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSPage.GetLinkItem(System.String,System.Boolean)">
+            <summary>
+            Gets one link item with the given name.
+            </summary>
+            <param name="linkName">Name attribute value of the "Page" element</param>
+            <param name="recursive">Recursive search or not. The default value is false.</param>
+            <returns>Returns null if no item is found.</returns>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSPage.RestrictedAccess">
+            <summary>
+            Gets if this page is protected by Ingeniux Runtime Authentication system.
+            Please note that if Runtime Authentication is disabled, this property will always return false
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSPage.Page">
+            <summary>
+            Gets the CMS page to which this element belongs.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSPage.ViewName">
+            <summary>
+            Gets the View Page of this Page. By Default is it is the root element name.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSPage.ID">
+            <summary>
+            Gets the page/component ID.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSPage.MobileDeviceInformation">
+            <summary>
+            Get the mobile device information if browsed by a mobile device, otherwise, returns null
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSPage.BrowserCapabilities">
+            <summary>
+            Gets the browser capabilities of the current request
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSPage.AuthenticationInformation">
+            <summary>
+            Gets the authentication information of current request. Only page that requires authentication will carry this info, when authenticated
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSPage.Tag">
+            <summary>
+            Extra information to be included in the model
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.ICMSElement">
+            <summary>
+            Represents a CMS Element with full environment variables.
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSElement.Ancestors">
+            <summary>
+            Gets ancestors of an element.
+            </summary>
+            <returns>An enumerable collection of elements</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSElement.Ancestors(System.Xml.Linq.XName)">
+            <summary>
+            Gets ancestors of an element with the given name.
+            </summary>
+            <param name="name">Name of the element to search for. Can pass in a string name directly, if no namespace is involved.</param>
+            <returns>An enumerable collection of elements</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSElement.AncestorsAndSelf">
+            <summary>
+            Gets the ancestors of an element, including the element itself.
+            </summary>
+            <returns>An enumerable collection of elements</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSElement.AncestorsAndSelf(System.Xml.Linq.XName)">
+            <summary>
+            Gets the ancestors of an element with the given name, including the element itself and any name matches.
+            </summary>
+            <param name="name">Name of the element to search for. Can pass in a string name directly, if no namespace is involved.</param>
+            <returns>Enumerable collection of elements</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSElement.ElementsAfterSelf">
+            <summary>
+            Gets sibling elements after this element.
+            </summary>
+            <returns>An enumerable collection of elements</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSElement.ElementsAfterSelf(System.Xml.Linq.XName)">
+            <summary>
+            Gets sibling elements after this element, using a given name.
+            </summary>
+            <param name="name">Name of the element to search for. Can pass in a string name directly, if no namespace is involved.</param>
+            <returns>An enumerable collection of elements</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSElement.ElementsBeforeSelf">
+            <summary>
+            Gets sibling elements after this element.
+            </summary>
+            <returns>An enumerable collection of elements</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSElement.ElementsBeforeSelf(System.Xml.Linq.XName)">
+            <summary>
+            Gets sibling elements before this element, using a given name.
+            </summary>
+            <param name="name">Name of the element to search for. Can pass in a string name directly, if no namespace is involved.</param>
+            <returns>An enumerable collection of elements</returns>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSElement.Type">
+            <summary>
+            Gets the type of an element
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSElement.Value">
+            <summary>
+            Gets the value of an element.
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.ICMSNavigationElement">
+            <summary>
+            Represents a Navigation element, which is basically a collection of links.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSNavigationElement.Name">
+            <summary>
+            Name of the navigation
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSNavigationElement.Pages">
+            <summary>
+            Gets direct descendant page elements.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSNavigationElement.AllPages">
+            <summary>
+            Gets all descendant page elements.
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.ICMSTaxonomyNavigationElement">
+            <summary>
+            Represents a taxonomy navigation element. This element is unlike other types of navigation.
+            There's a list of structured category nodes below and a list of page elements attached to each category node in the structure.
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSTaxonomyNavigationElement.GetCategory(System.String)">
+            <summary>
+            Gets a category by ID. This is a recursive search that goes beyond first level categories.
+            </summary>
+            <param name="categoryId">ID of category to search for</param>
+            <returns>If a category doesn't exist, the value returns null.</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.ICMSTaxonomyNavigationElement.GetPagesByCategory(System.String)">
+            <summary>
+            Gets the list of links by category ID.
+            </summary>
+            <param name="categoryId">ID of the category to search for</param>
+            <returns>An empty list if the category doesn't exist, or if the category has no page links below it</returns>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSTaxonomyNavigationElement.NavigatingCategories">
+            <summary>
+            Gets the first-level categories under the taxonomy navigation element. This category has reference to child categories, so it's fully traversible.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSTaxonomyNavigationElement.AllCategories">
+            <summary>
+            Gets the first-level and all descendent categories under the taxonomy navigation element.
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.ICMSLinkElement">
+            <summary>
+            Special CMS element to represent a link item
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSLinkElement.TargetID">
+            <summary>
+            Gets the target page ID.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSLinkElement.Name">
+            <summary>
+            Gets the target page name.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSLinkElement.LinkName">
+            <summary>
+            Gets the name of the link (only applies to Link elements).
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSLinkElement.URL">
+            <summary>
+            Gets the link URL.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSLinkElement.Locale">
+            <summary>
+            Gets the target page locale.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSLinkElement.Schema">
+            <summary>
+            Gets the target page root element name.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSLinkElement.Changed">
+            <summary>
+            Gets the time when the target page was changed.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSLinkElement.Title">
+            <summary>
+            Gets exported title information, which is common in site implementations.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSLinkElement.Abstract">
+            <summary>
+            Gets exported abstract information, which is common in site implementations.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSLinkElement.ChildLinks">
+            <summary>
+            Gets child links. Applies to link elements under navigations.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.ICMSLinkElement.CategoryIds">
+            <summary>
+            Get Category Id strings. 
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.RuntimeAuth.AuthenticationEngine">
+            <summary>
+            Manages the Authentication process and proxing authentication requests to available plugins
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.RuntimeAuth.AuthenticationEngine._Plugins">
+            <summary>
+            A list of registered and initialized plugins
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.RuntimeAuth.AuthenticationEngine.#ctor(System.String,Ingeniux.Runtime.RuntimeAuth.RuntimeAuthenticationSettings)">
+            <summary>
+            Initializes a new instance of the AuthenticationEngine class
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.RuntimeAuth.AuthenticationEngine.LoadAuthPlugins">
+            <summary>
+            Register plugin dlls on initialization
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.RuntimeAuth.AuthenticationEngine.Authenticate(System.String,System.String,System.Web.HttpRequestBase,System.String@)">
+            <summary>
+            Authenticate the request
+            </summary>
+            <param name="userName">user name</param>
+            <param name="password">password</param>
+            <param name="failureMessage">output the failure message string, success will be empty</param>
+            <returns>Boolean indicating the success or failure of the procedure</returns>/// 
+        </member>
+        <member name="P:Ingeniux.Runtime.RuntimeAuth.AuthenticationEngine.SitePath">
+            <summary>
+            Gets the site's xml physical location
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.RuntimeAuth.AuthenticationEngine.Settings">
+            <summary>
+            Gets the settings for runtime authenticaiton
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.Settings">
+            <summary>
+            Represents CMS settings; encapsulates the settings.xml file in the published folder.
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.Settings.Get(System.IO.FileInfo)">
+            <summary>
+            Gets the instance of the settings object. Please note that all calls to this method must pass in the same settings.xml file location, or an exception will be thrown.
+            </summary>
+            <param name="settingsFile">File the settings.xml</param>
+            <returns>Settings object</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.Settings.GetSetting``1(System.String,System.String)">
+            <summary>
+            Gets a specific setting by section name and by setting name within a section.
+            </summary>
+            <typeparam name="T">Return type can only be boolean, interger, or string.</typeparam>
+            <param name="sectionName">Name of setting section</param>
+            <param name="settingName">Name of setting within section</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ingeniux.Runtime.NavigationBuilder.ICMSPageEntry">
+            <summary>
+            Presents a page/component in link node format
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.NavigationBuilder.ICMSPageEntry.Serialize(System.String,Ingeniux.Runtime.NavigationBuilder.ICMSPageEntryExportDefinition[],Ingeniux.Runtime.ICMSEnvironment,System.Boolean)">
+            <summary>
+            Returned the xml representation of the page entry, 
+            to be injected into page xml for rendering
+            </summary>
+            <param name="navElementId">Unique Id of navigation element</param>
+            <param name="localExports">Defintions of local 
+            exports to be included on the xml node output</param>
+            <param name="environment">CMS rendering environment</param>
+            <returns>Navigation node of the page</returns>
+        </member>
+        <member name="P:Ingeniux.Runtime.NavigationBuilder.ICMSPageEntry.PageFilePath">
+            <summary>
+            Gets the location of page/component file
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.NavigationBuilder.ICMSPageEntry.ID">
+            <summary>
+            Gets the page id
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.NavigationBuilder.ICMSPageEntry.Name">
+            <summary>
+            Gets the page name
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.NavigationBuilder.ICMSPageEntry.URL">
+            <summary>
+            Gets the page URL. It is structured URL for runtime, 
+            and XID based URL for preview
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.NavigationBuilder.ICMSPageEntry.IsUrlStructured">
+            <summary>
+            Check is the page entry is using structured URL or not
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.NavigationBuilder.ICMSPageEntry.Schema">
+            <summary>
+            Gets the schema name (root element name) of the page
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.NavigationBuilder.ICMSPageEntry.Locale">
+            <summary>
+            Gets the page locale
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.NavigationBuilder.ICMSPageEntry.Changed">
+            <summary>
+            Gets when the page was last changed
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.NavigationBuilder.ICMSPageEntry.Loaded">
+            <summary>
+            Gets when the page entry loaded from page file
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.NavigationBuilder.ICMSPageEntry.Categories">
+            <summary>
+            Gets the categories this page is assigend to
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.NavigationBuilder.ICMSPageEntry.GlobalExports">
+            <summary>
+            Gets the global exports of the navigation node
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.NavigationBuilder.ICMSPageEntry.LocalExports">
+            <summary>
+            Gets the local exports of the navigation node
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.NavigationBuilder.CMSPageEntry.LocalExports">
+            <summary>
+            This is snapshot of currently cached local exports
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.CMSPageRequest">
+            <summary>
+            This class is a combination of runtime content expansion and request/routing information.
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.CMSComponentRequest">
+            <summary>
+            Expands published page/component XML.
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSComponentRequest.processXHTMLUrls">
+            <summary>
+            This should be only called on design time
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSComponentRequest.expirePageElements">
+            <summary>
+            Removes page nodes that are outside of the start and end dates.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSComponentRequest.Exists">
+            <summary>
+            Checks if the page file exists or not.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSComponentRequest.ContentDocument">
+            <summary>
+            Gets the page content document.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSComponentRequest.Content">
+            <summary>
+            Gets the page content root element.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSComponentRequest.ID">
+            <summary>
+            Gets the page ID.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSComponentRequest.RootElementName">
+            <summary>
+            Gets the page root element name.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSComponentRequest.IsComponent">
+            <summary>
+            Check if the page is component or not
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSComponentRequest.Categories">
+            <summary>
+            Gets the categories for current page
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageRequest.#ctor(System.Web.HttpRequestBase,System.String,System.String,System.String,Ingeniux.Runtime.ICMSPageFactory)">
+            <summary>
+            Constructs a page request.
+            </summary>
+            <param name="request">The HttpRequest</param>
+            <param name="sitePath">Physical location of the site</param>
+            <param name="pageId">Page xID</param>
+            <param name="path">Request path</param>
+            <param name="factory">Factory for retrieve page</param>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageRequest.GetPageContent(System.String,System.Boolean)">
+            <summary>
+            Override to implement tfrm=5 scenario
+            </summary>
+            <param name="pageFilePath"></param>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageRequest.Attribute(System.Xml.Linq.XName)">
+            <summary>
+            Get an attribute by name
+            </summary>
+            <param name="name">Name of attribute</param>
+            <returns>Attribute if exists</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageRequest.Attributes">
+            <summary>
+            Get all attributes
+            </summary>
+            <returns>Enumerable ICMSAttribute, deferred execution</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageRequest.Descendants">
+            <summary>
+            Get all descendant elements
+            </summary>
+            <returns>Enumerable ICMSElement, deferred execution</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageRequest.Descendants(System.Xml.Linq.XName,System.String)">
+            <summary>
+            Get descendant elements by element name, and/or value of "Name" attribute
+            </summary>
+            <param name="name">Element name</param>
+            <param name="nameAttributeValue">Value of "Name" attribute. Default is empty</param>
+            <returns>Enumerable ICMSElement, deferred execution</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageRequest.DescendantsAndSelf">
+            <summary>
+            Get descendant elements and self
+            </summary>
+            <returns>Enumerable ICMSElement, deferred execution</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageRequest.DescendantsAndSelf(System.Xml.Linq.XName)">
+            <summary>
+            Get descendant elements and self if element name matches
+            </summary>
+            <param name="name">Name of element</param>
+            <returns>Enumerable ICMSElement, deferred execution</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageRequest.Elements">
+            <summary>
+            Get child elements
+            </summary>
+            <returns>Enumerable ICMSElement, deferred execution</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageRequest.Elements(System.Xml.Linq.XName,System.String)">
+            <summary>
+            Get child elements by element name, and/or value of "Name" attribute.
+            </summary>
+            <param name="name">Element name</param>
+            <param name="nameAttributeValue">Value of "Name" attribute</param>
+            <returns>Enumerable ICMSElement, deferred execution</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageRequest.Element(System.Xml.Linq.XName,System.String)">
+            <summary>
+            Get an child element by name, and/or value of "Name" attribute
+            </summary>
+            <param name="name">Element Name</param>
+            <param name="nameAttributeValue">Value of "Name" attribute</param>
+            <returns>Matching element or null</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageRequest.XPathSelectElement(System.String)">
+            <summary>
+            Select an element using Xpath. Please note that even though this method is flexible, it is quite a bit slowerd than using linq query via Element/Elements/Descendants method.
+            </summary>
+            <param name="xpath">Xpath query expression</param>
+            <returns>ICMSElement or null</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageRequest.XPathSelectElements(System.String)">
+            <summary>
+            Select a list of element using Xpath. Please note that even though this method is flexible, it is quite a bit slowerd than using linq query via Element/Elements/Descendants method.
+            </summary>
+            <param name="xpath">Xpath query expression</param>
+            <returns>Even though marked as IEnumerable, this is not deferred execution.</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageRequest.GetAttributeValue(System.Xml.Linq.XName)">
+            <summary>
+            Get value of attribute
+            </summary>
+            <param name="name">Attribute name</param>
+            <returns>Default is empty</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageRequest.GetNavigationItems(System.String,Ingeniux.Runtime.NavigationElementType,System.Boolean,System.Boolean)">
+            <summary>
+            Get Child or Descendant Navigation items
+            </summary>
+            <param name="navName">Name of navigation (Name attribute value)</param>
+            <param name="navType">Type of navigation, by default is "Navigation"</param>
+            <param name="recursiveSearchNavNode">If true, recursively search the navigation</param>
+            <param name="recursiveSearchLinkNodes">If true, recursively search the link nodes inside the navigation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageRequest.GetLinkItems(System.String,System.Boolean)">
+            <summary>
+            Get Child Or Descendant Link Elements
+            </summary>
+            <param name="linkName">Name of link (Name attribute value)</param>
+            <param name="recursive">Recursive search or not</param>
+            <returns>Enumerable ICMSLinkElement, deferred execution</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageRequest.GetLinkItem(System.String,System.Boolean)">
+            <summary>
+            Get a Link Element by name
+            </summary>
+            <param name="linkName">Link Name (Name attribute value)</param>
+            <param name="recursive"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageRequest.GetNavigation(System.String,Ingeniux.Runtime.NavigationElementType,System.Boolean)">
+            <summary>
+            Get a navigation element
+            </summary>
+            <param name="navName">Name of navigation ("Name" attribute value)</param>
+            <param name="navType">Type of navigation</param>
+            <param name="recursiveSearch">Recursive search or not</param>
+            <returns>Single ICMSNavigationElement instance or null</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageRequest.GetTaxonomyNavigation(System.String,System.Boolean)">
+            <summary>
+            Get a taxonomy navigation element
+            </summary>
+            <param name="navName">Name of navigation ("Name" attribute value)</param>
+            <param name="recursiveSearch">Recursive search or not</param>
+            <returns>Single ICMSTaxonomyNavigationElement instance or null</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageRequest.GetElementValue(System.Xml.Linq.XName,System.String)">
+            <summary>
+            Get the value of first matching element if exists, otherwise, return emtpy string
+            </summary>
+            <param name="name">Name of the element to find</param>
+            <param name="nameAttributeValue">Value of "Name" attribute, if provided, serve as additional query</param>
+            <returns>Element value or empty string</returns>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageRequest.RequestPath">
+            <summary>
+            Gets the request path (relative).
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageRequest.Site">
+            <summary>
+            Gets site representation for the request.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageRequest.UserAgent">
+            <summary>
+            Gets the user agent representation of the request.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageRequest.TransformOption">
+            <summary>
+            Gets the transform option of the request.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageRequest.QueryString">
+            <summary>
+            Gets query strings.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageRequest.Form">
+            <summary>
+            Gets form posts for the request.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageRequest.Cookies">
+            <summary>
+            Gets cookies for the request.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageRequest.ServerVariables">
+            <summary>
+            Gets server variables for the request.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageRequest.CurrentPublishingTargetID">
+            <summary>
+            Gets the current pub target id, Design-time only
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageRequest.Factory">
+            <summary>
+            Gets the page factory used to retrieve pages
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageRequest.EditMode">
+            <summary>
+            Gets the edit mode. When true, mean request is in In-Context Edit mode
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageRequest.ViewName">
+            <summary>
+            Gets the name of View for page type. Default Runtime Site will use this name to look up View template for rendering.
+            Default is the root element name
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageRequest.MobileDeviceInformation">
+            <summary>
+            Get the mobile device information if browsed by a mobile device, otherwise, returns null
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageRequest.BrowserCapabilities">
+            <summary>
+            Gets the browser capabilities of the current request
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageRequest.AuthenticationInformation">
+            <summary>
+            Gets the authentication information of current request
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageRequest.ViewMode">
+            <summary>
+            Get/Set ViewMode. This is an parameter property used for rendering mode in view
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageRequest.URL">
+            <summary>
+            Get the request URL
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageRequest.IsPreview">
+            <summary>
+            Get if the object is in preview mode
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageRequest.Tag">
+            <summary>
+            Used to attach additional information
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPagePreviewRequestBase.getHttpParameters(System.String)">
+            <summary>
+            Preview mode uses query strings to simulate all parameters.
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:Ingeniux.Runtime.ComExecuteElementProcessor.escapseMethodParams(System.String)">
+            <summary>
+            Uses the old escape method, since URLEncode will break the system.
+            </summary>
+            <param name="val">The value to escape</param>
+            <returns>The escaped string</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.ComExecuteElementProcessor.getComExecuteMethodParameters(System.Xml.Linq.XElement)">
+            <summary>
+            Method parameters are values of attributes or child elements. Attribute values have priority.
+            </summary>
+            <param name="comEx"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ingeniux.Runtime.UserAgent">
+            <summary>
+            Detects the user agent making the request.
+            Uses the search string to match the requesting user agent string.
+            ContentType defines the response type.
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.Site">
+            <summary>
+            This is a legacy member used for co-branding. Co-branding is not used much anymore,
+            but it is still supported.
+            The SiteGroupName is the final output for branding definition.
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.SSMap">
+            <summary>
+            Used to look up user agent and site by request.
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.Taxonomy.ICategorySynonym">
+            <summary>
+            Represents a synonym entry for category
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Taxonomy.ICategorySynonym.Locale">
+            <summary>
+            Gets the synonym locale
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Taxonomy.ICategorySynonym.Name">
+            <summary>
+            Gets the synonym value
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.Taxonomy.ICategoryDefinition">
+            <summary>
+            Represents definition of an categroy in taxonomy system. 
+            based on category localization interface
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.Taxonomy.ICategoryLocalization">
+            <summary>
+            Represents localization of an category, based on Synonym interface
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Taxonomy.ICategoryLocalization.Description">
+            <summary>
+            Gets the description in given locale
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Taxonomy.ICategoryLocalization.Type">
+            <summary>
+            Gets the type name in given locale
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.Taxonomy.ICategoryDefinition.GetPages(Ingeniux.Runtime.NavigationBuilder.ICMSNavigationBuildingSession,System.Boolean,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Boolean)">
+            <summary>
+            Gets pages associated with this category, in the form of 
+            navigation representative
+            </summary>
+            <param name="filterSchemaNames">Page must be using one of 
+            the given schemas to be listed</param>
+            <param name="filterAncestorPageIds">Page must be under one 
+            of the ancestor pages to be listed</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.Taxonomy.ICategoryDefinition.SerializeNavigation(System.Int32,System.Boolean,Ingeniux.Runtime.NavigationBuilder.ICMSPageEntryExportDefinition[],Ingeniux.Runtime.ICMSEnvironment,Ingeniux.Runtime.NavigationBuilder.ICMSNavigationBuildingSession,System.Boolean,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.String,System.Boolean)">
+            <summary>
+            Gets the navigation structure for taxonomy navigation, with given depth
+            </summary>
+            <param name="depth">How deep to list categorie's descedants</param>
+            <param name="includePages">Include pages in the navigation or not</param>
+            <param name="localExports">Local exports to include for navigation nodes</param>
+            <param name="env">CMS Environment</param>
+            <param name="filterSchemaNames">Page must be using one of 
+            the given schemas to be listed</param>
+            <param name="filterAncestorPageIds">Page must be under one 
+            of the ancestor pages to be listed</param>
+            <returns></returns>
+        </member>
+        <member name="P:Ingeniux.Runtime.Taxonomy.ICategoryDefinition.ID">
+            <summary>
+            Gets the category id
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Taxonomy.ICategoryDefinition.ExtenalID">
+            <summary>
+            Gets the category external id
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Taxonomy.ICategoryDefinition.Children">
+            <summary>
+            Gets children of the category
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Taxonomy.ICategoryDefinition.Parent">
+            <summary>
+            Gets parent of the category
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Taxonomy.ICategoryDefinition.Path">
+            <summary>
+            Gets category path
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Taxonomy.ICategoryDefinition.Localizations">
+            <summary>
+            Gets localization of the category
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Taxonomy.ICategoryDefinition.Synonyms">
+            <summary>
+            Gets synonyms of the category
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.CMSIceFieldMarkupUpdateRequest">
+            <summary>
+            This request is issued by the In-Context Editing system from the CMS. It retrieves the HTML for a specific
+            element with an update value. This request will only return a valid result if the the actual element name exists.
+            ViewMode is supported.
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.CMSElement">
+            <summary>
+            Represents an element in page content and provides environment variables.
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSElement.AllowContentElement(System.Xml.Linq.XElement)">
+            <summary>
+            Checks if the element is allowed to construct a CMSElement instance. Default allows all.
+            Subclass to tighten the criteria.
+            </summary>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSElement.Factory">
+            <summary>
+            Gets the page factory used to retrieve pages
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSElement.Categories">
+            <summary>
+            If the element has its own "IGX_Categories" element, the interface uses it (this only applies to component content).
+            Otherwise it returns empty.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSElement.Value">
+            <summary>
+            Gets the value of an element
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSElement.Type">
+            <summary>
+            Gets the type of an element
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.AuthenticatinPageListStylesheetX0DoesnTExi">
+            <summary>
+              Looks up a localized string similar to Authenticatin page list stylesheet &quot;{0}&quot; doesn&apos;t exist.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.AuthenticationPageListFileX0DoesnTExist">
+            <summary>
+              Looks up a localized string similar to Authentication page list file &quot;{0}&quot; doesn&apos;t exist..
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.CannotCreateCMSLinkElementContentElementMu">
+            <summary>
+              Looks up a localized string similar to Cannot create CMSLinkElement, content element must named &quot;Page&quot; and must have ID and URL attribute value.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.CannotCreateCMSNavigationElementContentEle">
+            <summary>
+              Looks up a localized string similar to Cannot create CMSNavigationElement, content element must be either Navigation, References, LinkSet or TaxonomyNavigation.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.CannotCreatedDynamicPreviewRequestPageIdNo">
+            <summary>
+              Looks up a localized string similar to Cannot created dynamic preview request: page id not provided. Please note that Dynamic preview site doesn&apos;t have a home page..
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.CannotCreatedDynamicPublishRequestPageIdNo">
+            <summary>
+              Looks up a localized string similar to Cannot created dynamic publish request: page id not provided. Please note that Dynamic preview site doesn&apos;t have a home page..
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.CannotExecuteDatabaseQuery">
+            <summary>
+              Looks up a localized string similar to Cannot execute database query: .
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.CannotInitializeCrossReferenceMappingSyste">
+            <summary>
+              Looks up a localized string similar to Cannot initialize Cross Reference Mapping system: File not found.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.CannotInitializeCrossReferenceMappingSyste1">
+            <summary>
+              Looks up a localized string similar to Cannot initialize Cross Reference Mapping system: Already initialized for a different location..
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.CannotInitializedURLMapFileX0NotFound">
+            <summary>
+              Looks up a localized string similar to Cannot initialized URL Map, file &quot;{0}&quot; not found.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.CannotInitializeExportDefinitionsFactoryIn">
+            <summary>
+              Looks up a localized string similar to Cannot initialize Export Definitions Factory: Invalid File Path.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.CannotInitializeLingualMapsLingualMapsFile">
+            <summary>
+              Looks up a localized string similar to Cannot initialize lingual maps: Lingual maps file not found.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.CannotInitializeNavigationElementProcessor">
+            <summary>
+              Looks up a localized string similar to Cannot initialize Navigation Element Processor: Reference or Options file not found..
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.CannotInitializePublishingTargetsAlreadyIn">
+            <summary>
+              Looks up a localized string similar to Cannot initialize publishing targets: Already initialized for another location..
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.CannotInitializePublishingTargetsFileDoesn">
+            <summary>
+              Looks up a localized string similar to Cannot initialize publishing targets: File doesn&apos;t exist..
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.CannotInitializeReferenceObjectSingletonAl">
+            <summary>
+              Looks up a localized string similar to Cannot initialize Reference object: singleton already created for a different path..
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.CannotInitializeRuntimeAuthenticationModul">
+            <summary>
+              Looks up a localized string similar to Cannot initialize Runtime Authentication module for Dynamic Site Server: .
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.CannotInitializeTaxonomySystemMissingTaxon">
+            <summary>
+              Looks up a localized string similar to Cannot initialize Taxonomy system, missing taxonomy tree file or taxonomy associations file..
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.CannotInitSettingsFileNotFound">
+            <summary>
+              Looks up a localized string similar to Cannot initialize Settings, since settings.xml doesn&apos;t exist.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.CannotLocateSettingPageFilesLocationInWebC">
+            <summary>
+              Looks up a localized string similar to Cannot locate setting &quot;PageFilesLocation&quot; in web.config appSettings.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.CannotRebuildPageEntriesInNavigationBuilde">
+            <summary>
+              Looks up a localized string similar to Cannot rebuild page entries in Navigation Builder: Reference or Options file not found..
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.CannotRetrieveComponentUpdateContentCompon">
+            <summary>
+              Looks up a localized string similar to Cannot retrieve component update content. Component is not yet published. This doesn&apos;t affect saving the page..
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.CannotRetrieveDesignTimeNavigationBuilderW">
+            <summary>
+              Looks up a localized string similar to Cannot retrieve design time navigation builder without publishing target information.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.CannotRetrieveLinkItemWithNoLinkName">
+            <summary>
+              Looks up a localized string similar to Cannot retrieve link item with no link name.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.CannotRetrieveNavigationItemWithEmptyNavig">
+            <summary>
+              Looks up a localized string similar to Cannot retrieve navigation item with empty navigation name.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.ErrorOccurredBuildingNavigationPageEntryOn">
+            <summary>
+              Looks up a localized string similar to Error occurred building navigation page entry on page file &quot;{0}&quot;: {1}.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.ErrorOccurredProcessingElementX0OnPageX1RN">
+             <summary>
+               Looks up a localized string similar to Error occurred processing XPower element on Page &quot;{1}&quot;: 
+            Original Element: &quot;{0}&quot; : 
+            {2}.
+             </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.ErrorParsingRedirectMappingFileX0X1">
+            <summary>
+              Looks up a localized string similar to Error parsing redirect mapping file &quot;{0}&quot;: {1}.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.ErrorProcessingComExecute">
+            <summary>
+              Looks up a localized string similar to Error processing ComExecute: .
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.ErrorProcessingInsertElement">
+            <summary>
+              Looks up a localized string similar to Error processing Insert Element: .
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.ExportDefinitionsFactoryWasAlreadyCreatedU">
+            <summary>
+              Looks up a localized string similar to Export Definitions Factory was already created under a differnt location.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.InvalidComExecuteTypeMethodX1OfTypeX0Doesn">
+            <summary>
+              Looks up a localized string similar to Invalid ComExecute Type: Method &quot;{1}&quot; of Type &quot;{0}&quot; doesn&apos;t return XElement.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.InvalidComExecuteTypeTypeX0DoesNotHaveMeth">
+            <summary>
+              Looks up a localized string similar to Invalid ComExecute Type: Type &quot;{0}&quot; does not have method &quot;{1}&quot;..
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.InvalidComExecuteTypeTypeX0DoesnTExist">
+            <summary>
+              Looks up a localized string similar to Invalid ComExecute Type: Type &quot;{0}&quot; doesn&apos;t exist.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.InvalidLocalInsertFilePathX0">
+            <summary>
+              Looks up a localized string similar to Invalid File Path &quot;{0}&quot; for local insert element..
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.InvalidMethodNameX0ForObjectTypeX1">
+            <summary>
+              Looks up a localized string similar to Invalid method name &apos;{0}&apos; for object type &apos;{1}&apos;.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.InvalidOperationRedirectsMapAlreadyInitial">
+            <summary>
+              Looks up a localized string similar to Invalid Operation. Redirects Map already initialized for path &quot;{0}&quot;.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.InvalidOperationRuntimeAuthenticationModul">
+            <summary>
+              Looks up a localized string similar to Invalid Operation: Runtime Authentication module already initialized for site &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.InvalidOperationSettingsObjectAlreadyIniti">
+            <summary>
+              Looks up a localized string similar to Invalid Operation, Settings Object already initialized for path &quot;{0}&quot;.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.InvalidOperationStructureURLMapAlreadyInit">
+            <summary>
+              Looks up a localized string similar to Invalid Operation. Structure URL Map already initialized for path &quot;{0}&quot;.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.InvalidOrMissingIngeniuxCMSLicenseKeyCanno">
+            <summary>
+              Looks up a localized string similar to Invalid or missing Ingeniux CMS License Key, cannot start Dynamic Site Server.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.InvalidOrMissingStructuredURLHomePageIDSet">
+            <summary>
+              Looks up a localized string similar to Invalid or Missing &quot;StructuredURL/HomePageID&quot; setting in settings.xml.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.InvalidPageIdOrPageX0NotYetPublishedToRunt">
+            <summary>
+              Looks up a localized string similar to Invalid page id or page {0} not yet published to Dynamic Site Server Instance in charge of preview..
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.InvalidProgIDOrMethodForComExecute">
+            <summary>
+              Looks up a localized string similar to Invalid ProgID or Method for ComExecute.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.InvalidProgIDX0">
+            <summary>
+              Looks up a localized string similar to Invalid ProgID: {0}.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.InvalidSettingsFileX0Location">
+            <summary>
+              Looks up a localized string similar to Invalid settings file path &quot;{0}&quot;.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.InvalidSitePathX0">
+            <summary>
+              Looks up a localized string similar to Invalid Site Path &quot;{0}&quot;.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.InvalidUrlMapFilePathX0">
+            <summary>
+              Looks up a localized string similar to Invalid UrlMap file path &quot;{0}&quot;.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.InvalidUrlMapFilePathX01">
+            <summary>
+              Looks up a localized string similar to Invalid UrlMap file path &quot;{0}&quot;.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.LoadingAuthenticationPageList">
+            <summary>
+              Looks up a localized string similar to Loading Authentication Page List.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.PageFileX0DoesnTExist">
+            <summary>
+              Looks up a localized string similar to Page file &quot;{0}&quot; doesn&apos;t exist.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.PleaseSetSitePathPropertyFirstBeforeTransf">
+            <summary>
+              Looks up a localized string similar to Please set &quot;SitePath&quot; property first before transforming a Page Request.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.RuntimeAuthenticationNotEnabledCannotPerfo">
+            <summary>
+              Looks up a localized string similar to Runtime Authentication not enabled. Cannot perform authentication. Please enable it in web.config..
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.RuntimeAuthSettingsDoesnTExistInConfigurat">
+            <summary>
+              Looks up a localized string similar to &quot;runtimeAuthSettings&quot; doesn&apos;t exist in configuration.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.StartingLegacyXSLTTransformationOnPageX0">
+            <summary>
+              Looks up a localized string similar to Starting legacy XSLT transformation on page {0}.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.StylesheetX0DoesnTExist">
+            <summary>
+              Looks up a localized string similar to Stylesheet &apos;{0}&apos; doesn&apos;t exist.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.SystemFiles">
+            <summary>
+              Looks up a localized string similar to System Files.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Properties.Resources.TheElementPassedInForConstructorIsNotATaxo">
+            <summary>
+              Looks up a localized string similar to The element passed in for constructor is not a TaxonomyNavigation element.
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.LegacyTransformationEngine">
+            <summary>
+            The XSLT transformation engine uses MSXML4 to perform transformations.
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.DynamicTransformationEngine">
+            <summary>
+            This is the transformation engine that uses the System.XML instead of MSXML4. 
+            It is a faster transformation engine, but XSLT syntax are slightly different.
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.DynamicTransformationEngine.#ctor">
+            <summary>
+            Creates a new instance of the transformation engine. Make sure to set the SitePath before calling a transform with the page request.
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.DynamicTransformationEngine.#ctor(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Create a new instance of .NET XSLT transformation engine based on the site path
+            </summary>
+            <param name="sitePath">The path to locate the Stylesheets folder</param>
+            <param name="rtSitePath">The actual DSS site path from which to get settings</param>
+        </member>
+        <member name="M:Ingeniux.Runtime.DynamicTransformationEngine.Transform(Ingeniux.Runtime.CMSPageRequest,System.String@,System.String,System.Boolean)">
+            <summary>
+            Transforms an XDocument with MSXML4, returns the result stream, and outputs the content type.
+            Make sure to set the SitePath before calling Transform with a page request.
+            </summary>
+            <param name="pageRequest">The page request to be rendered by a legacy transformation</param>
+            <param name="contentType">Outputs the content type of the transformation result</param>
+            <param name="overrideStylesSheetFullPath">The Override path of xslt stylesheet</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.DynamicTransformationEngine.Transform(System.Xml.Linq.XNode,System.String,System.Boolean)">
+            <summary>
+            Transforms an XNode with a given stylesheet path via System.XML
+            </summary>
+            <param name="sourceNode">Source content node to transform</param>
+            <param name="stylesheetPath">XSLT file path</param>
+            <returns>Transformed content in string form</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.DynamicTransformationEngine.BuildIgxInfo(Ingeniux.Runtime.CMSPageRequest,System.String)">
+            <summary>
+            Builds an IGX_Info element. This method is provided for backward compatibility with classic xslt transformation system,
+            where all request information must be provided within XML. Newer MVC View based sites does not need it at all,
+            since all request information are in the ICMSRequest model.
+            </summary>
+            <param name="pageRequest">CMS Page request</param>
+            <param name="rtSitePath">Path of runtime site</param>
+            <returns>IGX_Info element fully expanded</returns>
+        </member>
+        <member name="P:Ingeniux.Runtime.DynamicTransformationEngine.InContextEditMode">
+            <summary>
+            Gets/sets if transformation engine is in ICE mode. ICE mode will process stylesheets to add ICE markups
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.DynamicTransformationEngine.SitePath">
+            <summary>
+            Gets/sets the SitePath; necessary before transforming a page request.
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.LegacyTransformationEngine.#ctor(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Creates a new instance of the legacy transformation engine based on the site path.
+            </summary>
+            <param name="sitePath">The path to locate the Stylesheets folder</param>
+            <param name="rtSitePath">The actual DSS site path from which to get settings</param>
+        </member>
+        <member name="M:Ingeniux.Runtime.LegacyTransformationEngine.#ctor">
+            <summary>
+            Creates a new instance of the transformation engine. Make sure to set the SitePath before calling a transform with the page request.
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.LegacyTransformationEngine.Transform(System.Xml.Linq.XNode,System.String,System.Boolean)">
+            <summary>
+            Transforms an XNode with a given stylesheet path via MSXML 4.
+            </summary>
+            <param name="sourceNode">Source content node to transform</param>
+            <param name="stylesheetPath">XSLT file path</param>
+            <returns>Transformed content in string form</returns>
+        </member>
+        <member name="T:Ingeniux.Runtime.XSLT.ICE.DynamicPreviewICEProcessor">
+            <summary>
+            The object to process stylesheet for In-context edit transformation
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.CrossReferences.ICrossReferencePageEntry">
+            <summary>
+            Represents a cross reference entry, based on navigation representative
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CrossReferences.ICrossReferencePageEntry.IsDirectReference">
+            <summary>
+            Gets if the reference is a forward direct reference
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CrossReferences.ICrossReferencePageEntry.IsCrossReference">
+            <summary>
+            Gets if the reference is a backward corss reference
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.CMSNavigationElement">
+            <summary>
+            Represents a navigation element (Navigation, Taxonomy Navigation, References, and LinkSet).
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.CMSPageTypeRequest">
+            <summary>
+            A simple page request that will not load page data.
+            This is only used to find out if a page exists and what it has for a schema (root element name).
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageTypeRequest.#ctor(System.String,Ingeniux.Runtime.UrlData)">
+            <summary>
+            Constructs the request by site path and URL data.
+            </summary>
+            <param name="sitePath"></param>
+            <param name="urlData"></param>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageTypeRequest.#ctor(System.String)">
+            <summary>
+            Constructs the request directly by schema, assuming it exists.
+            </summary>
+            <param name="schema"></param>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageTypeRequest.Schema">
+            <summary>
+            Get the schema of page
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageTypeRequest.Exists">
+            <summary>
+            Get if page exists
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.CMSPageDynamicPreviewRequest">
+            <summary>
+            Preview request for dynamic preview. Only available for CMS design-time content store. 
+            It is based on page preview request, but instead of receiving already expanded content from form post, this object will build the page content first.
+            Same as its base class, all environment variables are simulated values from query strings.
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.DesignTime.CMSPageDynamicPublishRequest._GetComExecuteProcessor(System.Xml.Linq.XElement)">
+            <summary>
+            Dynamic publish request will only use comexecute engine, since it has no way to locate the dynamic
+            execute plugins
+            </summary>
+            <param name="comEx"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Ingeniux.Runtime.DesignTime.CMSPageDynamicPublishRequest.IsComponent">
+            <summary>
+            Override, get is component information from reference file is the content is not set yet
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.Mobile.MobileDevice">
+            <summary>
+            Presents strongly-typed basic mobile device information.
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.Mobile.IMobileDevice">
+            <summary>
+            Provides a simple interface with basic information on the 
+            features of a mobile device; also accesses additional device capabilities by string name.
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.Mobile.IMobileDevice.GetCapability(System.String)">
+            <summary>
+            Gets the device capability by name.
+            </summary>
+            <param name="capabilityName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Ingeniux.Runtime.Mobile.IMobileDevice.Model">
+            <summary>
+            Gets the model of the device.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Mobile.IMobileDevice.MajorVersion">
+            <summary>
+            Gets the major version of the device.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Mobile.IMobileDevice.MinorVersion">
+            <summary>
+            Gets the minor version of the device.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Mobile.IMobileDevice.Manufacturer">
+            <summary>
+            Gets the name of the manufacturer of the device.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Mobile.IMobileDevice.UserAgent">
+            <summary>
+            Gets the raw user agent string for the device.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Mobile.IMobileDevice.ScreenWidth">
+            <summary>
+            Gets the width of the device's screen. Please note that the size corresponds to the device's display, not necessarily to the actual pixels of the screen.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Mobile.IMobileDevice.ScreenHeight">
+            <summary>
+            Gets the height of the device's screen. Please note that the size corresponds to the device's display, not necessarily to the actual pixels of the screen.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.Mobile.IMobileDevice.IsTablet">
+            <summary>
+            Checks to see if the device is a tablet.
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.LingualMaps.ILingualMap">
+            <summary>
+            Represents a single lingual map for a specific page.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.LingualMaps.ILingualMap.IsMasterMap">
+            <summary>
+            If the map to master page of current page
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.LingualMaps.ILingualMap.TargetPageID">
+            <summary>
+            The map target, if master map, it's the master, otherwise, it is the clone
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.LingualMaps.ILingualMap.TargetPageLocale">
+            <summary>
+            Gets the target page locale
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.CMSPageRedirectRequest">
+            <summary>
+            Represents a redirect for a CMS request.
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageRedirectRequest.#ctor(System.String,System.Collections.Specialized.NameValueCollection,System.Boolean,System.Boolean)">
+            <summary>
+            Construct an instance of CMSPageRedirectRequest
+            </summary>
+            <param name="destination">The URL to redirect to</param>
+            <param name="queryStrings">Querystrings to be appended to the URL, optional</param>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageRedirectRequest.RedirectDestination">
+            <summary>
+            The destination URL without query strings
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageRedirectRequest.QueryString">
+            <summary>
+            Query string to carry over
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageRedirectRequest.FinalUrl">
+            <summary>
+            The desination URL with query strings included
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageRedirectRequest.Exists">
+            <summary>
+            True if RedirectDesitination exists
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.CMSPageFactory">
+            <summary>
+            The entry point of the Ingeniux DSS. This object is used to retrieve pages by xID or structured URL, and to get preview content and In-Context Edit update content.
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageFactory.#ctor(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Constructs the CMSPageFactory instance according to the DSS site's physical location.
+            Please note that StructuredUrlMap will only work with one path (the first path) used to construct the page factory.
+            </summary>
+            <param name="sitePath"></param>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageFactory.GetPage(System.Web.HttpRequestBase,System.Boolean)">
+            <summary>
+            Gets the page by request.
+            </summary>
+            <param name="request">The HttpRequest</param>
+            <param name="pageTypeOnly">If you only need to retrieve the preview page summary, pass in true. The default is false.</param>
+            <returns>The routing request contains the CMS request and the remaining path information.</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageFactory.GetPageByPath(System.Web.HttpRequestBase,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Gets the page by relative URL path.
+            </summary>
+            <param name="request">The HttpRequest</param>
+            <param name="path">The relative path of the request</param>
+            <param name="pageTypeOnly">If you only need to retrieve the preview page summary, pass in true. The default value is false.</param>
+            <returns>Either a redirect request if the URL is not canonical, or an actual CMS page object</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageFactory.GetPage(System.Web.HttpRequestBase,System.String)">
+            <summary>
+            Gets the page by xID.
+            </summary>
+            <param name="request">The HttpRequest</param>
+            <param name="pageId">Page's xID</param>
+            <returns>Always returns a CMSPageRequest. The object itself will indicate if the page exists.</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageFactory.GetPreviewPage(System.Web.HttpRequestBase,System.Boolean)">
+            <summary>
+            Gets a preview page request. Please note that the preview request will post in the expanded page content.
+            </summary>
+            <param name="request">The HttpRequest</param>
+            <param name="pageTypeOnly">If you only need to retrieve the preview page summary, pass in true. The default value is false.</param>
+            <returns>Returns the preview request</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageFactory.GetDynamicPreviewPage(System.Web.HttpRequestBase,System.Boolean,System.Boolean)">
+            <summary>
+            Gets the preview page request via dynamic preview.
+            Request must include pubTarget and pageId as querystrings, and pageId value cannot be empty
+            also, "schema" must be passed in too for finding the right controller on MVC site
+            </summary>
+            <param name="request">The HttpRequest</param>
+            <param name="pageTypeOnly">If you only need to retrieve the preview page summary, pass in true. The default value is false.</param>
+            <returns>Returns the dynamic preview request</returns>	
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSPageFactory.GetIceFieldMarkupUpdater(System.Web.HttpRequestBase)">
+            <summary>
+            Used to handle In-Context Editing field markup updates
+            </summary>
+            <param name="request">The HttpRequest</param>
+            <returns>Returns the Field Markup Update request for In-Context Editing in preview</returns>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageFactory.UrlMap">
+            <summary>
+            Gets the Structured URL Map.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageFactory.RedirectsionMap">
+            <summary>
+            Gets the redirections map.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageFactory.AuthenticationManager">
+            <summary>
+            Gets the authentication manager
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageFactory.GlobalExportsDefinitions">
+            <summary>
+            Gets the global exports definitions
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageFactory.LocalExportsIncludeLinks">
+            <summary>
+            Gets/sets whether or not to expand links when getting local exports.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageFactory.CacheSiteControls">
+            <summary>
+            Gets/sets whether or not to cache Site Control file content.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSPageFactory.SiteControlSchemas">
+            <summary>
+            Gets/sets the schema types (root element names) of Site/Section Controls to be cached (only effective if the "CacheSiteControls" property is on).
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.CrossReferences.ICrossReferences">
+            <summary>
+            Representative of cross references system
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.CrossReferences.ICrossReferences.GetReferences(System.Collections.Generic.IEnumerable{System.String},System.Boolean,Ingeniux.Runtime.NavigationBuilder.ICMSNavigationBuildingSession,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Get references for given page ids
+            </summary>
+            <param name="pageIds">page id for get references for</param>
+            <param name="navBuilder">The navigation builder instance</param>
+            <param name="depth">How deep to query the references</param>
+            <param name="includeCrossReferences">Include cross references entries or not</param>
+            <returns>Collection of cross references entries</returns>
+        </member>
+        <member name="T:Ingeniux.Runtime.RedirectResult">
+            <summary>
+            Entry for permenant redirects.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.RedirectResult.From">
+            <summary>
+            From address: the relative path to the site app root.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.RedirectResult.To">
+            <summary>
+            To address: can be relative or absolute.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.RedirectResult.QueryStrings">
+            <summary>
+            Gets the query strings from the request.
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.LocalExportLinkElementProcessor._ExpandSingleEntry(Ingeniux.Runtime.NavigationBuilder.ICMSPageEntry,System.String)">
+            <summary>
+            Override of ExpandSingleEntry passing in null for local exports to prevent looping.
+            </summary>
+            <param name="pageEntry"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Ingeniux.Runtime.StructureUrlMap">
+            <summary>
+            This is a simple dictionary to capture igxurlmap.xml for easy indexing.
+            It is a singleton object that will only work with one site location.
+            The object automatically refreshes itself when the underlying file updates.
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.StructureUrlMap.Get(System.String)">
+            <summary>
+            A static method that gets the singleton URL map. Please note that every time this method is called, the sitePath value must be the same, or an exception will be thrown.
+            </summary>
+            <param name="sitePath">Physical location of the DSS site</param>
+            <returns>URL Map instance</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.StructureUrlMap.GetPageDataByPath(System.String)">
+            <summary>
+            Gets a page's URL information by friendly URL path.
+            </summary>
+            <param name="path">URL path</param>
+            <returns>Null if path doesn't exist</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.StructureUrlMap.GetPageDataByID(System.String)">
+            <summary>
+            Gets a page's URL information by page xID.
+            </summary>
+            <param name="id">xID of page</param>
+            <returns>Null if an xID doesn't exist</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.StructureUrlMap.GetPageURLByIDForMFO(System.String,Ingeniux.Runtime.UserAgent,System.Boolean@)">
+            <summary>
+            Get page url for MFO publish only. Should only be used in publishing scenario.
+            </summary>
+            <param name="id"></param>
+            <param name="userAgent"></param>
+            <param name="isUrlStructured"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.StructureUrlMap.AddPath(System.String,System.String,System.String,Ingeniux.Runtime.MapType,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Adds a new path.
+            </summary>
+            <param name="path">Friendly URL Path</param>
+            <param name="pageID">Page xID</param>
+            <param name="mapType">Type of map</param>
+            <param name="isCanonical">Is canonical map or not</param>
+            <param name="isCustomPath">Is custom path or not</param>
+            <param name="requiresSsl">Page requires SSL connection or not. All path for a page will use the same value.</param>
+        </member>
+        <member name="P:Ingeniux.Runtime.StructureUrlMap.SitePath">
+            <summary>
+            Gets the physical location of the site.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.StructureUrlMap.Settings">
+            <summary>
+            Gets the settings of the site.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.StructureUrlMap.HomePageId">
+            <summary>
+            Gets the home page ID.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.StructureUrlMap.Error404PageId">
+            <summary>
+            Gets the 404 error page ID.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.StructureUrlMap.EnabledExtensions">
+            <summary>
+            Gets the active/enabled structured URL extensions.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.StructureUrlMap.CanonicalExtension">
+            <summary>
+            Gets the "OutputExtension" value from settings and serves it as the target redirect extension.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.StructureUrlMap.AutoRedirectToCanonical">
+            <summary>
+            Gets a value indicating whether or not the "AutoRedirectToCanonical" option is true; controls redirect behavior.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.StructureUrlMap.ForceLowerCaseURL">
+            <summary>
+            Gets a value indicating whether or not the "OutputExtension" option is true and controls redirect behavior.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.StructureUrlMap.Enabled">
+            <summary>
+            Gets a value indicating whether or not the "UseStructuredURL" option is true.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.StructureUrlMap.Item(System.String)">
+            <summary>
+            Gets the URL data by path; returns the home page URL if the index is null or empty.
+            </summary>
+            <param name="index">URL path, or null/empty to return no page URL information</param>
+            <returns>URL data object</returns>
+        </member>
+        <member name="T:Ingeniux.Runtime.UrlData">
+            <summary>
+            Captures URL information generated from the structured URL map.
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.UrlData.#ctor(System.String,Ingeniux.Runtime.StructureUrlMap)">
+            <summary>
+            Initializes a new instance of the UrlData class.
+            </summary>
+            <param name="pageID">The pageID for the UrlData object</param>
+            <param name="parentUrlMap">The parent UrlMap</param>
+        </member>
+        <member name="M:Ingeniux.Runtime.UrlData.IsCanonicalUrl(System.String)">
+            <summary>
+            Gets a value that indicates if the current path directly matches the CanonicalUrl value.
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.UrlData.AddMappedPath(System.String,Ingeniux.Runtime.MapType)">
+            <summary>
+            Adds a new MappedPath with the given MapType to the UrlData object.
+            </summary>
+            <param name="path">The path to add</param>
+            <param name="mapType">The MapType to use</param>
+        </member>
+        <member name="P:Ingeniux.Runtime.UrlData.UrlMap">
+            <summary>
+            Gets the parent UrlMap instance.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.UrlData.IsCustomPath">
+            <summary>
+            Gets a value indicating whether or not the canonical URL is a custom path and, thus, whether or not it should have the canonical extension appended.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.UrlData.PageID">
+            <summary>
+            Gets the page with which this data is associated.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.UrlData.RequiresSSL">
+            <summary>
+            Gets if the page requires to be accessible only via SSL or not
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.UrlData.ActivePath">
+            <summary>
+            Gets or sets the ActivePath property. During UrlMap load, this property is set to either the NativeID (when structured URLs are disabled), the NativeStructuredUrl, or the Vanity URL.
+            </summary>
+            <remarks>
+            The reason that ActivePath exists in addition to CanonicalUrl is that, during request processing, we want to test the path minus the extension to match other StructuredUrl extension requests.
+            </remarks>
+        </member>
+        <member name="P:Ingeniux.Runtime.UrlData.MappedPaths">
+            <summary>
+            Gets the MappedPaths associated with this page. During UrlMap load, one entry is created for each MappedPath in the UrlMap as well
+            as automatic entries for the NativeID and NativeStructuredUrl.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.UrlData.CanonicalUrl">
+            <summary>
+            Gets the CanonicalUrl, which is a combination of the ActivePath and the CanonicalExtension on all pages but the root.
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.TypeFinder.GetDerivedTypesFromAppDomain(System.Type)">
+            <summary>
+            Retrieves the Type definitions from all types in the loaded assemblies from app domain that are derived from the given type.
+            The given type itself is excluded.
+            </summary>
+            <param name="baseType">Base type from which retrieved types are derived</param>
+            <returns>Array of derived types defined in the assemblies in app domain</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.TypeFinder.GetDerivedTypesFromLocation(System.Type,System.String)">
+            <summary>
+            Retrieves a list of types derived from a base type at the given location.
+            This is a true late-binding method.
+            </summary>
+            <param name="baseType">Base type</param>
+            <param name="location">A hard drive location to look into</param>
+            <returns>List of derived types</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.TypeFinder.GetTypesFromLocation(System.String)">
+            <summary>
+            All exposed types from the specific location
+            </summary>
+            <param name="folder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.TypeFinder.GetAssembliesInFolder(System.String)">
+            <summary>
+            Retrieves all the assemblies from a given folder.
+            </summary>
+            <param name="sitePath">Path of CMS site</param>
+            <returns>List of assemblies retrieved from a given folder</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.TypeFinder.GetDerivedTypesFromAssembly(System.Reflection.Assembly,System.Type)">
+            <summary>
+            Retrieves the Type definitions from all types in the assembly that are derived from the given type.
+            Th given type itself is excluded.
+            </summary>
+            <param name="assembly">Assembly from which to retrieve types</param>
+            <param name="baseType">Base type from which the types are retrieved</param>
+            <returns>Array of derived types defined in the assembly</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.TypeFinder.GetTypesFromAssembly(System.Reflection.Assembly)">
+            <summary>
+            Retrieves all types from a given assembly.
+            </summary>
+            <param name="assembly">Assembly from which to retrieve types</param>
+            <returns>List of types or empty array</returns>
+            <remarks>If the assembly is a null object, returns an empty array.</remarks>
+        </member>
+        <member name="M:Ingeniux.Runtime.TypeFinder.InvokeGenericMethod(System.String,System.Object,System.Type[],System.Type[],System.Object[])">
+            <summary>
+            Invokes a generic method by name, in a reflection context.
+            This method is the only way to invoke a generic method in late-bound conditions.
+            </summary>
+            <param name="methodName">Generic method name to be executed</param>
+            <param name="obj">Object invoking the generic method</param>
+            <param name="genericTypeArguments">List of generic type arguments</param>
+            <param name="paramTypes">Array of parameter types</param>
+            <param name="methodParameters">Array of parameter values as objects</param>
+            <returns>Result of the generic method exclusion; null if the generic method is a void method</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.TypeFinder.ReflectiveExecute(System.Func{System.Object})">
+            <summary>
+            Executes a method that will return an object via callback.
+            If the execution throws a target invocation exception, this will dig into the exception, get the actual exception, and throw it.
+            </summary>
+            <param name="executionCallback">Callback delegate to return an object</param>
+            <returns>The object that is returned by the callback</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.TypeFinder.GetActualException(System.Reflection.TargetInvocationException)">
+            <summary>
+            Gets the actual exception out of TargetInvocationException.
+            This method digs into the deepest inner exception.
+            This method is essential for capturing the actual exception when performing reflective invocation.
+            </summary>
+            <param name="e">TargetInvocationException to extract actual exception from</param>
+            <returns>Actual exception</returns>
+        </member>
+        <member name="T:Ingeniux.Runtime.Mobile.IGXMobileCapabilitiesProvider">
+            <summary>
+            This is the override for the 51Degress.mobi provider. 
+            It provides a fake user agent string via form post in order to generate
+            device information and inject browser capabilities.
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.Mobile.IGXMobileCapabilitiesProvider.getGenericDeviceInfo(System.String)">
+            <summary>
+            The generic device user agent looks like "IGXGenericPreviewDevice|320|480" (name|width|height).
+            </summary>
+            <param name="userAgent"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Ingeniux.Runtime.RuntimeAuth.DownloadManager._RegDownloads">
+            <summary>
+            Private field to track registered downloads
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.RuntimeAuth.DownloadManager.#ctor(Ingeniux.Runtime.RuntimeAuth.RuntimeAuthenticationSettings)">
+            <summary>
+            Initializes a new instance of the DownloadManager class
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.RuntimeAuth.DownloadManager.ProcessProtectedDownload(System.Web.HttpContextBase,System.Collections.Generic.Dictionary{System.String,System.String}@,System.String@)">
+            <summary>
+            Deal with protected path, request to protected path are considered as binary request,
+            no matter what the file type is. They will be forwarded to a download page in CMS
+            </summary>
+            <param name="context">An instance of the HttpContext class</param>
+            <param name="mimeType">The assigned mime type of the request</param>
+        </member>
+        <member name="T:Ingeniux.Runtime.RuntimeAuth.AssetRequestState">
+            <summary>
+            The request state of asset
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.RuntimeAuth.AssetRequestState.Success">
+            <summary>
+            Successful asset request
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.RuntimeAuth.AssetRequestState.Forbidden">
+            <summary>
+            Asset is forbidden for access
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.RuntimeAuth.AssetRequestState.Unauthorized">
+            <summary>
+            Asset is protected and there is no authentication information
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.RuntimeAuth.AuthenticationManager">
+            <summary>
+            The manager object in charge of all authentication aspects of dynamic site server
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.RuntimeAuth.AuthenticationManager.Settings">
+            <summary>
+            Gets the runtime authentication settings
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.RuntimeAuth.AuthenticationManager.Get(System.String)">
+            <summary>
+            Get the singleton instance of Authentication manager.
+            </summary>
+            <param name="sitePath">Site's XML physical location</param>
+            <returns>The singleton instance of Authentication Manager</returns>
+            <remarks>The first time this method is called, the site path passed in will be the determining path. Future calls to this method must pass in the same site path, or exception will be thrown</remarks>
+        </member>
+        <member name="M:Ingeniux.Runtime.RuntimeAuth.AuthenticationManager.IsProtectedAsset(System.String)">
+            <summary>
+            Check if asset is protected or not. 
+            </summary>
+            <param name="assetRelativePath">Relative asset path</param>
+            <returns>True if asset is to be protected</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.RuntimeAuth.AuthenticationManager.IsForbiddenAsset(System.String)">
+            <summary>
+            Check if asset is blocked from access all together
+            </summary>
+            <param name="assetRelativePath">Relative asset path</param>
+            <returns>True if asset is blocked</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.RuntimeAuth.AuthenticationManager.CheckAssetAccessiblility(System.String,System.Web.HttpRequestBase)">
+            <summary>
+            Check if asset is accessible in current request.
+            This will handle both blocked and protected assets. Asset handler need to use the corresponding state and decide what response code to give to client
+            </summary>
+            <param name="assetRelativePath">Relative asset path</param>
+            <param name="request">Http Request</param>
+            <returns>AssetRequestState enum value</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.RuntimeAuth.AuthenticationManager.Authorize(Ingeniux.Runtime.ICMSRoutingRequest)">
+            <summary>
+            Authorzied page request. Will bypass is RTA if not enabled. Otherwise, attach user data on the request
+            if authenticated. If not, return the page request into a routing request
+            </summary>
+            <param name="routingRequest"></param>
+        </member>
+        <member name="M:Ingeniux.Runtime.RuntimeAuth.AuthenticationManager.Login(System.String,System.String,System.String,System.Boolean,System.Web.HttpRequestBase)">
+            <summary>
+            Perform login action
+            </summary>
+            <param name="userName"></param>
+            <param name="password"></param>
+            <param name="redirectUrl"></param>
+            <param name="isBackgroundAuthentication"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.RuntimeAuth.AuthenticationManager.LogOut(System.Web.HttpContextBase,System.String)">
+            <summary>
+            Perform log out action
+            </summary>
+            <param name="context"></param>
+            <param name="redirectUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Ingeniux.Runtime.RuntimeAuth.AuthenticationManager.SitePath">
+            <summary>
+            Gets the site's xml physical location
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.RuntimeAuth.AuthenticationManager.AuthenticationEngine">
+            <summary>
+            Gets the authentication engine, that is in charge of authenticating user
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.RuntimeAuth.AuthenticationManager.Enabled">
+            <summary>
+            Gets if RTA is enabled for the site or not.
+            Please note that RTA is automatically disabled on design-time
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.NavigationBuilder.ICMSPageEntryExportDefinition">
+            <summary>
+            Definition of export, global or local
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.NavigationBuilder.ICMSPageEntryExportDefinition.Name">
+            <summary>
+            Name of the export definition
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.NavigationBuilder.ICMSPageEntryExportDefinition.Query">
+            <summary>
+            Xpath query of the export definition
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.FileDependentCachedDocument">
+            <summary>
+            Captures information from time-sensitive documents to be cached.
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.SiteControlsCache">
+            <summary>
+            Cache of site controls
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.CMSPagePreviewRequest">
+            <summary>
+            This object represents a preview request from a CMS site.
+            Please note that the page content is not retrieved from a page's XML file, but passed in as a form post from the requester.
+            Also, all environment variables are simulated values from query strings.
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSAttribute.op_Implicit(Ingeniux.Runtime.CMSAttribute)~System.String">
+            <summary>
+            An operator extension that implicitly casts an attribute value to a string.
+            </summary>
+            <param name="attr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSAttribute.op_Implicit(Ingeniux.Runtime.CMSAttribute)~System.Int32">
+            <summary>
+            An operator extension that implicitly casts an attribute value to an integer; returns 0 if the value is not an integer.
+            </summary>
+            <param name="attr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSAttribute.op_Implicit(Ingeniux.Runtime.CMSAttribute)~System.DateTime">
+            <summary>
+            An operator extension that implicitly casts an attribute value to DateTime. Returns a min date value if the value is not in ISO8601 date format.
+            </summary>
+            <param name="attr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSAttribute.op_Implicit(Ingeniux.Runtime.CMSAttribute)~System.Boolean">
+            <summary>
+            An operator extension that implicitly casts an attribute value to a Boolean. Returns false if the cast fails.
+            </summary>
+            <param name="attr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.CMSAttribute.op_Implicit(Ingeniux.Runtime.CMSAttribute)~System.Uri">
+            <summary>
+            An operator extension that implicitly casts an attribute value to a URI. Returns null if the attribute name is not "URL".
+            </summary>
+            <param name="attr"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSAttribute.Factory">
+            <summary>
+            Gets the page factory used to retrieve pages
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.TransformOptions">
+            <summary>
+            The enum of transformation options
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.TransformOptions.Default">
+            <summary>
+            (Default option) Instructs to render final markup.
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.TransformOptions.ExpansionOnly">
+            <summary>
+            Expands page content and doesn't render final markup.
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.TransformOptions.Raw">
+            <summary>
+            Returns the raw XML page content.
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.NavigationBuilder.ICMSPageEntryExport">
+            <summary>
+            Instantiated navigation export field with value. 
+            Provide the way to serialize into xml attribute
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.NavigationBuilder.ICMSPageEntryExport.Serialize">
+            <summary>
+            Gets the XAttribute result, to be plug into page node
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Ingeniux.Runtime.NavigationBuilder.ICMSPageEntryExport.Value">
+            <summary>
+            Gets the value of export instance
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.RedirectsMap">
+            <summary>
+            The map of permenant redirects. These redirects have higher priority than structured URLs, unless the request is for the xID.
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.RedirectsMap.matchID">
+            <summary>
+            Regular expression to match xID requests
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.RedirectsMap.Get(System.String)">
+            <summary>
+            Gets the RedirectsMap instance. Depending on the file write time, either the underlying file is loaded, or a cached version is used if the file has not changed.
+            </summary>
+            <param name="sitePath">DSS site path</param>
+            <returns>Redirection Map</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.RedirectsMap.loadRedirectsMap(System.IO.FileInfo)">
+            <summary>
+            Loads redirects map from file.
+            </summary>
+            <param name="redirectsFile"></param>
+            <remarks>Original Author : John Lewin</remarks>
+        </member>
+        <member name="M:Ingeniux.Runtime.RedirectsMap.locateRedirect(System.Web.HttpRequestBase)">
+            <summary>
+            Locates the target URL from the request.
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+            <remarks>Original Author : John Lewin</remarks>
+        </member>
+        <member name="P:Ingeniux.Runtime.RedirectsMap.SitePath">
+            <summary>
+            Gets the site path.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.RedirectsMap.Item(System.Web.HttpRequestBase)">
+            <summary>
+            Gets redirect entry by request.
+            </summary>
+            <param name="request">Http Request</param>
+            <returns>Returns null if a redirect is not defined for the request path.</returns>
+        </member>
+        <member name="P:Ingeniux.Runtime.Mobile.MobileDeviceDetector.IsMobileRequest">
+            <summary>
+            Tablet is counted as mobile device
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.NavigationElementProcessor.buildChildrenNoneRecursive(System.Xml.Linq.XElement,System.Boolean)">
+            <summary>
+            Not being used, not as fast as recursive calls
+            </summary>
+            <param name="parentNode"></param>
+        </member>
+        <member name="T:Ingeniux.Runtime.NavigationBuilder.CMSNavigationBuilder">
+            <summary>
+            Navigation builder is in charge of building navigation items for each page
+            in the file system got the new published page files (without links expanded)
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.NavigationBuilder.ICMSNavigationBuilder">
+            <summary>
+            The navigation builder, used to create and manage navigation representatives for pages/components. Also in charge of providing 
+            navigation representatives to content expansions engine.
+            It will automatically start building page entries in the background as soon as constructed
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.NavigationBuilder.ICMSNavigationBuilder.PrepareBuilder(System.Boolean)">
+            <summary>
+            Prepare build for navigation building. Needs to be called before navigation building to ensure that navigation
+            building is based on 
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.NavigationBuilder.ICMSNavigationBuilder.BuildPageEntries(Ingeniux.Runtime.NavigationBuilder.ICMSNavigationBuildingSession,System.Boolean,System.Collections.Generic.IEnumerable{System.String},System.Boolean)">
+            <summary>
+            Build navigation representatives for given page ids
+            </summary>
+            <param name="pageIds">List of page ids</param>
+        </member>
+        <member name="M:Ingeniux.Runtime.NavigationBuilder.ICMSNavigationBuilder.GetPageEntries(Ingeniux.Runtime.NavigationBuilder.ICMSNavigationBuildingSession,System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Boolean)">
+            <summary>
+            Gets the navigation representatives for given page ids. 
+            It will build the representatives first, if entry does not exist or expired
+            </summary>
+            <param name="pageIds">List of page ids</param>
+            <param name="filterSchemaNames">Page must use given schemas 
+            to be selected</param>
+            <param name="filterAncestorPageIds">Page must be under given 
+            ancestors to be selected</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.NavigationBuilder.ICMSNavigationBuilder.Reload">
+            <summary>
+            Load dictionary from disk
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.NavigationBuilder.ICMSNavigationBuilder.Flush">
+            <summary>
+            Serialize the dictionary to disk
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.NavigationBuilder.ICMSNavigationBuilder.Clear">
+            <summary>
+            Empty the dictionary
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.NavigationBuilder.ICMSNavigationBuilder.Count">
+            <summary>
+            Gets the count of navigation representatives 
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.NavigationBuilder.ICMSNavigationBuilder.MFOPublishMode">
+            <summary>
+            Gets the mfo publishing mode. When MFO publishing mode is enabled, navigation building
+            is using full url even at design time
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.NavigationBuilder.ICMSNavigationBuilder.CurrentPublishingTarget">
+            <summary>
+            Gets the current publishing target for MFO publishing mode only
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.NavigationBuilder.CMSNavigationBuilder.PrepareBuilder(System.Boolean)">
+            <summary>
+            Check if rebuild is needed and perform rebuild if necessary
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Ingeniux.Runtime.LingualMaps.ILingualMaps">
+            <summary>
+            Represents the collection of lingual maps
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.LingualMaps.ILingualMaps.GetLingualMapsForPage(System.String)">
+            <summary>
+            This method will return both master map and clone page for given page
+            </summary>
+            <param name="pageId">Page id get lingual maps for</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ingeniux.Runtime.CMSRoutingRequest">
+            <summary>
+            The object that encapsulates CMS page and routing information.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSRoutingRequest.CMSRequest">
+            <summary>
+            Get the CMS Request
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.CMSRoutingRequest.RemaingPath">
+            <summary>
+            Get the remaining path. This feature is for implementing anchor pages in CMS. Anchor pages are CMS pages
+            that are use to lead a group of routing that don't map to CMS, but are provided as pure functional pages.
+            The remaing path will be used to handle those routes. This way, we can leverage the content of the anchor page on these pure functional pages.
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.Taxonomy.ITaxonomy">
+            <summary>
+            Represents the taxonomy system, including taxonomy tree and page associations
+            </summary>
+        </member>
+        <member name="M:Ingeniux.Runtime.Taxonomy.ITaxonomy.ByID(System.String)">
+            <summary>
+            Gets a category by id
+            </summary>
+            <param name="categoryId">category id to look for</param>
+            <returns>Null if category doesn't exist</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.Taxonomy.ITaxonomy.GetPageCategories(System.String)">
+            <summary>
+            Get categories for given page
+            </summary>
+            <param name="pageId">id of page</param>
+            <returns>Collection of category definitions, if found</returns>
+        </member>
+        <member name="M:Ingeniux.Runtime.Taxonomy.ITaxonomy.GetCategoryPages(Ingeniux.Runtime.Taxonomy.ICategoryDefinition,Ingeniux.Runtime.NavigationBuilder.ICMSNavigationBuildingSession,System.Boolean,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Boolean)">
+            <summary>
+            Get pages for given category
+            </summary>
+            <param name="category">Category for get pages for</param>
+            <param name="filterSchemaNames">Page must be using one of 
+            the given schemas to be listed</param>
+            <param name="filterAncestorPageIds">Page must be under one 
+            of the ancestor pages to be listed</param>
+            <returns>Collection of navigation representatives assigned to category</returns>
+        </member>
+        <member name="T:Ingeniux.Runtime.MapType">
+            <summary>
+            Represents one of the various MappedPath types.
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.MapType.NativeID">
+            <summary>
+            Represents the /xID.xml file; added automatically during urlmap.xml load.
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.MapType.NativeStructuredUrl">
+            <summary>
+            Represents the natural StructuredUrl; added automatically during urlmap.xml load.
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.MapType.Deleted">
+            <summary>
+            Added by the migration process when pages have been deleted.
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.MapType.Renamed">
+            <summary>
+            Added by the migration process when pages have been renamed.
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.MapType.PublishAs">
+            <summary>
+            Added by the migration process when new PublishAs info is available.
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.MapType.Moved">
+            <summary>
+            Added by the migration process when a page is moved.
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.MapType.Custom">
+            <summary>
+            Added by the user.
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.MapType.Canonical">
+            <summary>
+            A mapped path that should override the structured URL to become the canonical URL.
+            </summary>
+        </member>
+        <member name="F:Ingeniux.Runtime.MapType.Unknown">
+            <summary>
+            Added by the migration process when a page does not have mapType info associated with it.
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.MappedPath">
+            <summary>
+            Represents a map child element of a page element from the urlmap.xml file.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.MappedPath.Path">
+            <summary>
+            Gets the Path value from the UrlMap.
+            </summary>
+        </member>
+        <member name="P:Ingeniux.Runtime.MappedPath.Type">
+            <summary>
+            Gets the MapType value from the UrlMap.
+            </summary>
+        </member>
+        <member name="T:Ingeniux.Runtime.RuntimeAuth.RegisteredDownloads">
+            <summary>
+            This class provides a tracking system for downloads:
+            
+            Each protected download starts with being forwards to a download page, with tracking id
+            as querystring.
+            
+            The tracking id is stored in the ASP.NET session object (this object)
+            Nexttime somebody hit a binary url with same tracking id,
+            
+            Download will be provided (no forwarding to download page anymore), and tracking id is erases from list.
+            
+            If the tracking id doesn't exist, forward them to download page
+            
+            This object provides functionality to track the changes
+            </summary>
+            
+        </member>
+    </members>
+</doc>

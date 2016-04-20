@@ -1,0 +1,2 @@
+2014-09-07T20:25:45.5066632Z - 4424 - Debug - Getting 'fiftyOne/redirect' configuration from the web.config file.
+2014-09-07T20:25:45.5146637Z - 4424 - Debug - Constructing MobileCapabilitiesProvider - Default

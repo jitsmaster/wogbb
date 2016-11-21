@@ -1,0 +1,62 @@
+﻿@model Ingeniux.Runtime.ICMSPage
+@using Ingeniux.Runtime
+@using Ingeniux.Runtime.Models
+
+@{
+    var libNav = Model.GetNavigation("LibNav");
+
+    var roots = libNav.Elements();
+
+    var rootWithItems = roots
+        .Select(r => new
+        {
+            Root = r,
+            Children = r.Elements()
+        });
+
+}
+
+<div class="row">
+    <div class="span12">
+        <h1>@Model.GetElementValue("Title")</h1>
+    </div>
+</div>
+
+<div class="row">
+	<div class="span12">
+		@Html.Raw(Model.GetElementValue("BodyCopy"))
+	</div>
+</div>
+
+@foreach (var root in rootWithItems)
+{
+    ICMSLinkElement r = root.Root as ICMSLinkElement;
+    <br />
+    <h3>@r.Name</h3>
+
+
+    ICMSElement[] children = root.Children.ToArray();
+    var childrenCount = children.Length;
+    double rowsCount = Math.Ceiling((double)childrenCount / 4);
+
+    for (var i = 0; i < rowsCount; i++)
+    {
+        <div class="row">
+            @for (var j = 0; j < 4; j++)
+            {
+                var index = i * 4 + j;
+                if (index < childrenCount)
+                {
+                    ICMSElement c = children[index];
+                    <div class="span3">
+                        <a href="@c.GetAttributeValue("URL")" title="@c.GetAttributeValue("Name")">
+                            <img src="@Url.Asset("Images/" + c.GetAttributeValue("CoverImage"), Model)" border="0"/>
+                        </a>
+                        <a href="@c.GetAttributeValue("URL")">@c.GetAttributeValue("Name")</a>
+                    </div>
+                }
+            }
+        </div>
+    }
+
+}

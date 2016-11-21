@@ -18846,3 +18846,708 @@
 2016-04-20T01:26:39.4906940Z - 12172 - Debug - Disposing Redirection Module
 2016-04-20T01:26:51.9955070Z - 6508 - Debug - Getting 'fiftyOne/redirect' configuration from the web.config file.
 2016-04-20T01:26:51.9985090Z - 6508 - Debug - Constructing MobileCapabilitiesProvider - Default
+2016-04-20T01:39:24.6194640Z - 12172 - Debug - Getting 'fiftyOne/redirect' configuration from the web.config file.
+2016-04-20T01:39:24.6234680Z - 12172 - Debug - Constructing MobileCapabilitiesProvider - Default
+2016-04-20T01:39:25.5559492Z - 12172 - Debug - Constructing MobileCapabilitiesProvider - Default
+2016-04-20T01:39:25.7390721Z - 12172 - Debug - Initialising redirection module
+2016-04-20T01:39:25.7420741Z - 12172 - Debug - Initialising redirection module static fields.
+2016-04-20T01:39:25.7460749Z - 12172 - Debug - Getting 'fiftyOne/detection' configuration from the web.config file.
+2016-04-20T01:39:25.7530815Z - 12172 - Debug - Initialising redirection module
+2016-04-20T01:39:25.7630882Z - 12172 - Info - Creating provider from binary data file 'G:\wogbb\CMS\dt\DSS_Preview\App_Data\51Degrees.mobi.dat'.
+2016-04-20T01:39:31.9225692Z - 12172 - Info - Created provider from binary data file 'G:\wogbb\CMS\dt\DSS_Preview\App_Data\51Degrees.mobi.dat'.
+2016-04-20T01:39:34.4979995Z - 12172 - Debug - Initialising redirection module
+2016-04-20T01:39:34.4989997Z - 12172 - Debug - Initialising redirection module
+2016-04-20T01:39:52.6492013Z - 12172 - Warn - Exception auto updating binary data file 'G:\wogbb\CMS\dt\DSS_Preview\App_Data\51Degrees.mobi.dat'.
+2016-04-20T01:39:52.6492013Z - 12172 - Warn - 
+2016-04-20T01:39:52.6502025Z - 12172 - Warn - The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.
+2016-04-20T01:39:52.6502025Z - 12172 - Warn -    at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   at System.Net.WebClient.DownloadData(Uri address)
+   at System.Net.WebClient.DownloadData(String address)
+   at FiftyOne.Foundation.Mobile.Detection.AutoUpdate.Download()
+   at FiftyOne.Foundation.Mobile.Detection.AutoUpdate.Run(Object state)
+2016-04-20T01:39:52.6502025Z - 12172 - Warn - The remote certificate is invalid according to the validation procedure.
+2016-04-20T01:39:52.6512031Z - 12172 - Warn -    at System.Net.Security.SslState.StartSendAuthResetSignal(ProtocolToken message, AsyncProtocolRequest asyncRequest, Exception exception)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.TlsStream.CallProcessAuthentication(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Net.TlsStream.ProcessAuthentication(LazyAsyncResult result)
+   at System.Net.TlsStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.PooledStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.ConnectStream.WriteHeaders(Boolean async)
+2016-04-20T01:40:23.0081896Z - 12172 - Debug - Disposing Redirection Module
+2016-04-20T01:40:53.0087466Z - 12172 - Debug - Disposing Redirection Module
+2016-04-20T02:09:38.0135946Z - 12172 - Debug - Initialising redirection module
+2016-04-20T02:09:38.0145957Z - 12172 - Debug - Initialising redirection module
+2016-04-20T02:10:23.4921000Z - 12172 - Debug - Disposing Redirection Module
+2016-04-20T02:10:53.4932043Z - 12172 - Debug - Disposing Redirection Module
+2016-04-20T02:11:05.3459627Z - 12172 - Debug - Initialising redirection module
+2016-04-20T02:11:05.3519667Z - 12172 - Debug - Initialising redirection module
+2016-04-20T02:11:53.5074688Z - 12172 - Debug - Disposing Redirection Module
+2016-04-20T02:12:23.5109527Z - 12172 - Debug - Disposing Redirection Module
+2016-04-20T02:12:32.2149133Z - 12172 - Debug - Initialising redirection module
+2016-04-20T02:12:32.2289227Z - 12172 - Debug - Initialising redirection module
+2016-04-20T02:13:23.5362438Z - 12172 - Debug - Disposing Redirection Module
+2016-04-20T02:13:41.0800651Z - 12172 - Debug - Initialising redirection module
+2016-04-20T02:14:53.5550657Z - 12172 - Debug - Disposing Redirection Module
+2016-04-20T02:15:23.5557146Z - 12172 - Debug - Disposing Redirection Module
+2016-04-20T02:36:02.3571842Z - 12172 - Debug - Initialising redirection module
+2016-04-20T02:36:02.3581849Z - 12172 - Debug - Initialising redirection module
+2016-04-20T02:36:53.9447980Z - 12172 - Debug - Disposing Redirection Module
+2016-04-20T02:37:23.9447770Z - 12172 - Debug - Disposing Redirection Module
+2016-04-20T02:43:39.8948177Z - 12172 - Debug - Initialising redirection module
+2016-04-20T02:43:39.8968191Z - 12172 - Debug - Initialising redirection module
+2016-04-20T02:44:54.0698103Z - 12172 - Debug - Disposing Redirection Module
+2016-04-20T02:45:09.9832242Z - 12172 - Debug - Initialising redirection module
+2016-04-20T02:46:24.1028897Z - 12172 - Debug - Disposing Redirection Module
+2016-04-20T02:46:24.5428575Z - 12172 - Debug - Initialising redirection module
+2016-04-20T02:47:24.1180481Z - 12172 - Debug - Disposing Redirection Module
+2016-04-20T02:47:54.1184815Z - 12172 - Debug - Disposing Redirection Module
+2016-04-20T02:50:01.7865724Z - 12172 - Debug - Initialising redirection module
+2016-04-20T02:50:01.7935776Z - 12172 - Debug - Initialising redirection module
+2016-04-20T02:51:24.1502799Z - 12172 - Debug - Disposing Redirection Module
+2016-04-20T02:51:54.1656272Z - 12172 - Debug - Disposing Redirection Module
+2016-04-20T03:06:08.5934578Z - 12172 - Debug - Initialising redirection module
+2016-04-20T03:06:08.5994618Z - 12172 - Debug - Initialising redirection module
+2016-04-20T03:06:54.4933069Z - 12172 - Debug - Disposing Redirection Module
+2016-04-20T03:07:22.2129278Z - 12172 - Debug - Initialising redirection module
+2016-04-20T03:07:54.5088226Z - 12172 - Debug - Disposing Redirection Module
+2016-04-20T03:08:24.5085964Z - 12172 - Debug - Disposing Redirection Module
+2016-04-23T11:47:01.8587583Z - 12172 - Debug - Disposing Redirection Module
+2016-04-23T11:47:01.8969069Z - 12172 - Debug - Disposing Redirection Module
+2016-07-06T00:37:41.6017688Z - 12800 - Debug - Getting 'fiftyOne/redirect' configuration from the web.config file.
+2016-07-06T00:37:41.6052782Z - 12800 - Debug - Constructing MobileCapabilitiesProvider - Default
+2016-07-06T00:46:56.8390395Z - 12800 - Debug - Getting 'fiftyOne/redirect' configuration from the web.config file.
+2016-07-06T00:46:56.8390395Z - 12800 - Debug - Constructing MobileCapabilitiesProvider - Default
+2016-07-06T00:49:05.4350005Z - 12800 - Debug - Getting 'fiftyOne/redirect' configuration from the web.config file.
+2016-07-06T00:49:05.4360036Z - 12800 - Debug - Constructing MobileCapabilitiesProvider - Default
+2016-07-06T00:50:21.1295200Z - 12800 - Debug - Getting 'fiftyOne/redirect' configuration from the web.config file.
+2016-07-06T00:50:21.1295200Z - 12800 - Debug - Constructing MobileCapabilitiesProvider - Default
+2016-07-06T01:12:56.1765228Z - 1416 - Debug - Getting 'fiftyOne/redirect' configuration from the web.config file.
+2016-07-06T01:12:56.1800301Z - 1416 - Debug - Constructing MobileCapabilitiesProvider - Default
+2016-07-06T01:13:09.2527505Z - 10896 - Debug - Getting 'fiftyOne/redirect' configuration from the web.config file.
+2016-07-06T01:13:09.4715378Z - 10896 - Debug - Constructing MobileCapabilitiesProvider - Default
+2016-07-06T01:13:11.5971981Z - 10896 - Debug - Constructing MobileCapabilitiesProvider - Default
+2016-07-06T01:13:13.9881073Z - 10896 - Debug - Initialising redirection module
+2016-07-06T01:13:14.0193601Z - 10896 - Debug - Initialising redirection module static fields.
+2016-07-06T01:13:14.2224895Z - 10896 - Debug - Getting 'fiftyOne/detection' configuration from the web.config file.
+2016-07-06T01:13:14.4568777Z - 10896 - Debug - Initialising redirection module
+2016-07-06T01:13:14.8162667Z - 10896 - Info - Creating provider from binary data file 'G:\wogbb\CMS\dt\DSS_Preview\App_Data\51Degrees.mobi.dat'.
+2016-07-06T01:13:21.2875642Z - 10896 - Info - Created provider from binary data file 'G:\wogbb\CMS\dt\DSS_Preview\App_Data\51Degrees.mobi.dat'.
+2016-07-06T01:13:29.1002710Z - 10896 - Debug - Initialising redirection module
+2016-07-06T01:13:29.1002710Z - 10896 - Debug - Initialising redirection module
+2016-07-06T01:13:42.2568516Z - 10896 - Warn - Exception auto updating binary data file 'G:\wogbb\CMS\dt\DSS_Preview\App_Data\51Degrees.mobi.dat'.
+2016-07-06T01:13:42.2568516Z - 10896 - Warn - 
+2016-07-06T01:13:42.2568516Z - 10896 - Warn - The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.
+2016-07-06T01:13:42.3511607Z - 10896 - Warn -    at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   at System.Net.WebClient.DownloadData(Uri address)
+   at System.Net.WebClient.DownloadData(String address)
+   at FiftyOne.Foundation.Mobile.Detection.AutoUpdate.Download()
+   at FiftyOne.Foundation.Mobile.Detection.AutoUpdate.Run(Object state)
+2016-07-06T01:13:42.3511607Z - 10896 - Warn - The remote certificate is invalid according to the validation procedure.
+2016-07-06T01:13:42.4761394Z - 10896 - Warn -    at System.Net.Security.SslState.StartSendAuthResetSignal(ProtocolToken message, AsyncProtocolRequest asyncRequest, Exception exception)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.TlsStream.CallProcessAuthentication(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Net.TlsStream.ProcessAuthentication(LazyAsyncResult result)
+   at System.Net.TlsStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.PooledStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.ConnectStream.WriteHeaders(Boolean async)
+2016-07-06T01:14:07.0696414Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T01:14:33.1837473Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T01:14:33.3400176Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T01:14:33.4962637Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T01:15:39.0999580Z - 10896 - Debug - Getting 'fiftyOne/redirect' configuration from the web.config file.
+2016-07-06T01:15:39.1155842Z - 10896 - Debug - Constructing MobileCapabilitiesProvider - Default
+2016-07-06T01:15:39.1937077Z - 10896 - Debug - Constructing MobileCapabilitiesProvider - Default
+2016-07-06T01:15:39.2562111Z - 10896 - Debug - Initialising redirection module
+2016-07-06T01:15:39.2718359Z - 10896 - Debug - Initialising redirection module static fields.
+2016-07-06T01:15:39.2718359Z - 10896 - Debug - Getting 'fiftyOne/detection' configuration from the web.config file.
+2016-07-06T01:15:39.2718359Z - 10896 - Debug - Initialising redirection module
+2016-07-06T01:15:39.2874621Z - 10896 - Info - Creating provider from binary data file 'G:\wogbb\CMS\dt\DSS_Preview\App_Data\51Degrees.mobi.dat'.
+2016-07-06T01:15:45.1177376Z - 10896 - Info - Created provider from binary data file 'G:\wogbb\CMS\dt\DSS_Preview\App_Data\51Degrees.mobi.dat'.
+2016-07-06T01:16:05.6649213Z - 10896 - Warn - Exception auto updating binary data file 'G:\wogbb\CMS\dt\DSS_Preview\App_Data\51Degrees.mobi.dat'.
+2016-07-06T01:16:05.6649213Z - 10896 - Warn - 
+2016-07-06T01:16:05.6649213Z - 10896 - Warn - The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.
+2016-07-06T01:16:05.6649213Z - 10896 - Warn -    at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   at System.Net.WebClient.DownloadData(Uri address)
+   at System.Net.WebClient.DownloadData(String address)
+   at FiftyOne.Foundation.Mobile.Detection.AutoUpdate.Download()
+   at FiftyOne.Foundation.Mobile.Detection.AutoUpdate.Run(Object state)
+2016-07-06T01:16:05.6649213Z - 10896 - Warn - The remote certificate is invalid according to the validation procedure.
+2016-07-06T01:16:05.6649213Z - 10896 - Warn -    at System.Net.Security.SslState.StartSendAuthResetSignal(ProtocolToken message, AsyncProtocolRequest asyncRequest, Exception exception)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.TlsStream.CallProcessAuthentication(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Net.TlsStream.ProcessAuthentication(LazyAsyncResult result)
+   at System.Net.TlsStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.PooledStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.ConnectStream.WriteHeaders(Boolean async)
+2016-07-06T01:16:14.0848893Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T01:16:14.3661249Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T01:16:23.6278524Z - 10896 - Debug - Getting 'fiftyOne/redirect' configuration from the web.config file.
+2016-07-06T01:16:23.6278524Z - 10896 - Debug - Constructing MobileCapabilitiesProvider - Default
+2016-07-06T01:16:23.6747296Z - 10896 - Debug - Constructing MobileCapabilitiesProvider - Default
+2016-07-06T01:16:23.7528583Z - 10896 - Debug - Initialising redirection module
+2016-07-06T01:16:23.7528583Z - 10896 - Debug - Initialising redirection module static fields.
+2016-07-06T01:16:23.7528583Z - 10896 - Debug - Getting 'fiftyOne/detection' configuration from the web.config file.
+2016-07-06T01:16:23.7684845Z - 10896 - Debug - Initialising redirection module
+2016-07-06T01:16:23.7684845Z - 10896 - Info - Creating provider from binary data file 'G:\wogbb\CMS\dt\DSS_Preview\App_Data\51Degrees.mobi.dat'.
+2016-07-06T01:16:29.8163007Z - 10896 - Info - Created provider from binary data file 'G:\wogbb\CMS\dt\DSS_Preview\App_Data\51Degrees.mobi.dat'.
+2016-07-06T01:16:38.0687835Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T01:16:38.6156644Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T01:29:10.1050067Z - 15180 - Debug - Getting 'fiftyOne/redirect' configuration from the web.config file.
+2016-07-06T01:29:10.1100189Z - 15180 - Debug - Constructing MobileCapabilitiesProvider - Default
+2016-07-06T01:43:00.4088123Z - 10896 - Debug - Getting 'fiftyOne/redirect' configuration from the web.config file.
+2016-07-06T01:43:00.4088123Z - 10896 - Debug - Constructing MobileCapabilitiesProvider - Default
+2016-07-06T01:43:00.4869400Z - 10896 - Debug - Constructing MobileCapabilitiesProvider - Default
+2016-07-06T01:43:00.5963206Z - 10896 - Debug - Initialising redirection module
+2016-07-06T01:43:00.5963206Z - 10896 - Debug - Initialising redirection module static fields.
+2016-07-06T01:43:00.5963206Z - 10896 - Debug - Getting 'fiftyOne/detection' configuration from the web.config file.
+2016-07-06T01:43:00.6119468Z - 10896 - Debug - Initialising redirection module
+2016-07-06T01:43:00.6275721Z - 10896 - Info - Creating provider from binary data file 'G:\wogbb\CMS\dt\DSS_Preview\App_Data\51Degrees.mobi.dat'.
+2016-07-06T01:43:04.1903558Z - 10896 - Debug - Initialising redirection module
+2016-07-06T01:43:07.1760359Z - 10896 - Info - Created provider from binary data file 'G:\wogbb\CMS\dt\DSS_Preview\App_Data\51Degrees.mobi.dat'.
+2016-07-06T01:43:28.1058351Z - 10896 - Warn - Exception auto updating binary data file 'G:\wogbb\CMS\dt\DSS_Preview\App_Data\51Degrees.mobi.dat'.
+2016-07-06T01:43:28.1058351Z - 10896 - Warn - 
+2016-07-06T01:43:28.1058351Z - 10896 - Warn - The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.
+2016-07-06T01:43:28.2308409Z - 10896 - Warn -    at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   at System.Net.WebClient.DownloadData(Uri address)
+   at System.Net.WebClient.DownloadData(String address)
+   at FiftyOne.Foundation.Mobile.Detection.AutoUpdate.Download()
+   at FiftyOne.Foundation.Mobile.Detection.AutoUpdate.Run(Object state)
+2016-07-06T01:43:28.2308409Z - 10896 - Warn - The remote certificate is invalid according to the validation procedure.
+2016-07-06T01:43:28.2308409Z - 10896 - Warn -    at System.Net.Security.SslState.StartSendAuthResetSignal(ProtocolToken message, AsyncProtocolRequest asyncRequest, Exception exception)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.TlsStream.CallProcessAuthentication(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Net.TlsStream.ProcessAuthentication(LazyAsyncResult result)
+   at System.Net.TlsStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.PooledStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.ConnectStream.WriteHeaders(Boolean async)
+2016-07-06T01:44:00.3492405Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T01:44:56.0133659Z - 10896 - Debug - Initialising redirection module
+2016-07-06T01:44:56.0289903Z - 10896 - Debug - Initialising redirection module
+2016-07-06T01:45:30.3825740Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T01:46:30.3883732Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T01:47:48.1782229Z - 10896 - Debug - Initialising redirection module
+2016-07-06T01:47:48.1938509Z - 10896 - Debug - Initialising redirection module
+2016-07-06T01:48:30.4213325Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T01:49:15.0432020Z - 10896 - Debug - Initialising redirection module
+2016-07-06T01:52:00.4868607Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T01:52:08.3885210Z - 10896 - Debug - Initialising redirection module
+2016-07-06T01:53:00.5153425Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T01:53:22.5399005Z - 10896 - Debug - Initialising redirection module
+2016-07-06T01:54:00.5263237Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T01:54:30.5301537Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T02:00:48.8322586Z - 10896 - Debug - Initialising redirection module
+2016-07-06T02:00:49.6579148Z - 10896 - Debug - Initialising redirection module
+2016-07-06T02:01:30.6407533Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T02:02:00.6490068Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T02:02:27.9350600Z - 10896 - Debug - Initialising redirection module
+2016-07-06T02:02:27.9506857Z - 10896 - Debug - Initialising redirection module
+2016-07-06T02:03:00.6626610Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T02:03:30.6700324Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T02:09:32.4985113Z - 10896 - Debug - Initialising redirection module
+2016-07-06T02:09:33.3365407Z - 10896 - Debug - Initialising redirection module
+2016-07-06T02:10:30.7689309Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T02:10:33.2989517Z - 10896 - Debug - Initialising redirection module
+2016-07-06T02:11:30.7958961Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T02:11:34.9483336Z - 10896 - Debug - Initialising redirection module
+2016-07-06T02:12:30.7961671Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T02:13:00.8097901Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T02:13:17.7626918Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T02:13:17.7626918Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T02:13:46.8105356Z - 10896 - Debug - Getting 'fiftyOne/redirect' configuration from the web.config file.
+2016-07-06T02:13:46.8105356Z - 10896 - Debug - Constructing MobileCapabilitiesProvider - Default
+2016-07-06T02:13:46.8574133Z - 10896 - Debug - Constructing MobileCapabilitiesProvider - Default
+2016-07-06T02:13:46.9355410Z - 10896 - Debug - Initialising redirection module
+2016-07-06T02:13:46.9355410Z - 10896 - Debug - Initialising redirection module static fields.
+2016-07-06T02:13:46.9355410Z - 10896 - Debug - Getting 'fiftyOne/detection' configuration from the web.config file.
+2016-07-06T02:13:46.9355410Z - 10896 - Debug - Initialising redirection module
+2016-07-06T02:13:46.9511667Z - 10896 - Info - Creating provider from binary data file 'G:\wogbb\CMS\dt\DSS_Preview\App_Data\51Degrees.mobi.dat'.
+2016-07-06T02:13:52.3582549Z - 10896 - Info - Created provider from binary data file 'G:\wogbb\CMS\dt\DSS_Preview\App_Data\51Degrees.mobi.dat'.
+2016-07-06T02:13:54.3176676Z - 10896 - Debug - Initialising redirection module
+2016-07-06T02:13:54.3196689Z - 10896 - Debug - Initialising redirection module
+2016-07-06T02:14:13.0539625Z - 10896 - Warn - Exception auto updating binary data file 'G:\wogbb\CMS\dt\DSS_Preview\App_Data\51Degrees.mobi.dat'.
+2016-07-06T02:14:13.0539625Z - 10896 - Warn - 
+2016-07-06T02:14:13.0539625Z - 10896 - Warn - The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.
+2016-07-06T02:14:13.0539625Z - 10896 - Warn -    at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   at System.Net.WebClient.DownloadData(Uri address)
+   at System.Net.WebClient.DownloadData(String address)
+   at FiftyOne.Foundation.Mobile.Detection.AutoUpdate.Download()
+   at FiftyOne.Foundation.Mobile.Detection.AutoUpdate.Run(Object state)
+2016-07-06T02:14:13.0539625Z - 10896 - Warn - The remote certificate is invalid according to the validation procedure.
+2016-07-06T02:14:13.0539625Z - 10896 - Warn -    at System.Net.Security.SslState.StartSendAuthResetSignal(ProtocolToken message, AsyncProtocolRequest asyncRequest, Exception exception)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.TlsStream.CallProcessAuthentication(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Net.TlsStream.ProcessAuthentication(LazyAsyncResult result)
+   at System.Net.TlsStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.PooledStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.ConnectStream.WriteHeaders(Boolean async)
+2016-07-06T02:16:16.8182829Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T02:17:16.8301911Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T02:26:03.2478545Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T02:26:03.5447410Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T02:30:13.7328483Z - 10896 - Debug - Getting 'fiftyOne/redirect' configuration from the web.config file.
+2016-07-06T02:30:13.7328483Z - 10896 - Debug - Constructing MobileCapabilitiesProvider - Default
+2016-07-06T02:30:13.7953503Z - 10896 - Debug - Constructing MobileCapabilitiesProvider - Default
+2016-07-06T02:30:13.8578523Z - 10896 - Debug - Initialising redirection module
+2016-07-06T02:30:13.8734775Z - 10896 - Debug - Initialising redirection module static fields.
+2016-07-06T02:30:13.8734775Z - 10896 - Debug - Getting 'fiftyOne/detection' configuration from the web.config file.
+2016-07-06T02:30:13.8734775Z - 10896 - Debug - Initialising redirection module
+2016-07-06T02:30:13.8891033Z - 10896 - Info - Creating provider from binary data file 'G:\wogbb\CMS\dt\DSS_Preview\App_Data\51Degrees.mobi.dat'.
+2016-07-06T02:30:20.1238755Z - 10896 - Info - Created provider from binary data file 'G:\wogbb\CMS\dt\DSS_Preview\App_Data\51Degrees.mobi.dat'.
+2016-07-06T02:30:40.6895763Z - 10896 - Warn - Exception auto updating binary data file 'G:\wogbb\CMS\dt\DSS_Preview\App_Data\51Degrees.mobi.dat'.
+2016-07-06T02:30:40.6895763Z - 10896 - Warn - 
+2016-07-06T02:30:40.6895763Z - 10896 - Warn - The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.
+2016-07-06T02:30:40.6895763Z - 10896 - Warn -    at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   at System.Net.WebClient.DownloadData(Uri address)
+   at System.Net.WebClient.DownloadData(String address)
+   at FiftyOne.Foundation.Mobile.Detection.AutoUpdate.Download()
+   at FiftyOne.Foundation.Mobile.Detection.AutoUpdate.Run(Object state)
+2016-07-06T02:30:40.6895763Z - 10896 - Warn - The remote certificate is invalid according to the validation procedure.
+2016-07-06T02:30:40.6895763Z - 10896 - Warn -    at System.Net.Security.SslState.StartSendAuthResetSignal(ProtocolToken message, AsyncProtocolRequest asyncRequest, Exception exception)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.TlsStream.CallProcessAuthentication(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Net.TlsStream.ProcessAuthentication(LazyAsyncResult result)
+   at System.Net.TlsStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.PooledStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.ConnectStream.WriteHeaders(Boolean async)
+2016-07-06T02:46:14.7344139Z - 10896 - Debug - Initialising redirection module
+2016-07-06T02:47:14.0378759Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T02:47:36.2308838Z - 10896 - Debug - Initialising redirection module
+2016-07-06T02:48:14.0565465Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T02:48:20.3930042Z - 10896 - Debug - Initialising redirection module
+2016-07-06T02:49:14.0691096Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T02:50:15.3586565Z - 10896 - Debug - Initialising redirection module
+2016-07-06T02:50:16.0870184Z - 10896 - Debug - Initialising redirection module
+2016-07-06T02:51:14.0800852Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T02:51:41.9633421Z - 10896 - Debug - Initialising redirection module
+2016-07-06T02:53:44.1460202Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T02:54:12.1263064Z - 10896 - Debug - Initialising redirection module
+2016-07-06T02:54:44.1697417Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T02:55:14.1750581Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T02:55:42.3634998Z - 10896 - Debug - Initialising redirection module
+2016-07-06T02:55:42.3791195Z - 10896 - Debug - Initialising redirection module
+2016-07-06T02:56:14.2001978Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T02:56:44.2108962Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T02:57:39.6955971Z - 10896 - Debug - Initialising redirection module
+2016-07-06T02:57:39.6955971Z - 10896 - Debug - Initialising redirection module
+2016-07-06T02:58:44.2340500Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T02:59:14.2453381Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:02:42.9862459Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:02:42.9882472Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:03:44.3449682Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:03:48.6113772Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:04:44.3713852Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:05:00.1032198Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:06:44.3931619Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:07:14.3969485Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:08:06.4375213Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:08:06.4531475Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:08:44.4261016Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:09:21.3283190Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:10:44.4757242Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:11:14.4821812Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:13:36.6940221Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:13:36.6940221Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:14:26.2239594Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:14:26.2239594Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:14:26.2239594Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:14:26.2239594Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:14:39.3813102Z - 10896 - Debug - Getting 'fiftyOne/redirect' configuration from the web.config file.
+2016-07-06T03:14:39.3813102Z - 10896 - Debug - Constructing MobileCapabilitiesProvider - Default
+2016-07-06T03:14:39.4281883Z - 10896 - Debug - Constructing MobileCapabilitiesProvider - Default
+2016-07-06T03:14:39.4906922Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:14:39.4906922Z - 10896 - Debug - Initialising redirection module static fields.
+2016-07-06T03:14:39.4906922Z - 10896 - Debug - Getting 'fiftyOne/detection' configuration from the web.config file.
+2016-07-06T03:14:39.4906922Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:14:39.5063184Z - 10896 - Info - Creating provider from binary data file 'G:\wogbb\CMS\dt\DSS_Preview\App_Data\51Degrees.mobi.dat'.
+2016-07-06T03:14:45.3252395Z - 10896 - Info - Created provider from binary data file 'G:\wogbb\CMS\dt\DSS_Preview\App_Data\51Degrees.mobi.dat'.
+2016-07-06T03:14:47.0440669Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:14:47.0596903Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:15:06.2058365Z - 10896 - Warn - Exception auto updating binary data file 'G:\wogbb\CMS\dt\DSS_Preview\App_Data\51Degrees.mobi.dat'.
+2016-07-06T03:15:06.2058365Z - 10896 - Warn - 
+2016-07-06T03:15:06.2058365Z - 10896 - Warn - The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.
+2016-07-06T03:15:06.2058365Z - 10896 - Warn -    at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   at System.Net.WebClient.DownloadData(Uri address)
+   at System.Net.WebClient.DownloadData(String address)
+   at FiftyOne.Foundation.Mobile.Detection.AutoUpdate.Download()
+   at FiftyOne.Foundation.Mobile.Detection.AutoUpdate.Run(Object state)
+2016-07-06T03:15:06.2058365Z - 10896 - Warn - The remote certificate is invalid according to the validation procedure.
+2016-07-06T03:15:06.2058365Z - 10896 - Warn -    at System.Net.Security.SslState.StartSendAuthResetSignal(ProtocolToken message, AsyncProtocolRequest asyncRequest, Exception exception)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.TlsStream.CallProcessAuthentication(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Net.TlsStream.ProcessAuthentication(LazyAsyncResult result)
+   at System.Net.TlsStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.PooledStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.ConnectStream.WriteHeaders(Boolean async)
+2016-07-06T03:15:39.3482767Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:16:09.3637522Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:16:16.7387585Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:16:16.7700104Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:17:09.3901207Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:17:39.4016859Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:29:16.8261460Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:29:18.9032711Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:31:09.6662144Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:31:47.4125743Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:32:39.6961508Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:33:00.4553686Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:33:39.7102916Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:33:49.8817865Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:35:09.7439638Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:35:39.7494229Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:37:06.7187196Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:37:06.7187196Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:39:09.8070825Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:39:39.8169651Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:41:06.4266670Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:41:17.2435174Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:42:20.4623391Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:42:20.4623391Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:42:20.4623391Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:42:20.4623391Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:42:45.6211809Z - 10896 - Debug - Getting 'fiftyOne/redirect' configuration from the web.config file.
+2016-07-06T03:42:45.6211809Z - 10896 - Debug - Constructing MobileCapabilitiesProvider - Default
+2016-07-06T03:42:45.6680581Z - 10896 - Debug - Constructing MobileCapabilitiesProvider - Default
+2016-07-06T03:42:45.7461886Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:42:45.7461886Z - 10896 - Debug - Initialising redirection module static fields.
+2016-07-06T03:42:45.7461886Z - 10896 - Debug - Getting 'fiftyOne/detection' configuration from the web.config file.
+2016-07-06T03:42:45.7461886Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:42:45.7618125Z - 10896 - Info - Creating provider from binary data file 'G:\wogbb\CMS\dt\DSS_Preview\App_Data\51Degrees.mobi.dat'.
+2016-07-06T03:42:51.5473474Z - 10896 - Info - Created provider from binary data file 'G:\wogbb\CMS\dt\DSS_Preview\App_Data\51Degrees.mobi.dat'.
+2016-07-06T03:42:52.6098960Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:42:53.3599348Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:43:12.0808185Z - 10896 - Warn - Exception auto updating binary data file 'G:\wogbb\CMS\dt\DSS_Preview\App_Data\51Degrees.mobi.dat'.
+2016-07-06T03:43:12.0808185Z - 10896 - Warn - 
+2016-07-06T03:43:12.0808185Z - 10896 - Warn - The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.
+2016-07-06T03:43:12.0818182Z - 10896 - Warn -    at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   at System.Net.WebClient.DownloadData(Uri address)
+   at System.Net.WebClient.DownloadData(String address)
+   at FiftyOne.Foundation.Mobile.Detection.AutoUpdate.Download()
+   at FiftyOne.Foundation.Mobile.Detection.AutoUpdate.Run(Object state)
+2016-07-06T03:43:12.0818182Z - 10896 - Warn - The remote certificate is invalid according to the validation procedure.
+2016-07-06T03:43:12.0818182Z - 10896 - Warn -    at System.Net.Security.SslState.StartSendAuthResetSignal(ProtocolToken message, AsyncProtocolRequest asyncRequest, Exception exception)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.TlsStream.CallProcessAuthentication(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Net.TlsStream.ProcessAuthentication(LazyAsyncResult result)
+   at System.Net.TlsStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.PooledStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.ConnectStream.WriteHeaders(Boolean async)
+2016-07-06T03:44:15.5878315Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:44:45.5922200Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:44:59.0669525Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:45:00.8015101Z - 10896 - Debug - Initialising redirection module
+2016-07-06T03:45:45.6111757Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T03:46:15.6224064Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T06:13:22.6369690Z - 10896 - Debug - Initialising redirection module
+2016-07-06T06:13:22.8691231Z - 10896 - Debug - Initialising redirection module
+2016-07-06T06:14:18.4361656Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T06:14:43.4150472Z - 10896 - Debug - Initialising redirection module
+2016-07-06T06:15:48.4677175Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T06:16:18.4820632Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T06:17:02.3304691Z - 10896 - Debug - Initialising redirection module
+2016-07-06T06:17:28.1678486Z - 10896 - Debug - Initialising redirection module
+2016-07-06T06:18:18.5173014Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T06:18:48.5202059Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T06:18:54.0065068Z - 10896 - Debug - Initialising redirection module
+2016-07-06T06:18:54.0377588Z - 10896 - Debug - Initialising redirection module
+2016-07-06T06:22:18.5766386Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T06:22:48.5847745Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T06:39:13.5074828Z - 10896 - Debug - Initialising redirection module
+2016-07-06T06:39:48.9391256Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T06:45:44.2752409Z - 10896 - Debug - Initialising redirection module
+2016-07-06T06:46:10.3401431Z - 10896 - Debug - Initialising redirection module
+2016-07-06T06:47:19.0256123Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T06:47:49.0311119Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T06:50:53.3079493Z - 10896 - Debug - Initialising redirection module
+2016-07-06T06:52:19.0952826Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T06:52:54.9407771Z - 10896 - Debug - Initialising redirection module
+2016-07-06T06:52:56.9200874Z - 10896 - Debug - Initialising redirection module
+2016-07-06T06:53:49.1249554Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T06:53:51.5938145Z - 10896 - Debug - Initialising redirection module
+2016-07-06T06:54:49.1400465Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T06:55:19.1533840Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T07:01:15.4626540Z - 10896 - Debug - Initialising redirection module
+2016-07-06T07:01:15.4782774Z - 10896 - Debug - Initialising redirection module
+2016-07-06T07:01:49.2567690Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T07:02:19.2633039Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T07:02:40.4860234Z - 10896 - Debug - Initialising redirection module
+2016-07-06T07:02:40.5345291Z - 10896 - Debug - Initialising redirection module
+2016-07-06T07:04:19.2939554Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T07:05:08.0693205Z - 10896 - Debug - Initialising redirection module
+2016-07-06T07:06:19.3124404Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T07:06:46.7119440Z - 10896 - Debug - Initialising redirection module
+2016-07-06T07:07:19.3171526Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T07:07:35.9589672Z - 10896 - Debug - Initialising redirection module
+2016-07-06T07:08:19.3313928Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T07:08:30.0096870Z - 10896 - Debug - Initialising redirection module
+2016-07-06T07:09:19.3548689Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T07:09:49.3554418Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T17:18:02.0386723Z - 10896 - Debug - Initialising redirection module
+2016-07-06T17:18:03.8650669Z - 10896 - Debug - Initialising redirection module
+2016-07-06T17:18:39.7488016Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T17:19:09.7487325Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T17:31:54.4481041Z - 10896 - Debug - Initialising redirection module
+2016-07-06T17:32:39.9037559Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T17:34:09.9983733Z - 10896 - Debug - Initialising redirection module
+2016-07-06T17:34:10.0073793Z - 10896 - Debug - Initialising redirection module
+2016-07-06T17:35:09.9217725Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T17:35:39.9340683Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T17:40:26.3026386Z - 10896 - Debug - Initialising redirection module
+2016-07-06T17:40:26.3036388Z - 10896 - Debug - Initialising redirection module
+2016-07-06T17:41:09.9984554Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T17:41:20.5359586Z - 10896 - Debug - Initialising redirection module
+2016-07-06T17:42:09.9996114Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T17:43:37.3820016Z - 10896 - Debug - Initialising redirection module
+2016-07-06T17:44:10.0138596Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T17:44:40.0292296Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T17:45:55.8788564Z - 10896 - Debug - Initialising redirection module
+2016-07-06T17:45:55.8798566Z - 10896 - Debug - Initialising redirection module
+2016-07-06T17:46:40.0452337Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T17:47:10.0617985Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T17:48:20.3489914Z - 10896 - Debug - Initialising redirection module
+2016-07-06T17:49:08.4856927Z - 10896 - Debug - Initialising redirection module
+2016-07-06T17:49:40.0922840Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T17:50:03.0661977Z - 10896 - Debug - Initialising redirection module
+2016-07-06T17:50:40.1091040Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T17:51:10.1225240Z - 10896 - Debug - Disposing Redirection Module
+2016-07-06T17:52:41.3671447Z - 10896 - Debug - Initialising redirection module
+2016-07-06T17:53:40.1529871Z - 10896 - Debug - Disposing Redirection Module
+2016-07-15T19:50:01.6742525Z - 10896 - Debug - Disposing Redirection Module
+2016-07-15T19:50:01.6742525Z - 10896 - Debug - Disposing Redirection Module
+2016-11-15T05:27:43.9783058Z - 13184 - Debug - Getting 'fiftyOne/redirect' configuration from the web.config file.
+2016-11-15T05:27:44.2268925Z - 13184 - Debug - Constructing MobileCapabilitiesProvider - Default
+2016-11-15T05:27:50.7292703Z - 13184 - Debug - Constructing MobileCapabilitiesProvider - Default
+2016-11-15T05:27:55.5751542Z - 13184 - Debug - Initialising redirection module
+2016-11-15T05:27:55.5992696Z - 13184 - Debug - Initialising redirection module static fields.
+2016-11-15T05:27:55.6733056Z - 13184 - Debug - Getting 'fiftyOne/detection' configuration from the web.config file.
+2016-11-15T05:27:55.8013203Z - 13184 - Debug - Initialising redirection module
+2016-11-15T05:27:55.9171591Z - 13184 - Info - Creating provider from binary data file 'G:\wogbb\CMS\dt\DSS_Preview\App_Data\51Degrees.mobi.dat'.
+2016-11-15T05:28:02.7295455Z - 13184 - Info - Created provider from binary data file 'G:\wogbb\CMS\dt\DSS_Preview\App_Data\51Degrees.mobi.dat'.
+2016-11-15T05:28:24.2037642Z - 13184 - Warn - Exception auto updating binary data file 'G:\wogbb\CMS\dt\DSS_Preview\App_Data\51Degrees.mobi.dat'.
+2016-11-15T05:28:24.2037642Z - 13184 - Warn - 
+2016-11-15T05:28:24.2037642Z - 13184 - Warn - The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.
+2016-11-15T05:28:24.2650830Z - 13184 - Warn -    at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   at System.Net.WebClient.DownloadData(Uri address)
+   at System.Net.WebClient.DownloadData(String address)
+   at FiftyOne.Foundation.Mobile.Detection.AutoUpdate.Download()
+   at FiftyOne.Foundation.Mobile.Detection.AutoUpdate.Run(Object state)
+2016-11-15T05:28:24.2650830Z - 13184 - Warn - The remote certificate is invalid according to the validation procedure.
+2016-11-15T05:28:24.3539830Z - 13184 - Warn -    at System.Net.Security.SslState.StartSendAuthResetSignal(ProtocolToken message, AsyncProtocolRequest asyncRequest, Exception exception)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.TlsStream.CallProcessAuthentication(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Net.TlsStream.ProcessAuthentication(LazyAsyncResult result)
+   at System.Net.TlsStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.PooledStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.ConnectStream.WriteHeaders(Boolean async)
+2016-11-15T05:52:59.3108759Z - 13184 - Debug - Initialising redirection module
+2016-11-15T05:52:59.3158797Z - 13184 - Debug - Initialising redirection module
+2016-11-15T05:53:38.5846925Z - 13184 - Debug - Disposing Redirection Module
+2016-11-15T05:54:08.5856111Z - 13184 - Debug - Disposing Redirection Module
+2016-11-15T06:05:46.6782721Z - 13184 - Debug - Initialising redirection module
+2016-11-15T06:05:46.6882792Z - 13184 - Debug - Initialising redirection module
+2016-11-15T06:06:38.7249373Z - 13184 - Debug - Disposing Redirection Module
+2016-11-15T06:06:39.4317180Z - 13184 - Debug - Initialising redirection module
+2016-11-15T06:08:08.7560784Z - 13184 - Debug - Disposing Redirection Module
+2016-11-15T06:08:38.7573917Z - 13184 - Debug - Disposing Redirection Module
+2016-11-21T00:17:34.6865765Z - 13184 - Debug - Initialising redirection module
+2016-11-21T00:17:34.6865765Z - 13184 - Debug - Initialising redirection module
+2016-11-21T00:18:49.9425710Z - 13184 - Debug - Disposing Redirection Module
+2016-11-21T00:19:19.9434928Z - 13184 - Debug - Disposing Redirection Module
+2016-11-21T00:37:18.9628265Z - 13184 - Debug - Initialising redirection module
+2016-11-21T00:37:18.9713426Z - 13184 - Debug - Initialising redirection module
+2016-11-21T00:37:50.3849884Z - 13184 - Debug - Disposing Redirection Module
+2016-11-21T00:38:10.4272185Z - 13184 - Debug - Initialising redirection module
+2016-11-21T00:38:50.3968061Z - 13184 - Debug - Disposing Redirection Module
+2016-11-21T00:39:20.4009870Z - 13184 - Debug - Disposing Redirection Module
+2016-11-21T00:49:05.7817875Z - 13184 - Debug - Initialising redirection module
+2016-11-21T00:49:18.4251472Z - 13184 - Debug - Initialising redirection module
+2016-11-21T00:50:20.6405322Z - 13184 - Debug - Disposing Redirection Module
+2016-11-21T00:50:50.6491422Z - 13184 - Debug - Disposing Redirection Module

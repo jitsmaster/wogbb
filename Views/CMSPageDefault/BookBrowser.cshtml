@@ -1,0 +1,148 @@
+﻿@model Ingeniux.Runtime.ICMSPage
+@using Ingeniux.Runtime
+@using Ingeniux.Runtime.Models
+
+@{
+    string xmlPath = Model.Factory.UrlMap.SitePath;
+    var cover = Model.GetElementValue("CoverImage");
+
+    //get the images files within the cover images folder
+    var coverImgPath = Path.Combine(xmlPath, "images", cover);
+    var bookPath = Path.GetDirectoryName(coverImgPath);
+
+    string[] contentFiles = Directory.GetFiles(bookPath)
+        .Where(f => Path.GetFileName(f).ToLower().StartsWith("page"))
+        .OrderBy(f =>
+        {
+            var n = Path.GetFileNameWithoutExtension(f).Substring(5);
+            return int.Parse(n);
+        })
+        .Select(f => f.Substring(xmlPath.Length).Replace(@"\", "/"))
+        .Select(f => Url.Asset(f, Model))
+        .ToArray();
+
+    var coverPath = Url.Asset("images/" + cover, Model);
+    int i = 0;
+    int maxPage = contentFiles.Length;
+}
+
+<script type="text/javascript">
+    var curPage = 0;
+    var lastPage = 0;
+    
+    function pageNav(inc) {
+        lastPage = curPage;
+        curPage = inc ? curPage + 1 : curPage - 1;
+        getPage();
+    }
+
+    function getPage() {
+        curPage = Math.min(@maxPage, Math.max(0, curPage));
+
+        var imagePath = (curPage > 0) ? document.getElementById("page_" + curPage).src : "@coverPath";
+        document.getElementById("pageImage").src = imagePath;
+
+        var leftAnchor = document.getElementById("anchorleft");
+        var rightAnchor = document.getElementById('anchorright');
+
+        leftAnchor.style.display = curPage == 0 ? "none" : "";
+        rightAnchor.style.display = curPage == @maxPage ? "none" : "";
+
+        if (lastPage != curPage) {
+            var lastLink = document.getElementById("link_" + lastPage);
+            if (lastLink)
+                lastLink.className = "";
+        }
+
+        var link = document.getElementById("link_" + curPage);
+        if (link)
+           link.className = "currentPage";
+    }
+
+    function goToPage(pageNum) {
+        lastPage = curPage;
+        curPage = pageNum;
+        getPage();
+    }
+
+</script>
+
+<style type="text/css">
+    .navButton {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        background: black;
+        color: white;
+        font-size: 3em;
+        cursor: pointer;
+        opacity: 0.5;
+        left:0;
+        position:absolute;
+        border-radius:50%;
+        transition: all 0.3s;
+        padding:10px;
+        top:50%;
+        transform: translateY(-50%);
+    }
+
+        .navButton:hover {
+            opacity: 1;
+        }
+
+        .navButton.right {
+            left: auto;
+            right: 0;
+        }
+        
+     .currentPage {
+         font-weight: bold;
+         font-size: 1.2em;
+     }
+</style>
+
+<ul style="display:none;">
+    @foreach (var f in contentFiles)
+    {
+        i++;
+        <img id="page_@i" src="@f" />
+    }
+</ul>
+<div class="row">
+    <div class="span12">
+        <h1>@Model.GetElementValue("Title")</h1>
+    </div>
+</div>
+
+<a name="#pageImage"></a>
+<div class="row" style="position:relative;">
+
+    <div class="span12" style="text-align:center;position:relative;">
+        <div class="navButton"
+             id="anchorleft"
+             style="display:none;"
+             onclick="pageNav(false)">❮</div>
+        <div class="navButton right"
+             id="anchorright"
+             onclick="pageNav(true)">❯</div>
+        <img id="pageImage" src="@coverPath"
+             onclick="pageNav(true)" />
+    </div>
+    
+</div>
+
+
+<div class="row">
+    <div class="span12">
+        <a href="#pageImage" onclick="goToPage(0)" id="link_0" class="currentPage">Cover</a>
+        @{
+            i = 0;
+            foreach (var f in contentFiles)
+            {
+                i++;
+                var fileName = Path.GetFileNameWithoutExtension(f);
+                <span>&nbsp;&diams;&nbsp;<a href="#pageImage" onclick="goToPage(@i)" id="link_@i">@fileName</a></span>
+            }
+        }
+    </div>
+</div>

@@ -104,15 +104,42 @@
                             bool isHomeActive = Model.ID == "x6";
                             string homeLinkClass = isHomeActive ? "active" : "";
                         }
-                        <li class="@homeLinkClass"><a href="@Url.Content("~/")">Home</a></li>
                         @{
                             var topNav = siteControl.GetNavigationItems("LeftNavigation");
-                            foreach (var n in topNav
-                                .Where(
-                                    nav => nav.Schema != "Folder"))
+                            foreach (var n in topNav)
                             {
-                                string activeClass = n.TargetID == Model.ID ? "active" : "";
-                                <li class="@activeClass"><a href="@Url.Content("~/" + n.URL)">@n.Name</a></li>
+                                if (n.Schema != "Folder") {
+                                    string activeClass = n.TargetID == Model.ID ? "active" : "";
+                                    <li class="@activeClass"><a href="@Url.Content("~/" + n.URL)">@n.Name</a></li>
+                                }
+                                else {
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#">@n.Name <b class="caret"></b></a>
+                                        <ul id="menu3" class="dropdown-menu" role="menu" aria-labelledby="drop5">
+                                            @{foreach(var c in n.Elements()) {
+                                                ICMSLinkElement cN = c as ICMSLinkElement;
+                                            string url = cN.URL;
+                                            string targetPage = cN.GetAttributeValue("TargetPage");
+
+                                            if (!string.IsNullOrWhiteSpace(targetPage))
+                                            {
+                                                url = targetPage;
+
+                                                if (session == null)
+                                                {
+                                                    url = null;
+                                                }
+                                            }      
+                                            
+                                            if (!string.IsNullOrWhiteSpace(url))  {                                        
+                                                <li role="presentation">
+                                                    <a role="menuitem"  href="@Url.Content("~/" + url)">@cN.Name</a>
+                                                   </li>
+                                                   }
+                                            }}
+                                        </ul>
+                                    </li>
+                                }
                             }
                         }
 

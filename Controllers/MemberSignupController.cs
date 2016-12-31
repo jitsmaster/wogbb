@@ -37,6 +37,21 @@ namespace Ingeniux.Runtime.Controllers
                     user.UserId = forms["UserId"];
                     user.Password = forms["Password"];
                 }
+                else
+                {
+                    var sessionUser = Session["user"] as UserInfo;
+                    sessionUser.Name = user.Name;
+                    sessionUser.CoMembers = user.CoMembers;
+                    sessionUser.Address = user.Address;
+                    sessionUser.City = user.City;
+                    sessionUser.State = user.State;
+                    sessionUser.Zip = user.Zip;
+                    sessionUser.Phone = user.Phone;
+                    sessionUser.Email = user.Email;
+                    sessionUser.Occupation = user.Occupation;
+
+                    user = sessionUser;
+                }
 
                 AuthenticationLib auth = new AuthenticationLib();
 

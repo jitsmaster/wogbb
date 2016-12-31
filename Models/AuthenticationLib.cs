@@ -176,6 +176,11 @@ namespace Ingeniux.Runtime.Models
 
             user.UserId = userId;
 
+            if (_Accounts.ContainsKey(userId))
+            {
+                user.Password = _Accounts[userId].Password;
+            }
+
             lock (loc)
             {
                 _Accounts[userId] = user;
@@ -191,19 +196,19 @@ namespace Ingeniux.Runtime.Models
                 _Accounts.Values
                     .Select(
                         a => new XElement("a",
-                            new XAttribute("fname", a.Name),
-                            new XAttribute("name", a.UserId),
-                            new XAttribute("password", a.Password),
-                            new XAttribute("coMembers", a.CoMembers),
-                            new XAttribute("addr", a.Address),
-                            new XAttribute("city", a.City),
-                            new XAttribute("state", a.State),
-                            new XAttribute("zip", a.Zip),
-                            new XAttribute("phone", a.Phone),
-                            new XAttribute("email", a.Email),
-                            new XAttribute("job", a.Occupation),
+                            new XAttribute("fname", a.Name ?? ""),
+                            new XAttribute("name", a.UserId ?? ""),
+                            new XAttribute("password", a.Password ?? "letmein"),
+                            new XAttribute("coMembers", a.CoMembers ?? ""),
+                            new XAttribute("addr", a.Address ?? ""),
+                            new XAttribute("city", a.City ?? ""),
+                            new XAttribute("state", a.State ?? ""),
+                            new XAttribute("zip", a.Zip ?? ""),
+                            new XAttribute("phone", a.Phone ?? ""),
+                            new XAttribute("email", a.Email ?? ""),
+                            new XAttribute("job", a.Occupation ?? ""),
                             new XAttribute("paid", a.Paid ? "true" : "false"),
-                            new XAttribute("otherbirds", a.OtherBirds),
+                            new XAttribute("otherbirds", a.OtherBirds ?? ""),
                             new XElement("Birds",
                             a.Birds.Select(
                                 b => new XElement("bird", new XAttribute("xid", b.XID))
